@@ -1,0 +1,15 @@
+# rlebench manifest: how this family is prepared and addressed. Read by the
+# CLI only; ships into no image.
+[task]
+layout = "single"
+
+[prepare]
+commands = [["make", "task07"]]
+
+[verify]
+images = ["rlebench-task07-agent:dev", "rlebench-task07-verifier:dev"]
+paths = ["tasks/task07/tests/score_task.py"]
+
+[run]
+lane = "environment-host"
+gpu = false

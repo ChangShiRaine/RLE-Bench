@@ -1,0 +1,34 @@
+name: Eval report
+description: Results or anomalies from running a task against an agent
+labels: [eval]
+body:
+  - type: input
+    id: task
+    attributes:
+      label: Task
+      placeholder: task01/L2 -i 01-open-fridge
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: harbor version + repo commit
+      placeholder: harbor 0.21.0, rlebench abc1234
+    validations:
+      required: true
+  - type: input
+    id: agent
+    attributes:
+      label: Agent / model / profile
+      placeholder: claude-code / anthropic/claude-opus-5 / cc
+  - type: textarea
+    id: reward
+    attributes:
+      label: reward.json (and diagnosis.json if present)
+      render: json
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: What looked wrong, and the job dir layout if relevant

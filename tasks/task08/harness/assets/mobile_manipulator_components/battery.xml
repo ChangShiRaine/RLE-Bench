@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="stock battery example">
+  <worldbody>
+    <body name="battery">
+      <geom name="battery_geom" type="box" size="0.14 0.09 0.04" mass="10" rgba="0.15 0.3 0.6 1" />
+    </body>
+  </worldbody>
+</mujoco>

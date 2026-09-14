@@ -1,0 +1,26 @@
+# rlebench manifest: how this family is prepared and addressed. Read by the
+# CLI only; ships into no image.
+[task]
+layout = "leveled-dataset"
+
+[prepare]
+# sim-robocasa: the simulator image plus the ~15 GB dataset under third_party/.
+commands = [["make", "sim-robocasa"], ["make", "task01"]]
+env = [
+  "HF_TOKEN gates the L2/L3 perception models (make sim-perception)",
+  "ROBOCASA_ASSET_DIR overrides the dataset path (default: third_party/robocasa/robocasa/models/assets)",
+]
+
+[verify]
+images = [
+  "rlebench-task01-l1-agent:dev",
+  "rlebench-task01-l2-agent:dev",
+  "rlebench-task01-l3-agent:dev",
+]
+paths = ["tasks/task01/L1", "third_party/robocasa/robocasa/models/assets/ROBOCASA_ASSET_VERSION"]
+
+[run]
+lane = "agent-host"
+gpu = true
+resume_trajectory = true
+requires_env = ["ROBOCASA_ASSET_DIR"]

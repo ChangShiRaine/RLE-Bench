@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>rlebench view</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --ground: #F2F5F8; --surface: #FFFFFF; --sunken: #E9EEF3; --line: #D5DDE5;
+    --ink: #182230; --muted: #5E6E7E; --faint: #8A98A6;
+    --accent: #0E6F8E; --accent-soft: #DCEEF4; --accent-line: #9CC9D8;
+    --good: #237A4B; --good-soft: #DFF1E6; --warn: #A86A12; --warn-soft: #FBEEDA; --bad: #B0383A; --bad-soft: #F8E1E1;
+    --bar: #0E6F8E; --bar-track: #E3EAF0;
+    --sans: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+    --mono: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0E141B; --surface: #151D26; --sunken: #0B1015; --line: #26333F;
+      --ink: #E4EAF0; --muted: #98A6B4; --faint: #6D7D8C;
+      --accent: #4DB2CE; --accent-soft: #143543; --accent-line: #2A6577;
+      --good: #5CC489; --good-soft: #14301F; --warn: #E0A53F; --warn-soft: #3A2A0E; --bad: #E67878; --bad-soft: #3A1717;
+      --bar: #4DB2CE; --bar-track: #1E2A36;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0E141B; --surface: #151D26; --sunken: #0B1015; --line: #26333F;
+    --ink: #E4EAF0; --muted: #98A6B4; --faint: #6D7D8C;
+    --accent: #4DB2CE; --accent-soft: #143543; --accent-line: #2A6577;
+    --good: #5CC489; --good-soft: #14301F; --warn: #E0A53F; --warn-soft: #3A2A0E; --bad: #E67878; --bad-soft: #3A1717;
+    --bar: #4DB2CE; --bar-track: #1E2A36;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }   /* the lightbox sets display:flex; hidden must still win */
+  body { margin: 0; background: var(--ground); color: var(--ink); font: 14px/1.45 var(--sans); height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+  button { font: inherit; color: inherit; }
+  code, .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+  .top { display: flex; align-items: center; gap: 16px; padding: 10px 20px; background: var(--surface); border-bottom: 1px solid var(--line); flex: none; }
+  .brand { font-weight: 600; letter-spacing: .01em; }
+  .brand small { color: var(--muted); font-weight: 400; margin-left: 8px; }
+  .crumb { color: var(--muted); font-family: var(--mono); font-size: 12.5px; }
+  .crumb b { color: var(--ink); font-weight: 500; }
+
+  /* the rail and the main pane scroll on their own; the top bar stays put */
+  .app { display: grid; grid-template-columns: 320px minmax(0, 1fr); flex: 1; min-height: 0; }
+  .rail, main { overflow-y: auto; min-height: 0; }
+  @media (max-width: 900px) { .app { grid-template-columns: 1fr; grid-template-rows: minmax(0, 38vh) minmax(0, 1fr); } .rail { border-right: 0; border-bottom: 1px solid var(--line); } }
+
+  .rail { background: var(--surface); border-right: 1px solid var(--line); padding: 0 0 14px; }
+  .rail h2 { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); font-weight: 600; margin: 0 0 6px; }
+  .filter { display: grid; gap: 6px; padding: 14px 12px 12px 20px; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--surface); z-index: 1; }
+  .filter input[type="search"] { width: 100%; padding: 6px 9px; border: 1px solid var(--line); border-radius: 6px; background: var(--ground); color: var(--ink); font: inherit; font-size: 13px; }
+  .filter input[type="search"]::placeholder { color: var(--faint); }
+  .filter .toggle { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); cursor: pointer; }
+  .filter .toggle input { margin: 0; accent-color: var(--accent); }
+  .nomatch { padding: 14px 20px; color: var(--muted); font-size: 13px; }
+  .job { padding: 8px 12px 10px 20px; }
+  .job + .job { border-top: 1px solid var(--line); }
+  .job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .job-head .name { font-family: var(--mono); font-size: 13px; font-weight: 500; overflow-wrap: anywhere; }
+  .job-head .when { color: var(--faint); font-size: 11.5px; white-space: nowrap; }
+  .trial { display: grid; grid-template-columns: 1fr auto auto; gap: 10px; align-items: center; width: 100%; margin-top: 6px; padding: 6px 8px; border: 1px solid transparent; border-radius: 6px; background: none; text-align: left; cursor: pointer; }
+  .trial:hover { background: var(--sunken); }
+  .trial[aria-current="true"] { background: var(--accent-soft); border-color: var(--accent-line); }
+  .trial .tname { font-family: var(--mono); font-size: 12px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .trial[aria-current="true"] .tname { color: var(--ink); }
+  .trial .r { font-family: var(--mono); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+  .chip { display: inline-flex; align-items: center; gap: 5px; padding: 1px 7px; border-radius: 999px; font-size: 11px; font-weight: 500; letter-spacing: .01em; white-space: nowrap; }
+  .chip.media { background: var(--accent-soft); color: var(--accent); }
+  .chip.none { color: var(--faint); border: 1px dashed var(--line); }
+  .chip.good { background: var(--good-soft); color: var(--good); }
+  .chip.bad { background: var(--bad-soft); color: var(--bad); }
+  .chip.warn { background: var(--warn-soft); color: var(--warn); }
+  .chip i { display: inline-block; width: 10px; height: 8px; border: 1.5px solid currentColor; border-radius: 2px; }
+
+  main { padding: 22px 28px 40px; min-width: 0; }
+  .head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: start; }
+  .head h1 { font-size: 20px; font-weight: 600; margin: 0 0 2px; text-wrap: balance; overflow-wrap: anywhere; }
+  .head .path { font-family: var(--mono); font-size: 12.5px; color: var(--muted); overflow-wrap: anywhere; }
+  .facts { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 10px; color: var(--muted); font-size: 13px; }
+  .facts b { color: var(--ink); font-weight: 500; }
+  .steps-bar { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .steps-bar .lbl { color: var(--faint); font-size: 12px; align-self: center; margin-right: 4px; }
+  .stepchip { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 2px 10px; font-size: 12px; color: var(--muted); cursor: pointer; display: inline-flex; gap: 8px; align-items: center; }
+  .stepchip b { font-family: var(--mono); font-weight: 500; color: var(--ink); }
+  .stepchip[aria-pressed="true"] { border-color: var(--accent-line); background: var(--accent-soft); color: var(--accent); }
+  .section { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); font-weight: 600; margin: 22px 0 10px; }
+  .section:first-child { margin-top: 0; }
+  .score { text-align: right; }
+  .score .n { font-family: var(--mono); font-size: 40px; line-height: 1; font-weight: 500; font-variant-numeric: tabular-nums; }
+  .score .l { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); margin-top: 4px; }
+
+  .tabs { display: flex; flex-wrap: wrap; gap: 2px; margin: 22px 0 0; border-bottom: 1px solid var(--line); }
+  .tabs button { padding: 8px 14px; border: 0; border-bottom: 2px solid transparent; margin-bottom: -1px; background: none; color: var(--muted); cursor: pointer; }
+  .tabs button:hover { color: var(--ink); }
+  .tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); font-weight: 500; }
+  .tabs button .cnt { color: var(--faint); margin-left: 6px; font-family: var(--mono); font-size: 12px; }
+  .panel { padding-top: 18px; }
+  .empty { color: var(--muted); padding: 24px 0; max-width: 65ch; }
+
+  .index-line { display: flex; flex-wrap: wrap; gap: 6px 16px; color: var(--muted); font-size: 12.5px; margin-bottom: 14px; }
+  .index-line code { color: var(--ink); }
+  .clips { display: grid; gap: 18px; margin-bottom: 20px; }
+  .clip video { width: 100%; max-height: 62vh; background: var(--sunken); border: 1px solid var(--line); border-radius: 6px; display: block; }
+  figure { margin: 0; }
+  figcaption { display: flex; justify-content: space-between; gap: 12px; margin-top: 6px; font-size: 12.5px; color: var(--muted); }
+  figcaption code { color: var(--ink); }
+  .stills { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+  .still button { display: block; width: 100%; padding: 0; border: 1px solid var(--line); border-radius: 6px; background: var(--sunken); overflow: hidden; cursor: zoom-in; }
+  .still img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .skipped { margin-top: 18px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 6px; font-size: 13px; }
+  .skipped h3 { margin: 0 0 4px; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--warn); }
+
+  .stages { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin-bottom: 20px; }
+  .stage { padding: 10px 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+  .stage .l { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); }
+  .stage .n { font-family: var(--mono); font-size: 18px; font-variant-numeric: tabular-nums; margin-top: 2px; }
+  .cps { display: grid; grid-template-columns: max-content minmax(120px, 1fr) max-content; gap: 6px 12px; align-items: center; max-width: 720px; }
+  .cps .name { font-family: var(--mono); font-size: 12.5px; color: var(--muted); }
+  .cps .bar { height: 8px; background: var(--bar-track); border-radius: 4px; overflow: hidden; }
+  .cps .bar i { display: block; height: 100%; background: var(--bar); border-radius: 4px; }
+  .cps .val { font-family: var(--mono); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+  .kv { border-collapse: collapse; font-size: 13px; margin-top: 18px; }
+  .kv th { text-align: left; font-weight: 500; color: var(--muted); padding: 4px 18px 4px 0; font-family: var(--mono); font-size: 12.5px; }
+  .kv td { font-family: var(--mono); font-variant-numeric: tabular-nums; padding: 4px 0; }
+  .kv tr + tr { border-top: 1px solid var(--line); }
+
+  pre { margin: 0; padding: 12px 14px; background: var(--sunken); border: 1px solid var(--line); border-radius: 6px; font: 12.5px/1.5 var(--mono); overflow-x: auto; color: var(--ink); }
+  .pre-head { display: flex; justify-content: space-between; color: var(--muted); font-size: 12.5px; margin: 14px 0 6px; }
+  .files { list-style: none; margin: 0; padding: 0; max-width: 720px; }
+  .files li { display: flex; justify-content: space-between; gap: 12px; padding: 5px 0; border-bottom: 1px solid var(--line); font-family: var(--mono); font-size: 12.5px; overflow-wrap: anywhere; }
+  .files li.media-file { color: var(--accent); }
+  .files .sz { color: var(--faint); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  .traj-facts { display: flex; flex-wrap: wrap; gap: 6px 18px; color: var(--muted); font-size: 12.5px; margin-bottom: 14px; }
+  .traj-facts b { color: var(--ink); font-weight: 500; font-family: var(--mono); }
+  .steps { display: grid; gap: 10px; max-width: 900px; }
+  .step { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 12px; padding: 10px 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+  .step .who { font-family: var(--mono); font-size: 11.5px; color: var(--faint); line-height: 1.6; }
+  .step .who b { display: block; font-size: 12.5px; color: var(--ink); font-weight: 500; }
+  .step[data-source="agent"] .who b { color: var(--accent); }
+  .step[data-source="user"] .who b { color: var(--good); }
+  .step .msg { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 13px; max-height: 7.2em; overflow: hidden; }
+  .step .msg.open, .obs.open { max-height: none; }
+  .more { border: 0; background: none; color: var(--accent); padding: 2px 0; cursor: pointer; font-size: 12.5px; }
+  .call { margin-top: 8px; border-left: 3px solid var(--accent-line); padding: 4px 10px; background: var(--sunken); border-radius: 0 6px 6px 0; }
+  .call .fn { font-family: var(--mono); font-size: 12px; color: var(--accent); }
+  .call pre { margin: 4px 0 0; padding: 0; border: 0; background: none; max-height: 9em; overflow: auto; font-size: 12px; }
+  .obs { margin-top: 6px; font-family: var(--mono); font-size: 12px; color: var(--muted); white-space: pre-wrap; overflow-wrap: anywhere; max-height: 4.5em; overflow: hidden; }
+  .step .meta { margin-top: 6px; font-family: var(--mono); font-size: 11.5px; color: var(--faint); }
+
+  .lightbox { position: fixed; inset: 0; background: rgba(8, 14, 20, .86); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 24px; z-index: 10; }
+  .lightbox img { max-width: 100%; max-height: 86vh; border-radius: 4px; }
+  .lightbox .cap { color: #E4EAF0; font-family: var(--mono); font-size: 13px; }
+  .lightbox button { position: absolute; top: 14px; right: 18px; border: 1px solid #526270; background: #151D26; color: #E4EAF0; border-radius: 6px; padding: 4px 10px; cursor: pointer; }
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="brand">rlebench view<small>jobs browser</small></div>
+  <div class="crumb" id="crumb">loading…</div>
+</div>
+<div class="app">
+  <aside class="rail" id="rail" aria-label="jobs and trials">
+    <div class="filter">
+      <h2>Jobs</h2>
+      <input id="q" type="search" placeholder="filter jobs, trials, tasks, agents  ( / )" aria-label="filter jobs and trials" autocomplete="off">
+      <label class="toggle"><input type="checkbox" id="media-only"> only trials with media</label>
+    </div>
+  </aside>
+  <main id="main"><div class="empty">Pick a trial on the left.</div></main>
+</div>
+<div class="lightbox" id="lightbox" hidden><button id="lb-close">Close</button><img id="lb-img" alt=""><div class="cap" id="lb-cap"></div></div>
+
+<script>
+const fmt = (x, d = 3) => (x == null ? "—" : Number(x).toFixed(d));
+const kb = b => b == null ? "" : b >= 1e6 ? (b / 1e6).toFixed(1) + " MB" : Math.round(b / 1e3) + " KB";
+const when = iso => iso ? iso.replace("T", " ").slice(0, 16) + (iso.endsWith("Z") ? "Z" : "") : "—";
+const dur = (a, b) => { if (!a || !b) return "—"; const s = Math.round((new Date(b) - new Date(a)) / 1000); return s >= 60 ? `${Math.floor(s / 60)} min ${s % 60} s` : `${s} s`; };
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const api = (job, trial, sub = "", step = null) => `/api/jobs/${job.split("/").map(encodeURIComponent).join("/")}/trials/${encodeURIComponent(trial)}${sub}${step ? (sub.includes("?") ? "&" : "?") + "step=" + encodeURIComponent(step) : ""}`;
+const firstTab = t => (t.media || t.debug_episodes) ? "media" : (t.trajectory ? "trajectory" : "verifier");
+
+let JOBS = [], current = null, detail = null, tab = "media";
+const cache = {};
+
+async function getJSON(url) { const r = await fetch(url); if (!r.ok) throw new Error(`${r.status} ${url}`); return r.json(); }
+
+function matches(job, t, q) {
+  if (!q) return true;
+  const hay = [job.job, t.trial, t.task, t.agent, t.model].filter(Boolean).join(" ").toLowerCase();
+  return q.split(/\s+/).every(word => hay.includes(word));
+}
+
+function rail() {
+  const el = document.getElementById("rail");
+  el.querySelectorAll(".job, .nomatch").forEach(n => n.remove());
+  const q = document.getElementById("q").value.trim().toLowerCase();
+  const mediaOnly = document.getElementById("media-only").checked;
+  let nTrials = 0, nMedia = 0, nTraj = 0, shown = 0;
+  for (const j of JOBS) {
+    const trials = j.trials.filter(t => matches(j, t, q) && (!mediaOnly || t.media));
+    if (!trials.length) continue;
+    shown++;
+    const d = document.createElement("div"); d.className = "job";
+    d.innerHTML = `<div class="job-head"><span class="name">${esc(j.job || ".")}</span><span class="when">${when(j.finished).slice(0, 10)}</span></div>`;
+    for (const t of trials) {
+      nTrials++; if (t.media) nMedia++; if (t.trajectory) nTraj++;
+      const b = document.createElement("button"); b.className = "trial";
+      const isCur = current && current.job === j.job && current.trial === t.trial;
+      b.setAttribute("aria-current", isCur ? "true" : "false");
+      const media = t.media ? `<span class="chip media"><i></i>${t.media}</span>` : t.debug_episodes ? `<span class="chip media" title="debug recordings"><i></i>${t.debug_episodes} dbg</span>` : t.media_skipped ? `<span class="chip warn">skipped</span>` : `<span class="chip none">no media</span>`;
+      b.innerHTML = `<span class="tname" title="${esc(t.trial)}">${esc(t.trial)}</span><span class="r">${fmt(t.reward)}</span>${media}`;
+      b.onclick = () => select(j.job, t.trial);
+      d.appendChild(b);
+    }
+    el.appendChild(d);
+  }
+  if (!shown) { const n = document.createElement("div"); n.className = "nomatch"; n.textContent = "No trials match."; el.appendChild(n); }
+  const scope = (q || mediaOnly) ? `${shown} of ${JOBS.length} jobs` : `${JOBS.length} jobs`;
+  document.getElementById("crumb").innerHTML = `<b>jobs</b> · ${scope} · ${nTrials} trials · ${nMedia} with media · ${nTraj} with trajectory`;
+}
+
+async function select(job, trial, wantTab, step) {
+  const summary = JOBS.find(j => j.job === job)?.trials.find(t => t.trial === trial);
+  if (!summary) return;
+  current = { job, trial };
+  detail = await getJSON(api(job, trial, "", step));
+  tab = wantTab || firstTab(detail);
+  setHash();
+  rail(); render();
+}
+function setHash() { location.hash = [detail.job, detail.trial, tab, detail.step || ""].map(encodeURIComponent).join("|"); }
+
+function render() {
+  const t = detail, m = document.getElementById("main");
+  const gate = t.gated == null ? "" : t.gated ? `<span class="chip bad">gated</span>` : `<span class="chip good">gate passed</span>`;
+  const err = t.error ? `<span class="chip bad">${esc(t.error)}</span>` : "";
+  const agent = [t.agent, t.agent_version, t.model].filter(Boolean).join(" · ") || "—";
+  const tabs = [["media", "Media", t.media], ["trajectory", "Trajectory", null], ["verifier", "Verifier output", null], ["reward", "Reward", null], ["files", "Files", t.files.length]];
+  m.innerHTML = `
+    <div class="head">
+      <div>
+        <h1>${esc(t.task || t.trial)}</h1>
+        <div class="path">${esc(t.job ? t.job + "/" : "")}${esc(t.trial)}</div>
+        <div class="facts"><span>agent <b>${esc(agent)}</b></span><span>started <b class="mono">${when(t.started)}</b></span><span>took <b>${dur(t.started, t.finished)}</b></span>${gate ? `<span>${gate}</span>` : ""}${err ? `<span>${err}</span>` : ""}</div>
+        ${t.steps && t.steps.length ? `<div class="steps-bar"><span class="lbl">step</span>${t.steps.map(s => `<button class="stepchip" data-step="${esc(s)}" aria-pressed="${s === t.step}">${esc(s)}<b>${fmt(t.step_rewards[s])}</b></button>`).join("")}</div>` : ""}
+      </div>
+      <div class="score"><div class="n">${fmt(t.reward, 4)}</div><div class="l">reward</div></div>
+    </div>
+    <div class="tabs" role="tablist">${tabs.map(([k, l, c]) => `<button role="tab" data-tab="${k}" aria-selected="${tab === k}">${l}${c ? `<span class="cnt">${c}</span>` : ""}</button>`).join("")}</div>
+    <div class="panel" id="panel"><div class="empty">loading…</div></div>`;
+  m.querySelectorAll("[data-tab]").forEach(b => b.onclick = () => { tab = b.dataset.tab; setHash(); render(); });
+  m.querySelectorAll("[data-step]").forEach(b => b.onclick = () => select(t.job, t.trial, tab, b.dataset.step));
+  panel();
+}
+
+async function panel() {
+  const t = detail, p = document.getElementById("panel");
+  const set = html => { if (p.isConnected) { p.innerHTML = html; wire(p); } };
+  if (tab === "media") set(mediaPanel(t));
+  else if (tab === "reward") set(rewardPanel(t));
+  else if (tab === "files") set(`<ul class="files">${t.files.map(f => `<li class="${/(^|\/)verifier\/media\/|^debug\/episodes\//.test(f.path) ? "media-file" : ""}"><span>${esc(f.path)}</span><span class="sz">${kb(f.bytes)}</span></li>`).join("")}</ul>`);
+  else if (tab === "verifier") {
+    const out = await cached(api(t.job, t.trial, "/verifier-output", t.step));
+    set(`<div class="pre-head"><span>${t.step ? `steps/${esc(t.step)}/` : ""}verifier/test-stdout.txt</span><span>${t.stdout_lines} lines</span></div><pre>${esc(out.stdout ?? "(no test-stdout.txt)")}</pre>`
+        + (out.stderr ? `<div class="pre-head"><span>verifier/test-stderr.txt</span></div><pre>${esc(out.stderr)}</pre>` : ""));
+  } else if (tab === "trajectory") {
+    if (!t.trajectory) return set(`<div class="empty">No <code>agent/trajectory.json</code>. Oracle runs execute the reference solution and record no agent steps.</div>`);
+    const tr = await cached(api(t.job, t.trial, "/trajectory", t.step));
+    set(trajectoryPanel(tr));
+  }
+}
+
+async function cached(url) { if (!cache[url]) cache[url] = await getJSON(url); return cache[url]; }
+
+function mediaPanel(t) {
+  const idx = t.media_index, debug = t.debug_episode_files || [];
+  const where = t.step ? `steps/${esc(t.step)}/verifier/media/` : "verifier/media/";
+  let h = "";
+  if (!idx) h += `<div class="empty">This step wrote no media. Verifiers that render write <code>${where}index.json</code>; this tab reads that file and nothing else. Runs from before the render stack have none.</div>`;
+  else h += verifierMedia(t, idx, where);
+  if (debug.length) h += `<div class="section">debug recordings</div><div class="index-line"><span><code>debug/episodes/</code>, an operator's RLEBENCH_DEBUG run: the agent's cameras per episode, development and evaluation</span></div><div class="clips">${debug.map(n => `<figure class="clip"><video controls preload="metadata" src="${api(t.job, t.trial, "/debug/" + encodeURIComponent(n))}"></video><figcaption><code>${esc(n)}</code><span>${kb(sizeOf(t, "debug/episodes/" + n))}</span></figcaption></figure>`).join("")}</div>`;
+  return h;
+}
+
+function verifierMedia(t, idx, where) {
+  const files = idx.files || [], skipped = idx.skipped || [];
+  const clips = files.filter(n => /\.(mp4|webm)$/i.test(n)), stills = files.filter(n => !/\.(mp4|webm)$/i.test(n));
+  const src = n => api(t.job, t.trial, "/media/" + encodeURIComponent(n), t.step);
+  let h = `<div class="index-line"><span><code>${where}index.json</code></span><span>${files.length} file${files.length === 1 ? "" : "s"}</span>${idx.render_seconds != null ? `<span>rendered in <code>${fmt(idx.render_seconds, 2)} s</code></span>` : ""}${idx.enabled === false ? "<span>disabled</span>" : ""}</div>`;
+  if (!files.length && !skipped.length) h += `<div class="empty">The index lists no files.</div>`;
+  if (clips.length) h += `<div class="clips">${clips.map(n => `<figure class="clip"><video controls preload="metadata" src="${src(n)}"></video><figcaption><code>${esc(n)}</code><span>${kb(sizeOf(t, n))}</span></figcaption></figure>`).join("")}</div>`;
+  if (stills.length) h += `<div class="stills">${stills.map(n => `<figure class="still"><button data-src="${src(n)}" data-name="${esc(n)}" aria-label="open ${esc(n)}"><img src="${src(n)}" alt="${esc(n)}" loading="lazy"></button><figcaption><code>${esc(n)}</code><span>${kb(sizeOf(t, n))}</span></figcaption></figure>`).join("")}</div>`;
+  if (skipped.length) h += `<div class="skipped"><h3>Skipped</h3>${skipped.map(s => `<div><code>${esc(s.name)}</code> — ${esc(s.reason)}</div>`).join("")}</div>`;
+  return h;
+}
+function sizeOf(t, name) {
+  const rel = name.startsWith("debug/") ? name : (t.step ? `steps/${t.step}/` : "") + "verifier/media/" + name;
+  const f = t.files.find(f => f.path === rel); return f ? f.bytes : null;
+}
+
+function rewardPanel(t) {
+  const rep = t.report || {};
+  const first = rep.variants ? Object.values(rep.variants)[0] : rep;
+  const stages = Object.entries(first?.stages || {}), cps = Object.entries(first?.checkpoints || {});
+  let h = "";
+  if (rep.variants) h += `<div class="index-line"><span>stages and checkpoints of the first variant, <code>${esc(Object.keys(rep.variants)[0])}</code>; every variant's numbers are in the table</span></div>`;
+  if (stages.length) h += `<div class="stages">${stages.map(([k, v]) => `<div class="stage"><div class="l">${esc(k)}</div><div class="n">${fmt(v, 4)}</div></div>`).join("")}</div>`;
+  if (cps.length) h += `<div class="cps">${cps.map(([k, v]) => `<span class="name">${esc(k)}</span><div class="bar" title="${esc(k)}: ${fmt(v, 4)}"><i style="width:${Math.round(100 * Math.max(0, Math.min(1, Number(v) || 0)))}%"></i></div><span class="val">${fmt(v, 2)}</span>`).join("")}</div>`;
+  const flat = Object.entries(t.reward_json || {}).filter(([, v]) => typeof v !== "object");
+  h += flat.length ? `<table class="kv"><tbody>${flat.map(([k, v]) => `<tr><th>${esc(k)}</th><td>${typeof v === "number" ? fmt(v, 4) : esc(String(v))}</td></tr>`).join("")}</tbody></table>` : `<div class="empty">No reward.json.</div>`;
+  return h;
+}
+
+function trajectoryPanel(tr) {
+  const steps = tr.steps || [], fm = tr.final_metrics || {};
+  const facts = `<div class="traj-facts"><span><b>${steps.length}</b> steps</span>${fm.total_prompt_tokens != null ? `<span><b>${(fm.total_prompt_tokens / 1e6).toFixed(2)}M</b> prompt tokens</span>` : ""}${fm.total_completion_tokens != null ? `<span><b>${(fm.total_completion_tokens / 1e3).toFixed(1)}k</b> completion tokens</span>` : ""}${fm.total_cost_usd != null ? `<span><b>$${fm.total_cost_usd.toFixed(2)}</b> total</span>` : ""}<span>agent <b>${esc(tr.agent?.name || "")} ${esc(tr.agent?.model_name || "")}</b></span></div>`;
+  const rows = steps.map(s => {
+    const msg = String(s.message || "");
+    const calls = (s.tool_calls || []).map(c => `<div class="call"><div class="fn">${esc(c.function_name || c.name || "")}</div><pre>${esc(typeof c.arguments === "string" ? c.arguments : JSON.stringify(c.arguments, null, 1))}</pre></div>`).join("");
+    const obs = s.observation != null ? `<div class="obs">${esc(typeof s.observation === "string" ? s.observation : JSON.stringify(s.observation))}</div><button class="more">Show more</button>` : "";
+    const m = s.metrics || {};
+    const meta = m.prompt_tokens != null ? `<div class="meta">${esc(s.model_name || "")} · ${m.prompt_tokens} prompt · ${m.completion_tokens} completion${m.cost_usd != null ? ` · $${Number(m.cost_usd).toFixed(3)}` : ""}</div>` : "";
+    return `<div class="step" data-source="${esc(s.source)}"><div class="who"><b>${esc(s.source)}</b>#${s.step_id}<br>${esc(String(s.timestamp || "").slice(11, 19))}</div><div><div class="msg">${esc(msg)}</div>${msg.length > 400 ? `<button class="more">Show more</button>` : ""}${calls}${obs}${meta}</div></div>`;
+  }).join("");
+  return facts + `<div class="steps">${rows}</div>`;
+}
+
+function wire(p) {
+  p.querySelectorAll(".still button").forEach(b => b.onclick = () => lightbox(b.dataset.src, b.dataset.name));
+  p.querySelectorAll(".more").forEach(b => b.onclick = () => { const box = b.previousElementSibling; box.classList.toggle("open"); b.textContent = box.classList.contains("open") ? "Show less" : "Show more"; });
+}
+function lightbox(src, name) {
+  const lb = document.getElementById("lightbox");
+  document.getElementById("lb-img").src = src; document.getElementById("lb-img").alt = name;
+  document.getElementById("lb-cap").textContent = name; lb.hidden = false; document.getElementById("lb-close").focus();
+}
+document.getElementById("lb-close").onclick = () => { document.getElementById("lightbox").hidden = true; };
+document.getElementById("lightbox").onclick = e => { if (e.target.id === "lightbox") e.currentTarget.hidden = true; };
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") document.getElementById("lightbox").hidden = true;
+  if (e.key === "/" && document.activeElement !== document.getElementById("q")) { e.preventDefault(); document.getElementById("q").focus(); }
+});
+document.getElementById("q").oninput = rail;
+document.getElementById("media-only").onchange = rail;
+
+(async () => {
+  JOBS = await getJSON("/api/jobs");
+  rail();
+  if (!JOBS.length) { document.getElementById("main").innerHTML = `<div class="empty">No trials found under this folder. Point <code>rlebench view</code> at a jobs directory, or at one job.</div>`; return; }
+  const [j, t, tb, st] = location.hash.slice(1).split("|").map(decodeURIComponent);
+  if (j != null && t && JOBS.some(x => x.job === j && x.trials.some(y => y.trial === t))) await select(j, t, tb, st || null);
+  else await select(JOBS[0].job, JOBS[0].trials[0].trial);
+})();
+</script>
+</body>
+</html>

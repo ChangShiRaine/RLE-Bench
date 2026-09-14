@@ -1,0 +1,59 @@
+schema_version = "1.4"
+
+artifacts = [
+  { source = "/logs/artifacts", destination = "_empty-artifacts", exclude = ["*"] },
+  { source = "/logs/nanovla-handoff/submission/solution.py", destination = "submission/solution.py" },
+]
+
+[task]
+name = "rlebench/task05-nanovla-@@SLUG@@"
+version = "1.0.0"
+description = "@@DESCRIPTION@@"
+authors = [{ name = "nanoVLA contributors" }]
+keywords = [@@KEYWORDS@@]
+
+[metadata]
+category = "robotics-learning"
+difficulty = "hard"
+tags = [@@TAGS@@]
+difficulty_explanation = "@@DIFFICULTY_EXPLANATION@@"
+
+[environment]
+docker_image = "@@AGENT_IMAGE@@"
+build_timeout_sec = 3600.0
+cpus = @@CPUS@@
+memory_mb = @@MEMORY_MB@@
+storage_mb = @@STORAGE_MB@@
+gpus = @@GPUS@@
+gpu_types = ["H100"]
+# The environment baseline is what agent *setup* runs under: Harbor's installed
+# agents bootstrap themselves here and setup is not wrapped in a phase network
+# policy, so it stays open. The agent phase below is deny-all plus the model
+# API the runner adds with --allow-agent-host.
+network_mode = "public"
+
+[agent]
+timeout_sec = @@AGENT_TIMEOUT_SEC@@
+network_mode = "allowlist"
+allowed_hosts = []
+
+[verifier]
+timeout_sec = @@VERIFIER_TIMEOUT_SEC@@
+network_mode = "no-network"
+environment_mode = "separate"
+
+[[verifier.collect]]
+service = "main"
+user = 0
+command = "/usr/local/sbin/nanovla-finalize"
+timeout_sec = 30.0
+
+[verifier.environment]
+docker_image = "rlebench-task05-@@SLUG@@-verifier:dev"
+build_timeout_sec = 600.0
+cpus = @@CPUS@@
+memory_mb = @@MEMORY_MB@@
+storage_mb = @@STORAGE_MB@@
+gpus = @@GPUS@@
+gpu_types = ["H100"]
+network_mode = "no-network"

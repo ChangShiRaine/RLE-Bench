@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "aluminum_material": {
+    "alloy": "6063-T5 benchmark assumption",
+    "density_kg_m3": 2700.0,
+    "youngs_modulus_pa": 69000000000.0,
+    "shear_modulus_pa": 25900000000.0,
+    "yield_strength_pa": 145000000.0
+  },
+  "mecanum_wheel": {
+    "quantity_available": 4,
+    "ground_contact_radius_m": 0.076,
+    "hub_mass_kg": 1.2,
+    "roller_count": 16,
+    "roller_mass_kg": 0.04,
+    "x_configuration": {
+      "FL": "left",
+      "FR": "right",
+      "RL": "right",
+      "RR": "left"
+    }
+  },
+  "battery": {
+    "quantity_available": 1,
+    "half_extents_m": [
+      0.14,
+      0.09,
+      0.04
+    ],
+    "mass_kg": 10.0
+  },
+  "pickup_payload": {
+    "quantity_available": 1,
+    "mass_kg": 1.0,
+    "shape": "sphere",
+    "radius_m": 0.04
+  },
+  "aluminum_profiles": [
+    {
+      "name": "2020",
+      "cross_section_m": [
+        0.02,
+        0.02
+      ],
+      "linear_density_kg_m": 0.45,
+      "area_m2": 0.0001667,
+      "iy_m4": 6e-09,
+      "iz_m4": 6e-09,
+      "torsion_j_m4": 4.5e-09,
+      "example_length_m": 0.3
+    },
+    {
+      "name": "2040",
+      "cross_section_m": [
+        0.02,
+        0.04
+      ],
+      "linear_density_kg_m": 0.82,
+      "area_m2": 0.0003037,
+      "iy_m4": 4.2e-08,
+      "iz_m4": 1.1e-08,
+      "torsion_j_m4": 1.2e-08,
+      "example_length_m": 0.4
+    },
+    {
+      "name": "4040",
+      "cross_section_m": [
+        0.04,
+        0.04
+      ],
+      "linear_density_kg_m": 1.5,
+      "area_m2": 0.0005556,
+      "iy_m4": 7e-08,
+      "iz_m4": 7e-08,
+      "torsion_j_m4": 4e-08,
+      "example_length_m": 0.4
+    }
+  ],
+  "universal_arm_adapter": {
+    "quantity_available": 1,
+    "half_extents_m": [
+      0.09,
+      0.09,
+      0.005
+    ],
+    "mass_kg": 0.875,
+    "base_mount_plane_z_m": 0.0,
+    "arm_mount_plane_z_m": 0.01,
+    "ur5e_mount_yaw_deg": 180.0,
+    "panda_mount_yaw_deg": 0.0,
+    "xarm7_mount_yaw_deg": 0.0
+  },
+  "canonical_arm_variants": {
+    "panda": "assets/franka_emika_panda/panda_nohand.xml",
+    "ur5e": "assets/universal_robots_ur5e/ur5e.xml",
+    "xarm7": "assets/ufactory_xarm7/xarm7_nohand.xml"
+  }
+}

@@ -1,0 +1,5 @@
+menagerie commit: 71f066ad0be9cd271f7ed58c030243ef157af9f4
+source: https://github.com/google-deepmind/mujoco_menagerie/tree/main/universal_robots_ur5e
+
+Pruned to the files the families need; the retained ones are unmodified and
+match upstream at this commit by Git blob hash.

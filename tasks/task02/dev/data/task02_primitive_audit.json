@@ -1,0 +1,1926 @@
+{
+ "AddIceCubes": {
+  "need": [],
+  "unknown": [
+   "custom-state:num_ice_cubes"
+  ]
+ },
+ "AddLemonToFish": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen",
+   "OpenFridge"
+  ],
+  "unknown": []
+ },
+ "AddMarshmallow": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen"
+  ],
+  "unknown": []
+ },
+ "AddSugarCubes": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen"
+  ],
+  "unknown": []
+ },
+ "AddSweetener": {
+  "need": [],
+  "unknown": [
+   "custom-state:num_sugar_cubes"
+  ]
+ },
+ "AdjustHeat": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceCounterToStove",
+   "TurnOnStove"
+  ],
+  "unknown": []
+ },
+ "AfterwashSorting": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceSinkToCounter",
+   "TurnOffSinkFaucet",
+   "TurnOnSinkFaucet"
+  ],
+  "unknown": []
+ },
+ "AirDryFruit": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceSinkToCounter",
+   "TurnOffSinkFaucet",
+   "TurnOnSinkFaucet"
+  ],
+  "unknown": [
+   "custom-state:num_fruit"
+  ]
+ },
+ "AlcoholServingPrep": {
+  "need": [
+   "NavigateKitchen",
+   "OpenCabinet",
+   "PickPlaceCabinetToCounter",
+   "PickPlaceSinkToCounter"
+  ],
+  "unknown": []
+ },
+ "AlignSilverware": {
+  "need": [
+   "NavigateKitchen"
+  ],
+  "unknown": []
+ },
+ "ArrangeBreadBasket": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen",
+   "OpenCabinet",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "ArrangeBreadBowl": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen",
+   "PickPlaceToasterOvenToCounter"
+  ],
+  "unknown": []
+ },
+ "ArrangeBuffetDessert": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen"
+  ],
+  "unknown": []
+ },
+ "ArrangeDrinkware": {
+  "need": [
+   "NavigateKitchen"
+  ],
+  "unknown": []
+ },
+ "ArrangeTea": {
+  "need": [
+   "CheesyBread",
+   "CloseCabinet",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "ArrangeTeaAccompaniments": {
+  "need": [
+   "CheesyBread",
+   "OpenFridge"
+  ],
+  "unknown": []
+ },
+ "ArrangeUtensilsByType": {
+  "need": [
+   "PickPlaceCounterToCabinet",
+   "PickPlaceCounterToDrawer"
+  ],
+  "unknown": []
+ },
+ "ArrangeVegetables": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceSinkToCounter"
+  ],
+  "unknown": []
+ },
+ "AssembleCookingArray": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "BalancedMealPrep": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceStoveToCounter"
+  ],
+  "unknown": []
+ },
+ "BeverageOrganization": {
+  "need": [
+   "NavigateKitchen"
+  ],
+  "unknown": [
+   "custom-state:num_bev"
+  ]
+ },
+ "BeverageSorting": {
+  "need": [],
+  "unknown": [
+   "custom-state:cab1",
+   "custom-state:cab2"
+  ]
+ },
+ "BlendIngredients": {
+  "need": [
+   "CloseBlenderLid",
+   "OpenBlenderLid",
+   "PickPlaceCounterToBlender",
+   "TurnOnBlender"
+  ],
+  "unknown": []
+ },
+ "BlendMarinade": {
+  "need": [
+   "CloseBlenderLid",
+   "OpenFridge",
+   "PickPlaceCounterToBlender",
+   "TurnOnBlender"
+  ],
+  "unknown": []
+ },
+ "BowlAndCup": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen"
+  ],
+  "unknown": [
+   "custom-state:fixtures"
+  ]
+ },
+ "BreadAndCheese": {
+  "need": [
+   "CheesyBread"
+  ],
+  "unknown": []
+ },
+ "BreadSelection": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "BreadSetupSlicing": {
+  "need": [
+   "CheesyBread"
+  ],
+  "unknown": [
+   "custom-state:num_bread"
+  ]
+ },
+ "BuildAppetizerPlate": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen",
+   "OpenFridge"
+  ],
+  "unknown": []
+ },
+ "ButterOnPan": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceCounterToStove",
+   "TurnOnStove"
+  ],
+  "unknown": []
+ },
+ "CandleCleanup": {
+  "need": [
+   "CloseCabinet",
+   "NavigateKitchen",
+   "PickPlaceCabinetToCounter",
+   "PickPlaceCounterToCabinet"
+  ],
+  "unknown": []
+ },
+ "CategorizeCondiments": {
+  "need": [
+   "PickPlaceCabinetToCounter",
+   "PickPlaceCounterToCabinet"
+  ],
+  "unknown": []
+ },
+ "CerealAndBowl": {
+  "need": [
+   "CloseCabinet",
+   "OpenCabinet",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "ChooseMeasuringCup": {
+  "need": [
+   "PickPlaceDrawerToCounter"
+  ],
+  "unknown": [
+   "custom-state:use_tablespoon"
+  ]
+ },
+ "ChooseRipeFruit": {
+  "need": [],
+  "unknown": []
+ },
+ "CleanBoard": {
+  "need": [
+   "PickPlaceCabinetToCounter",
+   "PickPlaceCounterToSink"
+  ],
+  "unknown": []
+ },
+ "CleanMicrowave": {
+  "need": [
+   "OpenMicrowave",
+   "PickPlaceCounterToMicrowave"
+  ],
+  "unknown": []
+ },
+ "ClearClutter": {
+  "need": [
+   "CheesyBread",
+   "TurnOffSinkFaucet",
+   "TurnOnSinkFaucet"
+  ],
+  "unknown": [
+   "custom-state:food_washed",
+   "custom-state:num_food",
+   "custom-state:num_unwashable",
+   "custom-state:washed_time"
+  ]
+ },
+ "ClearCuttingBoard": {
+  "need": [
+   "CheesyBread"
+  ],
+  "unknown": []
+ },
+ "ClearFoodWaste": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceSinkToCounter"
+  ],
+  "unknown": []
+ },
+ "ClearFreezer": {
+  "need": [
+   "CheesyBread"
+  ],
+  "unknown": []
+ },
+ "ClearReceptaclesForCleaning": {
+  "need": [
+   "NavigateKitchen",
+   "PickPlaceCounterToSink",
+   "PickPlaceSinkToCounter",
+   "TurnOnSinkFaucet"
+  ],
+  "unknown": []
+ },
+ "ClearSink": {
+  "need": [
+   "PickPlaceSinkToCounter"
+  ],
+  "unknown": []
+ },
+ "ClearSinkArea": {
+  "need": [
+   "PickPlaceSinkToCounter"
+  ],
+  "unknown": []
+ },
+ "ClearSinkSpace": {
+  "need": [
+   "PickPlaceSinkToCounter"
+  ],
+  "unknown": [
+   "custom-state:num_sink_objs"
+  ]
+ },
+ "CollectWashingSupplies": {
+  "need": [
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "ColorfulSalsa": {
+  "need": [
+   "CheesyBread"
+  ],
+  "unknown": []
+ },
+ "CondimentCollection": {
+  "need": [
+   "PickPlaceCabinetToCounter",
+   "PickPlaceCounterToCabinet"
+  ],
+  "unknown": []
+ },
+ "CookieDoughPrep": {
+  "need": [
+   "CheesyBread",
+   "OpenFridge",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "CoolBakedCake": {
+  "need": [
+   "CheesyBread",
+   "CloseOven"
+  ],
+  "unknown": []
+ },
+ "CoolKettle": {
+  "need": [
+   "NavigateKitchen",
+   "PickPlaceStoveToCounter",
+   "TurnOffStove"
+  ],
+  "unknown": [
+   "custom-state:cooling_done"
+  ]
+ },
+ "CreateChildFriendlyFridge": {
+  "need": [],
+  "unknown": [
+   "custom-state:third_item_type"
+  ]
+ },
+ "CupcakeCleanup": {
+  "need": [
+   "PickPlaceCounterToSink"
+  ],
+  "unknown": []
+ },
+ "CutBuffetPizza": {
+  "need": [
+   "NavigateKitchen",
+   "PickPlaceDrawerToCounter"
+  ],
+  "unknown": []
+ },
+ "CuttingToolSelection": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceDrawerToCounter"
+  ],
+  "unknown": [
+   "custom-state:food"
+  ]
+ },
+ "DateNight": {
+  "need": [
+   "NavigateKitchen",
+   "OpenCabinet",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "DefrostByCategory": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceCounterToSink"
+  ],
+  "unknown": []
+ },
+ "DeliverBrewedCoffee": {
+  "need": [
+   "NavigateKitchen"
+  ],
+  "unknown": []
+ },
+ "DeliverStraw": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen",
+   "PickPlaceDrawerToCounter"
+  ],
+  "unknown": []
+ },
+ "DessertAssembly": {
+  "need": [
+   "CheesyBread"
+  ],
+  "unknown": []
+ },
+ "DessertUpgrade": {
+  "need": [
+   "CheesyBread"
+  ],
+  "unknown": []
+ },
+ "DisplayMeatVariety": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen",
+   "OpenFridge"
+  ],
+  "unknown": []
+ },
+ "DistributeChicken": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen",
+   "PickPlaceStoveToCounter"
+  ],
+  "unknown": []
+ },
+ "DivideBasins": {
+  "need": [
+   "PickPlaceSinkToCounter"
+  ],
+  "unknown": []
+ },
+ "DivideBuffetTrays": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen",
+   "OpenFridge"
+  ],
+  "unknown": []
+ },
+ "DrainVeggies": {
+  "need": [
+   "CheesyBread",
+   "TurnOffSinkFaucet",
+   "TurnOnSinkFaucet"
+  ],
+  "unknown": [
+   "custom-state:vegetables_washed",
+   "custom-state:washed_time"
+  ]
+ },
+ "DrinkwareConsolidation": {
+  "need": [],
+  "unknown": [
+   "custom-state:num_drinkware"
+  ]
+ },
+ "DryDishes": {
+  "need": [
+   "PickPlaceSinkToCounter"
+  ],
+  "unknown": []
+ },
+ "DryDrinkware": {
+  "need": [
+   "PickPlaceCabinetToCounter",
+   "PickPlaceCounterToCabinet"
+  ],
+  "unknown": []
+ },
+ "DumpLeftovers": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceCounterToSink"
+  ],
+  "unknown": []
+ },
+ "FillBlenderJug": {
+  "need": [
+   "TurnOnSinkFaucet"
+  ],
+  "unknown": [
+   "custom-state:num_filled_timesteps"
+  ]
+ },
+ "FillKettle": {
+  "need": [
+   "OpenCabinet",
+   "PickPlaceCabinetToCounter",
+   "PickPlaceCounterToSink",
+   "PickPlaceSinkToCounter"
+  ],
+  "unknown": []
+ },
+ "FilterMicrowavableItem": {
+  "need": [
+   "CheesyBread",
+   "CloseMicrowave",
+   "PickPlaceCounterToMicrowave",
+   "TurnOnMicrowave"
+  ],
+  "unknown": []
+ },
+ "FoodCleanup": {
+  "need": [
+   "CloseCabinet"
+  ],
+  "unknown": [
+   "custom-state:num_food"
+  ]
+ },
+ "FreezeBottledWaters": {
+  "need": [
+   "CloseFridge"
+  ],
+  "unknown": []
+ },
+ "FreezeCookedFood": {
+  "need": [
+   "CloseFridge"
+  ],
+  "unknown": []
+ },
+ "FreezeIceTray": {
+  "need": [
+   "CloseFridge"
+  ],
+  "unknown": []
+ },
+ "FreshProduceOrganization": {
+  "need": [
+   "CloseFridge"
+  ],
+  "unknown": [
+   "custom-state:fruit_rack_index",
+   "custom-state:restock_obj_cat",
+   "custom-state:veg_rack_index"
+  ]
+ },
+ "FryingPanAdjustment": {
+  "need": [
+   "PickPlaceCounterToStove",
+   "TurnOnStove"
+  ],
+  "unknown": [
+   "custom-state:start_loc"
+  ]
+ },
+ "GarnishCupcake": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "GarnishPancake": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen",
+   "OpenFridge"
+  ],
+  "unknown": []
+ },
+ "GatherCuttingTools": {
+  "need": [
+   "CheesyBread",
+   "OpenDrawer",
+   "PickPlaceDrawerToCounter"
+  ],
+  "unknown": []
+ },
+ "GatherMarinadeIngredients": {
+  "need": [
+   "CheesyBread",
+   "OpenFridge",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "GatherTableware": {
+  "need": [
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "GatherVegetables": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceSinkToCounter"
+  ],
+  "unknown": []
+ },
+ "GetToastedBread": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen",
+   "PickPlaceToasterToCounter"
+  ],
+  "unknown": [
+   "custom-state:toaster_on"
+  ]
+ },
+ "HeatKebabSandwich": {
+  "need": [
+   "CloseOven",
+   "OpenToasterOvenDoor",
+   "TurnOnToasterOven"
+  ],
+  "unknown": []
+ },
+ "HeatMug": {
+  "need": [
+   "CloseMicrowave",
+   "PickPlaceCounterToMicrowave"
+  ],
+  "unknown": []
+ },
+ "HeatMultipleWater": {
+  "need": [
+   "PickPlaceCounterToStove"
+  ],
+  "unknown": []
+ },
+ "HotDogSetup": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen",
+   "OpenFridge",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "JuiceFruitReamer": {
+  "need": [],
+  "unknown": [
+   "custom-state:contact_timesteps"
+  ]
+ },
+ "KettleBoiling": {
+  "need": [
+   "PickPlaceCounterToStove",
+   "PickPlaceStoveToCounter",
+   "TurnOnStove"
+  ],
+  "unknown": []
+ },
+ "LemonSeasoningFish": {
+  "need": [
+   "CheesyBread",
+   "OpenFridge"
+  ],
+  "unknown": []
+ },
+ "LineUpCondiments": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "LoadCondimentsInFridge": {
+  "need": [
+   "OpenFridge"
+  ],
+  "unknown": [
+   "custom-state:target_rack_index"
+  ]
+ },
+ "LoadDishwasher": {
+  "need": [
+   "CloseDishwasher"
+  ],
+  "unknown": []
+ },
+ "LoadFridgeByType": {
+  "need": [
+   "CheesyBread"
+  ],
+  "unknown": [
+   "custom-state:meat_rack_index",
+   "custom-state:veg_rack_index"
+  ]
+ },
+ "LoadFridgeFifo": {
+  "need": [
+   "CloseFridge",
+   "OpenFridge"
+  ],
+  "unknown": [
+   "custom-state:rack_index"
+  ]
+ },
+ "LoadPreparedFood": {
+  "need": [
+   "CheesyBread",
+   "CloseFridge"
+  ],
+  "unknown": [
+   "custom-state:target_rack_index"
+  ]
+ },
+ "MakeFruitBowl": {
+  "need": [
+   "CheesyBread",
+   "CloseCabinet",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "MakeIceLemonade": {
+  "need": [
+   "CheesyBread",
+   "OpenFridge"
+  ],
+  "unknown": []
+ },
+ "MakeLoadedPotato": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceMicrowaveToCounter"
+  ],
+  "unknown": []
+ },
+ "MatchCupAndDrink": {
+  "need": [
+   "NavigateKitchen"
+  ],
+  "unknown": []
+ },
+ "MaximizeFreezerSpace": {
+  "need": [
+   "CloseFridge"
+  ],
+  "unknown": [
+   "custom-state:move_direction"
+  ]
+ },
+ "MealPrepStaging": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceCounterToStove"
+  ],
+  "unknown": []
+ },
+ "MeatSkewerAssembly": {
+  "need": [
+   "CheesyBread"
+  ],
+  "unknown": []
+ },
+ "MeatTransfer": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "MicrowaveCorrectMeal": {
+  "need": [
+   "CheesyBread",
+   "CloseMicrowave",
+   "PickPlaceCounterToMicrowave",
+   "TurnOnMicrowave"
+  ],
+  "unknown": [
+   "custom-state:target_bowl"
+  ]
+ },
+ "MicrowaveDefrostMeat": {
+  "need": [
+   "CheesyBread",
+   "CloseMicrowave",
+   "PickPlaceCounterToMicrowave",
+   "TurnOnMicrowave"
+  ],
+  "unknown": []
+ },
+ "MicrowaveThawing": {
+  "need": [
+   "OpenMicrowave",
+   "PickPlaceCounterToMicrowave",
+   "PickPlaceMicrowaveToCounter",
+   "TurnOnMicrowave"
+  ],
+  "unknown": []
+ },
+ "MicrowaveThawingFridge": {
+  "need": [
+   "CloseMicrowave",
+   "OpenFridge",
+   "PickPlaceCounterToMicrowave",
+   "PickPlaceMicrowaveToCounter",
+   "TurnOnMicrowave"
+  ],
+  "unknown": []
+ },
+ "MixCakeFrosting": {
+  "need": [],
+  "unknown": []
+ },
+ "MixedFruitPlatter": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen",
+   "OpenFridge"
+  ],
+  "unknown": []
+ },
+ "MoveFreezerToFridge": {
+  "need": [
+   "CloseFridge",
+   "OpenFridge"
+  ],
+  "unknown": []
+ },
+ "MoveFridgeToFreezer": {
+  "need": [
+   "CloseFridge",
+   "OpenFridge"
+  ],
+  "unknown": []
+ },
+ "MoveToCounter": {
+  "need": [
+   "CheesyBread",
+   "OpenFridge"
+  ],
+  "unknown": []
+ },
+ "MoveToFreezerDrawer": {
+  "need": [
+   "OpenFridge"
+  ],
+  "unknown": []
+ },
+ "MultistepSteaming": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceCounterToSink",
+   "PickPlaceCounterToStove",
+   "TurnOffSinkFaucet",
+   "TurnOnSinkFaucet"
+  ],
+  "unknown": [
+   "custom-state:vegetable_was_in_sink",
+   "custom-state:water_was_turned_on"
+  ]
+ },
+ "OrganizeBakingIngredients": {
+  "need": [],
+  "unknown": []
+ },
+ "OrganizeCleaningSupplies": {
+  "need": [
+   "CloseCabinet",
+   "OpenCabinet",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "OrganizeCoffeeCondiments": {
+  "need": [
+   "OpenCabinet",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": [
+   "custom-state:coffee_machine_counter"
+  ]
+ },
+ "OrganizeCondiments": {
+  "need": [
+   "PickPlaceCounterToCabinet"
+  ],
+  "unknown": []
+ },
+ "OrganizeMetallicUtensils": {
+  "need": [
+   "NavigateKitchen",
+   "PickPlaceCounterToDrawer"
+  ],
+  "unknown": [
+   "custom-state:third_utensil_is_metallic"
+  ]
+ },
+ "OrganizeMugsByHandle": {
+  "need": [
+   "PickPlaceCabinetToCounter",
+   "PickPlaceCounterToCabinet"
+  ],
+  "unknown": []
+ },
+ "OrganizeVegetables": {
+  "need": [
+   "CheesyBread"
+  ],
+  "unknown": []
+ },
+ "OvenBroilFish": {
+  "need": [
+   "CloseOven"
+  ],
+  "unknown": [
+   "custom-state:rack_level",
+   "custom-state:success_timer"
+  ]
+ },
+ "PackFoodByTemp": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen",
+   "OpenFridge",
+   "PickPlaceStoveToCounter"
+  ],
+  "unknown": []
+ },
+ "PackFruitContainer": {
+  "need": [
+   "CheesyBread",
+   "OpenFridge"
+  ],
+  "unknown": []
+ },
+ "PackIdenticalLunches": {
+  "need": [
+   "CheesyBread",
+   "OpenFridge"
+  ],
+  "unknown": []
+ },
+ "PanTransfer": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceCounterToStove",
+   "PickPlaceStoveToCounter"
+  ],
+  "unknown": []
+ },
+ "PastryDisplay": {
+  "need": [
+   "CheesyBread"
+  ],
+  "unknown": []
+ },
+ "PlaceBeveragesTogether": {
+  "need": [
+   "NavigateKitchen"
+  ],
+  "unknown": []
+ },
+ "PlaceDishesBySink": {
+  "need": [
+   "OpenCabinet"
+  ],
+  "unknown": [
+   "custom-state:counter_sink",
+   "fixture_contact:counter_sink"
+  ]
+ },
+ "PlaceEqualIceCubes": {
+  "need": [
+   "CheesyBread"
+  ],
+  "unknown": []
+ },
+ "PlaceFoodInBowls": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "PlaceIceInCup": {
+  "need": [
+   "CheesyBread"
+  ],
+  "unknown": []
+ },
+ "PlaceMeatInMarinade": {
+  "need": [
+   "CheesyBread",
+   "OpenFridge",
+   "PickPlaceCounterToStove"
+  ],
+  "unknown": []
+ },
+ "PlaceMicrowaveSafeItem": {
+  "need": [
+   "CloseMicrowave",
+   "PickPlaceCounterToMicrowave",
+   "TurnOnMicrowave"
+  ],
+  "unknown": []
+ },
+ "PlaceOnDishRack": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceSinkToCounter"
+  ],
+  "unknown": [
+   "custom-state:dish_rack",
+   "fixture_contact:dish_rack"
+  ]
+ },
+ "PlaceStraw": {
+  "need": [
+   "CheesyBread",
+   "OpenDrawer",
+   "PickPlaceDrawerToCounter"
+  ],
+  "unknown": []
+ },
+ "PlaceVegetablesEvenly": {
+  "need": [
+   "CheesyBread"
+  ],
+  "unknown": []
+ },
+ "PlaceVeggiesInDrawer": {
+  "need": [
+   "CloseDrawer",
+   "CloseFridge",
+   "OpenDrawer",
+   "OpenFridge"
+  ],
+  "unknown": []
+ },
+ "PlateSteakMeal": {
+  "need": [
+   "CheesyBread"
+  ],
+  "unknown": []
+ },
+ "PlateStoreDinner": {
+  "need": [
+   "CheesyBread",
+   "OpenFridge",
+   "PickPlaceStoveToCounter"
+  ],
+  "unknown": [
+   "inside_of:fridge"
+  ]
+ },
+ "PortionFruitBowl": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen"
+  ],
+  "unknown": []
+ },
+ "PortionHotDogs": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen"
+  ],
+  "unknown": []
+ },
+ "PortionInTupperware": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen"
+  ],
+  "unknown": []
+ },
+ "PortionOnSize": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "PortionYogurt": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen"
+  ],
+  "unknown": []
+ },
+ "PreRinseStation": {
+  "need": [],
+  "unknown": [
+   "custom-state:left_obj",
+   "custom-state:right_obj"
+  ]
+ },
+ "PreSoakPan": {
+  "need": [
+   "PickPlaceCounterToSink",
+   "TurnOnSinkFaucet"
+  ],
+  "unknown": []
+ },
+ "PreheatPot": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceCounterToStove",
+   "TurnOnStove"
+  ],
+  "unknown": [
+   "custom-state:heat_timer"
+  ]
+ },
+ "PrepForSanitizing": {
+  "need": [
+   "OpenCabinet",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "PrepForTenderizing": {
+  "need": [
+   "CheesyBread",
+   "OpenCabinet",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "PrepFridgeForCleaning": {
+  "need": [
+   "CheesyBread",
+   "OpenFridge"
+  ],
+  "unknown": []
+ },
+ "PrepMarinatingMeat": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "PrepSinkForCleaning": {
+  "need": [
+   "PickPlaceCounterToCabinet"
+  ],
+  "unknown": []
+ },
+ "PrepareBroilingStation": {
+  "need": [
+   "CheesyBread"
+  ],
+  "unknown": []
+ },
+ "PrepareCheeseStation": {
+  "need": [
+   "OpenFridge",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "PrepareCocktailStation": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen",
+   "OpenFridge",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "PrepareCoffee": {
+  "need": [
+   "PickPlaceCabinetToCounter",
+   "TurnOnMicrowave"
+  ],
+  "unknown": []
+ },
+ "PrepareDishwasher": {
+  "need": [
+   "OpenDishwasher"
+  ],
+  "unknown": []
+ },
+ "PrepareDrinkStation": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "PrepareSausageCheese": {
+  "need": [
+   "CheesyBread",
+   "OpenFridge"
+  ],
+  "unknown": []
+ },
+ "PrepareSmoothie": {
+  "need": [
+   "CheesyBread",
+   "OpenFridge"
+  ],
+  "unknown": [
+   "inside_of:fridge"
+  ]
+ },
+ "PrepareSoupServing": {
+  "need": [
+   "CheesyBread",
+   "CloseCabinet",
+   "OpenCabinet",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "PrepareStoringLeftovers": {
+  "need": [
+   "NavigateKitchen",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "PrepareToast": {
+  "need": [
+   "CheesyBread",
+   "CloseCabinet",
+   "OpenCabinet",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "PressChicken": {
+  "need": [
+   "PickPlaceStoveToCounter"
+  ],
+  "unknown": [
+   "custom-state:press_done"
+  ]
+ },
+ "PrewashFoodAssembly": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceCabinetToCounter",
+   "PickPlaceCounterToSink",
+   "TurnOnSinkFaucet"
+  ],
+  "unknown": []
+ },
+ "PrewashFoodSorting": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceCabinetToCounter",
+   "PickPlaceSinkToCounter"
+  ],
+  "unknown": []
+ },
+ "QuickThaw": {
+  "need": [
+   "CheesyBread",
+   "TurnOnStove"
+  ],
+  "unknown": []
+ },
+ "RearrangeFridgeItems": {
+  "need": [],
+  "unknown": [
+   "custom-state:dest_rack_index",
+   "custom-state:source_rack_index"
+  ]
+ },
+ "RecycleBottlesBySize": {
+  "need": [
+   "NavigateKitchen",
+   "PickPlaceCounterToSink",
+   "PickPlaceSinkToCounter"
+  ],
+  "unknown": []
+ },
+ "RecycleBottlesByType": {
+  "need": [],
+  "unknown": [
+   "custom-state:choice"
+  ]
+ },
+ "RecycleSodaCans": {
+  "need": [
+   "CheesyBread"
+  ],
+  "unknown": []
+ },
+ "RecycleStackedYogurt": {
+  "need": [
+   "CheesyBread"
+  ],
+  "unknown": []
+ },
+ "RefillCondimentStation": {
+  "need": [
+   "NavigateKitchen",
+   "OpenCabinet",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "ReheatMeal": {
+  "need": [
+   "CheesyBread",
+   "CloseMicrowave",
+   "PickPlaceCounterToMicrowave",
+   "TurnOnMicrowave"
+  ],
+  "unknown": []
+ },
+ "RemoveBroiledFish": {
+  "need": [
+   "CheesyBread"
+  ],
+  "unknown": []
+ },
+ "RemoveCuttingBoardItems": {
+  "need": [
+   "CheesyBread"
+  ],
+  "unknown": []
+ },
+ "ReorganizeFrozenVegetables": {
+  "need": [
+   "CheesyBread"
+  ],
+  "unknown": []
+ },
+ "ResetCabinetDoors": {
+  "need": [
+   "CloseCabinet"
+  ],
+  "unknown": [
+   "custom-state:cab2",
+   "custom-state:cab3",
+   "is_closed:cab2",
+   "is_closed:cab3"
+  ]
+ },
+ "RestockBowls": {
+  "need": [
+   "CloseCabinet",
+   "OpenCabinet",
+   "PickPlaceCounterToCabinet"
+  ],
+  "unknown": []
+ },
+ "RestockCannedFood": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceCabinetToCounter",
+   "PickPlaceCounterToCabinet"
+  ],
+  "unknown": []
+ },
+ "RestockPantry": {
+  "need": [
+   "PickPlaceCabinetToCounter",
+   "PickPlaceCounterToCabinet"
+  ],
+  "unknown": []
+ },
+ "RestockSinkSupplies": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceDrawerToCounter"
+  ],
+  "unknown": []
+ },
+ "RetrieveIceTray": {
+  "need": [
+   "NavigateKitchen"
+  ],
+  "unknown": []
+ },
+ "RetrieveMeat": {
+  "need": [
+   "CheesyBread",
+   "OpenFridge"
+  ],
+  "unknown": []
+ },
+ "ReturnHeatedFood": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen",
+   "OpenMicrowave",
+   "PickPlaceMicrowaveToCounter"
+  ],
+  "unknown": []
+ },
+ "ReturnWashingSupplies": {
+  "need": [
+   "CloseCabinet",
+   "PickPlaceCounterToCabinet",
+   "PickPlaceSinkToCounter"
+  ],
+  "unknown": []
+ },
+ "RinseBowls": {
+  "need": [],
+  "unknown": [
+   "custom-state:rinsed_objects"
+  ]
+ },
+ "RinseCuttingBoard": {
+  "need": [
+   "PickPlaceSinkToCounter",
+   "TurnOffSinkFaucet",
+   "TurnOnSinkFaucet"
+  ],
+  "unknown": [
+   "custom-state:rinsing_time"
+  ]
+ },
+ "RinseSinkBasin": {
+  "need": [
+   "TurnOnSinkFaucet"
+  ],
+  "unknown": [
+   "custom-state:washed_loc"
+  ]
+ },
+ "RotatePan": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceCounterToStove",
+   "PickPlaceStoveToCounter"
+  ],
+  "unknown": [
+   "custom-state:pan_rotated"
+  ]
+ },
+ "SanitizePrepCuttingBoard": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "ScalePortioning": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen",
+   "OpenFridge"
+  ],
+  "unknown": [
+   "custom-state:scale_wait_complete"
+  ]
+ },
+ "ScrubBowl": {
+  "need": [
+   "PickPlaceSinkToCounter"
+  ],
+  "unknown": [
+   "custom-state:success_contact_time"
+  ]
+ },
+ "ScrubCuttingBoard": {
+  "need": [],
+  "unknown": [
+   "custom-state:board_contact_positions",
+   "custom-state:board_contact_timer"
+  ]
+ },
+ "SearingMeat": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceCounterToStove"
+  ],
+  "unknown": []
+ },
+ "SeasoningSpiceSetup": {
+  "need": [
+   "NavigateKitchen",
+   "OpenCabinet",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "SeasoningSteak": {
+  "need": [
+   "NavigateKitchen",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "SeparateFreezerRack": {
+  "need": [
+   "CheesyBread"
+  ],
+  "unknown": []
+ },
+ "ServeSteak": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen",
+   "PickPlaceStoveToCounter"
+  ],
+  "unknown": []
+ },
+ "ServeTea": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen",
+   "PickPlaceMicrowaveToCounter"
+  ],
+  "unknown": []
+ },
+ "ServeWarmCroissant": {
+  "need": [
+   "CheesyBread",
+   "OpenOven",
+   "PickPlaceToasterOvenToCounter"
+  ],
+  "unknown": []
+ },
+ "SetBowlsForSoup": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen",
+   "OpenCabinet",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "SetUpCuttingStation": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceDrawerToCounter"
+  ],
+  "unknown": []
+ },
+ "SetUpSpiceStation": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "SetupBowls": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "SetupButterPlate": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen",
+   "OpenFridge"
+  ],
+  "unknown": []
+ },
+ "SetupFruitBowl": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen",
+   "OpenFridge"
+  ],
+  "unknown": []
+ },
+ "SetupFrying": {
+  "need": [
+   "OpenCabinet",
+   "PickPlaceCabinetToCounter",
+   "PickPlaceCounterToStove",
+   "PickPlaceStoveToCounter",
+   "TurnOnStove"
+  ],
+  "unknown": []
+ },
+ "SetupSodaBowl": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen",
+   "OpenFridge"
+  ],
+  "unknown": []
+ },
+ "SetupWineGlasses": {
+  "need": [
+   "NavigateKitchen"
+  ],
+  "unknown": []
+ },
+ "ShakePan": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceCounterToStove",
+   "PickPlaceStoveToCounter"
+  ],
+  "unknown": [
+   "custom-state:success_time"
+  ]
+ },
+ "SimmeringSauce": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceCounterToStove",
+   "TurnOnStove"
+  ],
+  "unknown": []
+ },
+ "SizeSorting": {
+  "need": [
+   "CheesyBread"
+  ],
+  "unknown": [
+   "custom-state:num_objs"
+  ]
+ },
+ "SnackSorting": {
+  "need": [
+   "CheesyBread",
+   "CloseDrawer",
+   "PickPlaceDrawerToCounter"
+  ],
+  "unknown": []
+ },
+ "SoakSponge": {
+  "need": [
+   "PickPlaceCounterToSink"
+  ],
+  "unknown": [
+   "custom-state:sponge_contact_time"
+  ]
+ },
+ "SortingCleanup": {
+  "need": [
+   "CloseCabinet",
+   "PickPlaceCabinetToCounter",
+   "PickPlaceCounterToCabinet",
+   "PickPlaceCounterToSink"
+  ],
+  "unknown": []
+ },
+ "SpicyMarinade": {
+  "need": [
+   "CheesyBread",
+   "OpenCabinet",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "StackBowlsCabinet": {
+  "need": [
+   "CheesyBread",
+   "NavigateKitchen",
+   "PickPlaceCounterToCabinet"
+  ],
+  "unknown": []
+ },
+ "StackBowlsInSink": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceCounterToSink"
+  ],
+  "unknown": []
+ },
+ "StackCans": {
+  "need": [
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "StartElectricKettle": {
+  "need": [
+   "CloseBlenderLid"
+  ],
+  "unknown": []
+ },
+ "SteamInMicrowave": {
+  "need": [
+   "CheesyBread",
+   "CloseMicrowave",
+   "PickPlaceCounterToMicrowave",
+   "PickPlaceSinkToCounter",
+   "TurnOnMicrowave"
+  ],
+  "unknown": []
+ },
+ "StirVegetables": {
+  "need": [
+   "PickPlaceStoveToCounter"
+  ],
+  "unknown": [
+   "custom-state:success_time"
+  ]
+ },
+ "StockingBreakfastFoods": {
+  "need": [],
+  "unknown": [
+   "custom-state:cab1",
+   "custom-state:cab2",
+   "inside_of:cab1",
+   "inside_of:cab2"
+  ]
+ },
+ "StoreDumplings": {
+  "need": [
+   "CheesyBread",
+   "OpenFridge"
+  ],
+  "unknown": []
+ },
+ "StoreLeftoversByType": {
+  "need": [],
+  "unknown": [
+   "custom-state:meat_rack_index",
+   "custom-state:vegetable_rack_index"
+  ]
+ },
+ "StoreLeftoversInBowl": {
+  "need": [
+   "CheesyBread",
+   "OpenFridge"
+  ],
+  "unknown": []
+ },
+ "StrainerSetup": {
+  "need": [
+   "CheesyBread",
+   "OpenCabinet",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "SweetSavoryToastSetup": {
+  "need": [
+   "CheesyBread",
+   "CloseCabinet",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "SweetenCoffee": {
+  "need": [
+   "CheesyBread",
+   "OpenFridge"
+  ],
+  "unknown": []
+ },
+ "SweetenHotChocolate": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceStoveToCounter"
+  ],
+  "unknown": [
+   "custom-state:num_sugar"
+  ]
+ },
+ "ThawInSink": {
+  "need": [
+   "PickPlaceCounterToSink",
+   "TurnOnSinkFaucet"
+  ],
+  "unknown": []
+ },
+ "TiltPan": {
+  "need": [
+   "CheesyBread",
+   "PickPlaceCounterToStove",
+   "PickPlaceStoveToCounter"
+  ],
+  "unknown": [
+   "custom-state:success_time"
+  ]
+ },
+ "ToastBagel": {
+  "need": [
+   "CloseOven",
+   "CloseToasterOvenDoor",
+   "OpenOven",
+   "TurnOnToasterOven"
+  ],
+  "unknown": []
+ },
+ "ToastBaguette": {
+  "need": [
+   "CloseOven",
+   "CloseToasterOvenDoor"
+  ],
+  "unknown": []
+ },
+ "ToastOnCorrectRack": {
+  "need": [
+   "OpenOven"
+  ],
+  "unknown": [
+   "custom-state:bread_rack_level",
+   "custom-state:meat_rack_level"
+  ]
+ },
+ "TongBuffetSetup": {
+  "need": [
+   "NavigateKitchen",
+   "PickPlaceDrawerToCounter"
+  ],
+  "unknown": []
+ },
+ "TransportCookware": {
+  "need": [
+   "PickPlaceCounterToSink",
+   "PickPlaceStoveToCounter"
+  ],
+  "unknown": []
+ },
+ "TurnOffSimmeredSauceHeat": {
+  "need": [
+   "PickPlaceStoveToCounter",
+   "TurnOffStove",
+   "TurnOnStove"
+  ],
+  "unknown": [
+   "custom-state:off_too_early",
+   "custom-state:simmer_timesteps",
+   "custom-state:task_timestep"
+  ]
+ },
+ "VeggieDipPrep": {
+  "need": [
+   "CheesyBread"
+  ],
+  "unknown": []
+ },
+ "WaffleReheat": {
+  "need": [
+   "CheesyBread",
+   "CloseMicrowave",
+   "OpenMicrowave",
+   "PickPlaceCounterToMicrowave",
+   "TurnOnMicrowave"
+  ],
+  "unknown": []
+ },
+ "WarmCroissant": {
+  "need": [
+   "CheesyBread",
+   "TurnOnStove"
+  ],
+  "unknown": []
+ },
+ "WashFish": {
+  "need": [
+   "CheesyBread",
+   "OpenFridge"
+  ],
+  "unknown": [
+   "custom-state:fish_rinsed"
+  ]
+ },
+ "WashFruitColander": {
+  "need": [
+   "CheesyBread",
+   "TurnOnSinkFaucet"
+  ],
+  "unknown": [
+   "custom-state:num_fruit"
+  ]
+ },
+ "WashLettuce": {
+  "need": [
+   "TurnOnSinkFaucet"
+  ],
+  "unknown": [
+   "custom-state:washed_time"
+  ]
+ },
+ "WeighIngredients": {
+  "need": [
+   "CheesyBread",
+   "CloseCabinet",
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": []
+ },
+ "YogurtDelightPrep": {
+  "need": [
+   "PickPlaceCabinetToCounter"
+  ],
+  "unknown": [
+   "custom-state:num_fruit"
+  ]
+ }
+}

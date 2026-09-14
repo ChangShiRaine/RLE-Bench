@@ -1,0 +1,30 @@
+# Build context for the task04 and task05 images is the REPO ROOT, so their
+# Dockerfiles can COPY harness code and vendored assets straight from source
+# with no staging step. Deny everything, then admit exactly what the images
+# need -- third_party/ also holds ~23 GB of RoboCasa that must never reach the
+# daemon. Later rules win, so denials of admitted subtrees come last.
+*
+!rlebench/**
+!tasks/task04/**
+!third_party/motiontrack/**
+!sim/libero/**
+!sim/robotwin/**
+!tasks/task05/harness/**
+# the RoboTwin layer: code, cuRobo and the 15 GB asset tree (the 6.7 GB of demos stay outside)
+!third_party/robotwin/**
+# task06/08/09 verifiers build from the repo root so rlebench.core ships from
+# its single source; their tests/ trees (incl. gitignored staged content) must
+# reach the daemon.
+!tasks/task06/*/tests/**
+!tasks/task08/tests/**
+!tasks/task09/tests/**
+
+# The task04 image COPYs never include the oracle reference; it is ~35 MB the
+# daemon would otherwise receive on every build.
+tasks/task04/dev/**
+
+# Vendoring markers are build state, not assets.
+third_party/motiontrack/**/.rev
+
+**/__pycache__
+**/*.pyc

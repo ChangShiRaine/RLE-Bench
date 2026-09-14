@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="stock mecanum wheel left example">
+  <option gravity="0 0 0" />
+  <worldbody>
+    <body name="wheel_EXAMPLE">
+      <joint name="drive_EXAMPLE" axis="0 1 0" armature="0.002" damping="0.01" />
+      <geom name="hub_EXAMPLE" type="cylinder" size="0.052 0.02" quat="0.7071068 0.7071068 0 0" mass="1.2" rgba="0.25 0.25 0.28 1" />
+      <body name="roller_EXAMPLE_0" pos="0.06 0 0">
+        <joint name="rollerj_EXAMPLE_0" axis="0 -0.7071068 0.7071068" armature="1e-05" damping="0.0005" frictionloss="0.002" />
+        <geom name="rollerg_EXAMPLE_0" type="capsule" size="0.016 0.019403" quat="0.9238795 0.3826834 0 0" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1" />
+      </body>
+      <body name="roller_EXAMPLE_1" pos="0.05543277 0 0.02296101">
+        <joint name="rollerj_EXAMPLE_1" axis="-0.2705981 -0.7071068 0.6532815" armature="1e-05" damping="0.0005" frictionloss="0.002" />
+        <geom name="rollerg_EXAMPLE_1" type="capsule" size="0.016 0.019403" quat="0.9091979 0.388863 -0.1488114 0" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1" />
+      </body>
+      <body name="roller_EXAMPLE_2" pos="0.04242641 0 0.04242641">
+        <joint name="rollerj_EXAMPLE_2" axis="-0.5 -0.7071068 0.5" armature="1e-05" damping="0.0005" frictionloss="0.002" />
+        <geom name="rollerg_EXAMPLE_2" type="capsule" size="0.016 0.019403" quat="0.8660254 0.4082483 -0.2886751 0" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1" />
+      </body>
+      <body name="roller_EXAMPLE_3" pos="0.02296101 0 0.05543277">
+        <joint name="rollerj_EXAMPLE_3" axis="-0.6532815 -0.7071068 0.2705981" armature="1e-05" damping="0.0005" frictionloss="0.002" />
+        <geom name="rollerg_EXAMPLE_3" type="capsule" size="0.016 0.019403" quat="0.7970565 0.4435738 -0.4098088 0" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1" />
+      </body>
+      <body name="roller_EXAMPLE_4" pos="0 0 0.06">
+        <joint name="rollerj_EXAMPLE_4" axis="-0.7071068 -0.7071068 0" armature="1e-05" damping="0.0005" frictionloss="0.002" />
+        <geom name="rollerg_EXAMPLE_4" type="capsule" size="0.016 0.019403" quat="0.7071068 0.5 -0.5 0" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1" />
+      </body>
+      <body name="roller_EXAMPLE_5" pos="-0.02296101 0 0.05543277">
+        <joint name="rollerj_EXAMPLE_5" axis="-0.6532815 -0.7071068 -0.2705981" armature="1e-05" damping="0.0005" frictionloss="0.002" />
+        <geom name="rollerg_EXAMPLE_5" type="capsule" size="0.016 0.019403" quat="0.6039048 0.5854456 -0.5408812 0" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1" />
+      </body>
+      <body name="roller_EXAMPLE_6" pos="-0.04242641 0 0.04242641">
+        <joint name="rollerj_EXAMPLE_6" axis="-0.5 -0.7071068 -0.5" armature="1e-05" damping="0.0005" frictionloss="0.002" />
+        <geom name="rollerg_EXAMPLE_6" type="capsule" size="0.016 0.019403" quat="0.5 0.7071068 -0.5 0" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1" />
+      </body>
+      <body name="roller_EXAMPLE_7" pos="-0.05543277 0 0.02296101">
+        <joint name="rollerj_EXAMPLE_7" axis="-0.2705981 -0.7071068 -0.6532815" armature="1e-05" damping="0.0005" frictionloss="0.002" />
+        <geom name="rollerg_EXAMPLE_7" type="capsule" size="0.016 0.019403" quat="0.4163643 0.8491443 -0.3249534 0" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1" />
+      </body>
+      <body name="roller_EXAMPLE_8" pos="-0.06 0 0">
+        <joint name="rollerj_EXAMPLE_8" axis="0 -0.7071068 -0.7071068" armature="1e-05" damping="0.0005" frictionloss="0.002" />
+        <geom name="rollerg_EXAMPLE_8" type="capsule" size="0.016 0.019403" quat="0.3826834 0.9238795 0 0" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1" />
+      </body>
+      <body name="roller_EXAMPLE_9" pos="-0.05543277 0 -0.02296101">
+        <joint name="rollerj_EXAMPLE_9" axis="0.2705981 -0.7071068 -0.6532815" armature="1e-05" damping="0.0005" frictionloss="0.002" />
+        <geom name="rollerg_EXAMPLE_9" type="capsule" size="0.016 0.019403" quat="0.4163643 0.8491443 0.3249534 0" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1" />
+      </body>
+      <body name="roller_EXAMPLE_10" pos="-0.04242641 0 -0.04242641">
+        <joint name="rollerj_EXAMPLE_10" axis="0.5 -0.7071068 -0.5" armature="1e-05" damping="0.0005" frictionloss="0.002" />
+        <geom name="rollerg_EXAMPLE_10" type="capsule" size="0.016 0.019403" quat="0.5 0.7071068 0.5 0" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1" />
+      </body>
+      <body name="roller_EXAMPLE_11" pos="-0.02296101 0 -0.05543277">
+        <joint name="rollerj_EXAMPLE_11" axis="0.6532815 -0.7071068 -0.2705981" armature="1e-05" damping="0.0005" frictionloss="0.002" />
+        <geom name="rollerg_EXAMPLE_11" type="capsule" size="0.016 0.019403" quat="0.6039048 0.5854456 0.5408812 0" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1" />
+      </body>
+      <body name="roller_EXAMPLE_12" pos="0 0 -0.06">
+        <joint name="rollerj_EXAMPLE_12" axis="0.7071068 -0.7071068 0" armature="1e-05" damping="0.0005" frictionloss="0.002" />
+        <geom name="rollerg_EXAMPLE_12" type="capsule" size="0.016 0.019403" quat="0.7071068 0.5 0.5 0" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1" />
+      </body>
+      <body name="roller_EXAMPLE_13" pos="0.02296101 0 -0.05543277">
+        <joint name="rollerj_EXAMPLE_13" axis="0.6532815 -0.7071068 0.2705981" armature="1e-05" damping="0.0005" frictionloss="0.002" />
+        <geom name="rollerg_EXAMPLE_13" type="capsule" size="0.016 0.019403" quat="0.7970565 0.4435738 0.4098088 0" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1" />
+      </body>
+      <body name="roller_EXAMPLE_14" pos="0.04242641 0 -0.04242641">
+        <joint name="rollerj_EXAMPLE_14" axis="0.5 -0.7071068 0.5" armature="1e-05" damping="0.0005" frictionloss="0.002" />
+        <geom name="rollerg_EXAMPLE_14" type="capsule" size="0.016 0.019403" quat="0.8660254 0.4082483 0.2886751 0" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1" />
+      </body>
+      <body name="roller_EXAMPLE_15" pos="0.05543277 0 -0.02296101">
+        <joint name="rollerj_EXAMPLE_15" axis="0.2705981 -0.7071068 0.6532815" armature="1e-05" damping="0.0005" frictionloss="0.002" />
+        <geom name="rollerg_EXAMPLE_15" type="capsule" size="0.016 0.019403" quat="0.9091979 0.388863 0.1488114 0" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1" />
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <general name="motor_EXAMPLE" joint="drive_EXAMPLE" ctrlrange="-45 45" forcerange="-15 15" biastype="affine" gainprm="12" biasprm="0 0 -12" />
+  </actuator>
+</mujoco>

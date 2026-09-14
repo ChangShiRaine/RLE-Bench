@@ -1,0 +1,46 @@
+schema_version = "1.4"
+
+[task]
+name = "rlebench/task06-rgb-depth-model-training"
+version = "1.0.0"
+description = "Estimate the planar pose (x, y, theta) of one of three unlabeled asymmetric blocks from a fixed oblique camera; neither meshes nor shape identity are exposed — a learned model, trained from scratch in this container."
+authors = [{ name = "Haitong Ma", email = "haitongma@g.harvard.edu" }]
+keywords = ["robotics", "mujoco", "simulation", "perception", "pose-estimation", "computer-vision", "gpu"]
+
+[metadata]
+category = "robotics-perception"
+difficulty = "hard"
+tags = ["pose-estimation", "hidden-seeds", "gpu"]
+difficulty_explanation = "Blind multi-shape pose estimation under adversarial sensing, evaluated on unpublished scene seeds."
+
+[environment]
+# Prebuilt by `make task06`; environment/ and tests/ remain the build inputs.
+docker_image = "rlebench-task06-rgb-depth-model-training-agent:dev"
+build_timeout_sec = 3600.0
+cpus = 16
+memory_mb = 6144
+network_mode = "no-network"
+gpus = 1
+
+[agent]
+timeout_sec = 7200.0
+user = "agent"
+
+[verifier]
+timeout_sec = 1800.0
+network_mode = "no-network"
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "rlebench-task06-rgb-depth-model-training-verifier:dev"
+cpus = 4
+memory_mb = 6144
+network_mode = "no-network"
+
+[environment.healthcheck]
+command = "test -f /run/rlebench/task06-ready"
+interval_sec = 2.0
+timeout_sec = 5.0
+start_period_sec = 5.0
+start_interval_sec = 1.0
+retries = 60

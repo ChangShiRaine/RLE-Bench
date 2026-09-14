@@ -1,0 +1,95 @@
+<mujoco model="rlebench_task08_scene">
+  <include file="robot.xml"/>
+
+  <!-- Public task frame: the robot starts at the origin facing +x. -->
+  <statistic center="0.3 0 0.7" extent="1.6"/>
+
+  <worldbody>
+    <light pos="0 0 3" dir="0 0 -1" directional="true"/>
+    <geom name="floor" type="plane" size="0 0 0.05"
+          contype="1" conaffinity="3" priority="2"
+          friction="0.9 0.005 0.0001" rgba="0.85 0.85 0.85 1"/>
+
+    <!--
+      Three-bin shelf used by the task08 reach evaluation. Its open face is
+      x=0.40 m. Dimensions and target coordinates are also machine-readable
+      in shelf_spec.json.
+    -->
+    <geom name="pod_wall_L" type="box" size="0.19 0.01 0.73"
+          pos="0.59 0.26 0.73" priority="2"
+          friction="0.9 0.005 0.0001" rgba="0.32 0.38 0.45 1"/>
+    <geom name="pod_wall_R" type="box" size="0.19 0.01 0.73"
+          pos="0.59 -0.26 0.73" priority="2"
+          friction="0.9 0.005 0.0001" rgba="0.32 0.38 0.45 1"/>
+    <geom name="pod_back" type="box" size="0.01 0.27 0.73"
+          pos="0.79 0 0.73" priority="2"
+          friction="0.9 0.005 0.0001" rgba="0.38 0.44 0.51 1"/>
+    <geom name="pod_plate_0" type="box" size="0.19 0.25 0.01"
+          pos="0.59 0 0.19" priority="2"
+          friction="0.9 0.005 0.0001" rgba="0.42 0.48 0.55 1"/>
+    <geom name="pod_plate_1" type="box" size="0.19 0.25 0.01"
+          pos="0.59 0 0.65" priority="2"
+          friction="0.9 0.005 0.0001" rgba="0.42 0.48 0.55 1"/>
+    <geom name="pod_plate_2" type="box" size="0.19 0.25 0.01"
+          pos="0.59 0 1.01" priority="2"
+          friction="0.9 0.005 0.0001" rgba="0.42 0.48 0.55 1"/>
+    <geom name="pod_top" type="box" size="0.19 0.25 0.01"
+          pos="0.59 0 1.45" priority="2"
+          friction="0.9 0.005 0.0001" rgba="0.42 0.48 0.55 1"/>
+
+    <!-- Four inset x-y corners above each horizontal shelf surface. Red
+         spheres are required flange targets; green spheres are their approach
+         waypoints. Sites are visual markers and have no collision geometry. -->
+    <site name="shelf_target_low_front_left" type="sphere" size="0.018"
+          pos="0.50 0.15 0.34" rgba="0.95 0.15 0.10 0.85"/>
+    <site name="shelf_target_low_front_right" type="sphere" size="0.018"
+          pos="0.50 -0.15 0.34" rgba="0.95 0.15 0.10 0.85"/>
+    <site name="shelf_target_low_back_left" type="sphere" size="0.018"
+          pos="0.68 0.15 0.34" rgba="0.95 0.15 0.10 0.85"/>
+    <site name="shelf_target_low_back_right" type="sphere" size="0.018"
+          pos="0.68 -0.15 0.34" rgba="0.95 0.15 0.10 0.85"/>
+
+    <site name="shelf_target_middle_front_left" type="sphere" size="0.018"
+          pos="0.50 0.15 0.80" rgba="0.95 0.15 0.10 0.85"/>
+    <site name="shelf_target_middle_front_right" type="sphere" size="0.018"
+          pos="0.50 -0.15 0.80" rgba="0.95 0.15 0.10 0.85"/>
+    <site name="shelf_target_middle_back_left" type="sphere" size="0.018"
+          pos="0.68 0.15 0.80" rgba="0.95 0.15 0.10 0.85"/>
+    <site name="shelf_target_middle_back_right" type="sphere" size="0.018"
+          pos="0.68 -0.15 0.80" rgba="0.95 0.15 0.10 0.85"/>
+
+    <site name="shelf_target_high_front_left" type="sphere" size="0.018"
+          pos="0.50 0.15 1.16" rgba="0.95 0.15 0.10 0.85"/>
+    <site name="shelf_target_high_front_right" type="sphere" size="0.018"
+          pos="0.50 -0.15 1.16" rgba="0.95 0.15 0.10 0.85"/>
+    <site name="shelf_target_high_back_left" type="sphere" size="0.018"
+          pos="0.68 0.15 1.16" rgba="0.95 0.15 0.10 0.85"/>
+    <site name="shelf_target_high_back_right" type="sphere" size="0.018"
+          pos="0.68 -0.15 1.16" rgba="0.95 0.15 0.10 0.85"/>
+
+    <site name="shelf_approach_low_front_left" type="sphere" size="0.010"
+          pos="0.22 0.15 0.34" rgba="0.10 0.85 0.25 0.45"/>
+    <site name="shelf_approach_low_front_right" type="sphere" size="0.010"
+          pos="0.22 -0.15 0.34" rgba="0.10 0.85 0.25 0.45"/>
+    <site name="shelf_approach_low_back_left" type="sphere" size="0.010"
+          pos="0.22 0.15 0.34" rgba="0.10 0.85 0.25 0.45"/>
+    <site name="shelf_approach_low_back_right" type="sphere" size="0.010"
+          pos="0.22 -0.15 0.34" rgba="0.10 0.85 0.25 0.45"/>
+    <site name="shelf_approach_middle_front_left" type="sphere" size="0.010"
+          pos="0.22 0.15 0.80" rgba="0.10 0.85 0.25 0.45"/>
+    <site name="shelf_approach_middle_front_right" type="sphere" size="0.010"
+          pos="0.22 -0.15 0.80" rgba="0.10 0.85 0.25 0.45"/>
+    <site name="shelf_approach_middle_back_left" type="sphere" size="0.010"
+          pos="0.22 0.15 0.80" rgba="0.10 0.85 0.25 0.45"/>
+    <site name="shelf_approach_middle_back_right" type="sphere" size="0.010"
+          pos="0.22 -0.15 0.80" rgba="0.10 0.85 0.25 0.45"/>
+    <site name="shelf_approach_high_front_left" type="sphere" size="0.010"
+          pos="0.22 0.15 1.16" rgba="0.10 0.85 0.25 0.45"/>
+    <site name="shelf_approach_high_front_right" type="sphere" size="0.010"
+          pos="0.22 -0.15 1.16" rgba="0.10 0.85 0.25 0.45"/>
+    <site name="shelf_approach_high_back_left" type="sphere" size="0.010"
+          pos="0.22 0.15 1.16" rgba="0.10 0.85 0.25 0.45"/>
+    <site name="shelf_approach_high_back_right" type="sphere" size="0.010"
+          pos="0.22 -0.15 1.16" rgba="0.10 0.85 0.25 0.45"/>
+  </worldbody>
+</mujoco>

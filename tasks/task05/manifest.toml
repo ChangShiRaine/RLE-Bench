@@ -1,0 +1,40 @@
+# rlebench manifest: how this family is prepared and addressed. Read by the
+# CLI only; ships into no image.
+[task]
+layout = "subtasks"
+
+[prepare]
+# sim-libero: encoder bundles, agent images, LIBERO verifier base. sim-robotwin: third_party/robotwin,
+# simulator image, RoboTwin verifier base. task05: per-subtask verifiers. task05-data: third_party/task05.
+commands = [["make", "sim-libero"], ["make", "sim-robotwin"], ["make", "task05"], ["make", "task05-data"]]
+env = [
+  "NANOVLA_SHARDS_L10, NANOVLA_ROBOTWIN_SHARDS, NANOVLA_LIBERO_PLUS_ASSETS (optional: mount other copies than third_party/task05)",
+  "NANOVLA_HF_BASE + NANOVLA_HF_DINOV2 + NANOVLA_HF_OPEN (optional, build time: bundle directories instead of the pinned download)",
+  "NANOVLA_EVAL_LOGS (optional: host directory receiving the evaluation-service request logs)",
+  "NANOVLA_RESUME_DIR (optional, 03/04: an interrupted run's ckpt.pt and rows, to finish its missing episodes instead of restarting)",
+]
+
+[verify]
+images = [
+  "rlebench-task05-hf-base:dev",
+  "rlebench-task05-hf-dinov2:dev",
+  "rlebench-task05-hf-open:dev",
+  "rlebench-task05-agent-base:dev",
+  "rlebench-task05-agent-dinov2:dev",
+  "rlebench-task05-agent-open:dev",
+  "rlebench-task05-libero-verifier-base:dev",
+  "rlebench-robotwin-sim:dev",
+  "rlebench-task05-robotwin-verifier-base:dev",
+  "rlebench-task05-01-libero-open-design-verifier:dev",
+  "rlebench-task05-02-libero-robustness-verifier:dev",
+  "rlebench-task05-03-robotwin-open-design-verifier:dev",
+  "rlebench-task05-04-robotwin-robustness-verifier:dev",
+]
+paths = ["tasks/task05/harness", "sim/libero", "sim/robotwin", "third_party/robotwin/.pins", "third_party/task05/.pins"]
+
+[run]
+# Assets are per subtask, so the compose overlays require them (`${VAR:?...}`)
+# instead of a family-wide `requires_env`. The agent phase is an empty allowlist
+# plus the model API; every cell takes one GPU through `${RLEBENCH_GPU:-0}`.
+lane = "agent-host"
+gpu = true

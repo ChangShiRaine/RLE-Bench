@@ -1,0 +1,1190 @@
+[
+  {
+    "task": "AddIceCubes",
+    "stages": [
+      [
+        "some_ice_in_blender",
+        false
+      ],
+      [
+        "all_ice_in_blender",
+        false
+      ],
+      [
+        "gripper_clear",
+        true
+      ]
+    ],
+    "baseline": 1,
+    "total": 3,
+    "success_at_reset": false,
+    "lang": "Put the three ice cubes in the blender."
+  },
+  {
+    "task": "AfterwashSorting",
+    "stages": [
+      [
+        "water_off",
+        false
+      ],
+      [
+        "pair_together",
+        false
+      ],
+      [
+        "odd_one_separated",
+        false
+      ]
+    ],
+    "baseline": 0,
+    "total": 3,
+    "success_at_reset": false,
+    "lang": "Pick the pears from the sink and place them in one bowl. Place the garlic in the other bowl. Then turn off the sink faucet."
+  },
+  {
+    "task": "AlcoholServingPrep",
+    "stages": [
+      [
+        "gripper_clear_of_alcohol",
+        true
+      ],
+      [
+        "gripper_clear_of_cup",
+        true
+      ],
+      [
+        "alcohol_on_table",
+        false
+      ],
+      [
+        "cup_on_table",
+        false
+      ]
+    ],
+    "baseline": 2,
+    "total": 4,
+    "success_at_reset": false,
+    "lang": "Open the cabinet directly in front. Then move the beer and the cup to the dining counter with the jar on it."
+  },
+  {
+    "task": "AlignSilverware",
+    "stages": [
+      [
+        "fork_left_of_plate",
+        false
+      ],
+      [
+        "spoon_right_of_plate",
+        false
+      ],
+      [
+        "fork_on_table",
+        false
+      ],
+      [
+        "spoon_on_table",
+        false
+      ],
+      [
+        "gripper_clear_of_plate",
+        true
+      ]
+    ],
+    "baseline": 1,
+    "total": 5,
+    "success_at_reset": false,
+    "lang": "Take the fork and place it on the left side of the plate. Then take the spoon and place it on the right side of the plate. Make sure they're directly next to the plate."
+  },
+  {
+    "task": "ArrangeBuffetDessert",
+    "stages": [
+      [
+        "sweet1_on_tray",
+        false
+      ],
+      [
+        "sweet2_on_tray",
+        false
+      ],
+      [
+        "tray_on_counter",
+        true
+      ],
+      [
+        "gripper_clear",
+        true
+      ]
+    ],
+    "baseline": 2,
+    "total": 4,
+    "success_at_reset": false,
+    "lang": "Take the cake and cupcake from the fridge and place them on the empty tray on the dining counter."
+  },
+  {
+    "task": "ArrangeVegetables",
+    "stages": [
+      [
+        "vegetable1_on_board",
+        false
+      ],
+      [
+        "vegetable2_on_board",
+        false
+      ],
+      [
+        "gripper_clear",
+        true
+      ]
+    ],
+    "baseline": 1,
+    "total": 3,
+    "success_at_reset": false,
+    "lang": "Pick the vegetables from the sink and place them on the cutting board."
+  },
+  {
+    "task": "ButterOnPan",
+    "stages": [
+      [
+        "butter_in_pan",
+        false
+      ],
+      [
+        "pan_on_burner",
+        false
+      ],
+      [
+        "burner_on",
+        false
+      ]
+    ],
+    "baseline": 0,
+    "total": 3,
+    "success_at_reset": false,
+    "lang": "Pick up the butter stick and place it in the pan. Then turn on the burner for the pan."
+  },
+  {
+    "task": "CandleCleanup",
+    "stages": [
+      [
+        "cabinet_closed",
+        false
+      ],
+      [
+        "obj1_in_cabinet",
+        false
+      ],
+      [
+        "obj2_in_cabinet",
+        false
+      ]
+    ],
+    "baseline": 0,
+    "total": 3,
+    "success_at_reset": false,
+    "lang": "Pick the jar and candle from the dining table and place them in the open cabinet. Close the cabinet after placing the objects."
+  },
+  {
+    "task": "ClearCuttingBoard",
+    "stages": [
+      [
+        "vegetable1_on_board",
+        false
+      ],
+      [
+        "vegetable2_on_board",
+        false
+      ],
+      [
+        "gripper_clear_of_board",
+        true
+      ],
+      [
+        "board_cleared_of_non_vegetable",
+        false
+      ]
+    ],
+    "baseline": 1,
+    "total": 4,
+    "success_at_reset": false,
+    "lang": "Clear the non-vegetable object off the cutting board and place the vegetables onto it."
+  },
+  {
+    "task": "CollectWashingSupplies",
+    "stages": [
+      [
+        "supplies_close_to_sink",
+        false
+      ],
+      [
+        "supplies_on_counter",
+        false
+      ],
+      [
+        "gripper_clear",
+        true
+      ]
+    ],
+    "baseline": 1,
+    "total": 3,
+    "success_at_reset": false,
+    "lang": "Locate and retrieve the sponge and bar soap from the cabinet. Place them next to the sink."
+  },
+  {
+    "task": "DefrostByCategory",
+    "stages": [
+      [
+        "fruit1_in_sink",
+        false
+      ],
+      [
+        "fruit2_in_sink",
+        false
+      ],
+      [
+        "vegetable1_in_bowl",
+        false
+      ],
+      [
+        "vegetable2_in_bowl",
+        false
+      ],
+      [
+        "gripper_clear",
+        true
+      ]
+    ],
+    "baseline": 1,
+    "total": 5,
+    "success_at_reset": false,
+    "lang": "There is a mixed pile of frozen fruits and vegetables on the counter. Locate all the frozen vegetables and place the items in a bowl on the counter. Take all the frozen fruits and defrost them in a running sink."
+  },
+  {
+    "task": "DessertUpgrade",
+    "stages": [
+      [
+        "dessert1_on_tray",
+        false
+      ],
+      [
+        "dessert2_on_tray",
+        false
+      ],
+      [
+        "gripper_clear_of_tray",
+        true
+      ]
+    ],
+    "baseline": 1,
+    "total": 3,
+    "success_at_reset": false,
+    "lang": "Move the dessert items from the plates to the tray."
+  },
+  {
+    "task": "DrinkwareConsolidation",
+    "stages": [
+      [
+        "some_drinkware_in_cabinet",
+        false
+      ],
+      [
+        "all_drinkware_in_cabinet",
+        false
+      ],
+      [
+        "gripper_clear",
+        true
+      ]
+    ],
+    "baseline": 1,
+    "total": 3,
+    "success_at_reset": false,
+    "lang": "Pick the boxed drink, milk, bottled drink from the counter and place them in the open cabinet."
+  },
+  {
+    "task": "DumpLeftovers",
+    "stages": [
+      [
+        "leftover1_off_bowl",
+        false
+      ],
+      [
+        "leftover2_off_bowl",
+        false
+      ],
+      [
+        "bowl_in_sink",
+        false
+      ],
+      [
+        "gripper_clear_of_bowl",
+        true
+      ]
+    ],
+    "baseline": 1,
+    "total": 4,
+    "success_at_reset": false,
+    "lang": "Dump the squash and onion from the bowl so the bowl can be washed. Place the bowl in the sink after clearing the leftovers."
+  },
+  {
+    "task": "FryingPanAdjustment",
+    "stages": [
+      [
+        "burner_under_pan_on",
+        false
+      ],
+      [
+        "pan_moved_from_start",
+        true
+      ]
+    ],
+    "baseline": 1,
+    "total": 2,
+    "success_at_reset": false,
+    "lang": "Pick and place the pan from the current burner to another burner and turn the burner on."
+  },
+  {
+    "task": "GatherTableware",
+    "stages": [
+      [
+        "gripper_clear_of_glass1",
+        true
+      ],
+      [
+        "gripper_clear_of_glass2",
+        true
+      ],
+      [
+        "gripper_clear_of_glass3",
+        true
+      ],
+      [
+        "glasses_clustered_away_from_bowl",
+        false
+      ]
+    ],
+    "baseline": 3,
+    "total": 4,
+    "success_at_reset": false,
+    "lang": "Gather all objects into one cabinet and sort the glasses and bowls to opposite sides."
+  },
+  {
+    "task": "HeatMug",
+    "stages": [
+      [
+        "mug_in_microwave",
+        false
+      ],
+      [
+        "gripper_clear",
+        true
+      ],
+      [
+        "door_closed",
+        false
+      ]
+    ],
+    "baseline": 1,
+    "total": 3,
+    "success_at_reset": false,
+    "lang": "Pick the mug from the counter and place it inside the microwave. Then close the microwave."
+  },
+  {
+    "task": "KettleBoiling",
+    "stages": [
+      [
+        "kettle_on_burner",
+        false
+      ],
+      [
+        "burner_under_kettle_on",
+        false
+      ],
+      [
+        "gripper_clear",
+        true
+      ]
+    ],
+    "baseline": 1,
+    "total": 3,
+    "success_at_reset": false,
+    "lang": "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+  },
+  {
+    "task": "LoadFridgeFifo",
+    "stages": [
+      [
+        "meat_old_on_rack",
+        true
+      ],
+      [
+        "meat_new_on_rack",
+        false
+      ],
+      [
+        "fifo_order",
+        false
+      ],
+      [
+        "fridge_closed",
+        false
+      ]
+    ],
+    "baseline": 1,
+    "total": 4,
+    "success_at_reset": false,
+    "lang": "Place the steak on the counter behind the older steak on the same shelf of the fridge to maintain FIFO order. Close the fridge door when finished."
+  },
+  {
+    "task": "MakeFruitBowl",
+    "stages": [
+      [
+        "fruit1_in_bowl",
+        false
+      ],
+      [
+        "fruit2_in_bowl",
+        false
+      ],
+      [
+        "cabinet_closed",
+        true
+      ]
+    ],
+    "baseline": 1,
+    "total": 3,
+    "success_at_reset": false,
+    "lang": "Open the cabinet. Pick the apple and peach from the cabinet and place them into the bowl. Then close the cabinet."
+  },
+  {
+    "task": "MatchCupAndDrink",
+    "stages": [
+      [
+        "wine_bottle_by_wine_glass",
+        false
+      ],
+      [
+        "juice_bottle_by_glass_cup",
+        false
+      ],
+      [
+        "gripper_clear",
+        true
+      ]
+    ],
+    "baseline": 1,
+    "total": 3,
+    "success_at_reset": false,
+    "lang": "There is a wine glass and glass cup on the dining counter. Place the wine bottle next to the wine glass and the juice bottle next to the glass cup."
+  },
+  {
+    "task": "MaximizeFreezerSpace",
+    "stages": [
+      [
+        "item1_on_target_rack",
+        false
+      ],
+      [
+        "item2_on_target_rack",
+        false
+      ],
+      [
+        "item3_undisturbed",
+        true
+      ],
+      [
+        "item4_undisturbed",
+        true
+      ],
+      [
+        "freezer_closed",
+        false
+      ]
+    ],
+    "baseline": 2,
+    "total": 5,
+    "success_at_reset": false,
+    "lang": "Take the broccoli and kiwi from the highest rack and move them to the second highest rack where the lemon wedge and chicken drumstick are located, to maximize freezer space. Close the freezer door after rearranging."
+  },
+  {
+    "task": "MealPrepStaging",
+    "stages": [
+      [
+        "pan1_on_burner",
+        false
+      ],
+      [
+        "pan2_on_burner",
+        false
+      ],
+      [
+        "pans_on_different_burners",
+        false
+      ],
+      [
+        "foods_on_separate_pans",
+        false
+      ]
+    ],
+    "baseline": 0,
+    "total": 4,
+    "success_at_reset": false,
+    "lang": "Place both pans onto different burners. Then place the cucumber and the chicken drumstick on different pans."
+  },
+  {
+    "task": "MicrowaveCorrectMeal",
+    "stages": [
+      [
+        "bowl_in_microwave",
+        false
+      ],
+      [
+        "food0_in_bowl",
+        true
+      ],
+      [
+        "food1_in_bowl",
+        true
+      ],
+      [
+        "door_closed",
+        false
+      ],
+      [
+        "microwave_on",
+        false
+      ],
+      [
+        "gripper_clear",
+        true
+      ]
+    ],
+    "baseline": 3,
+    "total": 6,
+    "success_at_reset": false,
+    "lang": "Place the bowl containing the sweet potato and broccoli in the microwave. Close the microwave door and press the start button to microwave the meal."
+  },
+  {
+    "task": "MoveFreezerToFridge",
+    "stages": [
+      [
+        "meat_in_fridge",
+        false
+      ],
+      [
+        "freezer_closed",
+        false
+      ],
+      [
+        "fridge_closed",
+        false
+      ],
+      [
+        "freezer_distractor_undisturbed",
+        true
+      ],
+      [
+        "fridge_distractor_undisturbed",
+        true
+      ]
+    ],
+    "baseline": 2,
+    "total": 5,
+    "success_at_reset": false,
+    "lang": "Pick up the frozen steak from the freezer, place it on any shelf in the fridge, and close the fridge and freezer doors when done."
+  },
+  {
+    "task": "MoveToCounter",
+    "stages": [
+      [
+        "food_on_plate",
+        false
+      ],
+      [
+        "gripper_clear",
+        true
+      ]
+    ],
+    "baseline": 1,
+    "total": 2,
+    "success_at_reset": false,
+    "lang": "Pick the corn from the fridge and place it on the plate on the counter."
+  },
+  {
+    "task": "OrganizeBakingIngredients",
+    "stages": [
+      [
+        "egg1_near_bowl",
+        false
+      ],
+      [
+        "egg2_near_bowl",
+        false
+      ],
+      [
+        "milk_near_bowl",
+        false
+      ],
+      [
+        "gripper_clear",
+        true
+      ]
+    ],
+    "baseline": 1,
+    "total": 4,
+    "success_at_reset": false,
+    "lang": "Gather the eggs and milk located in the vicinity of the sink area and place them right next to the bowl."
+  },
+  {
+    "task": "PanTransfer",
+    "stages": [
+      [
+        "vegetable_on_plate",
+        false
+      ],
+      [
+        "pan_on_stove",
+        true
+      ],
+      [
+        "gripper_clear",
+        true
+      ],
+      [
+        "food_never_touched",
+        true
+      ]
+    ],
+    "baseline": 3,
+    "total": 4,
+    "success_at_reset": false,
+    "lang": "Pick up the pan and dump the vegetables in it onto the plate. Then return the pan to the stove."
+  },
+  {
+    "task": "PastryDisplay",
+    "stages": [
+      [
+        "some_pastry_on_a_plate",
+        false
+      ],
+      [
+        "each_pastry_on_a_plate",
+        false
+      ],
+      [
+        "gripper_clear_of_pastry1",
+        true
+      ],
+      [
+        "gripper_clear_of_pastry2",
+        true
+      ]
+    ],
+    "baseline": 2,
+    "total": 4,
+    "success_at_reset": false,
+    "lang": "Place the pastries on the plates."
+  },
+  {
+    "task": "PlaceBeveragesTogether",
+    "stages": [
+      [
+        "alcohol_on_dining_counter",
+        false
+      ],
+      [
+        "juice_on_dining_counter",
+        false
+      ],
+      [
+        "water_on_dining_counter",
+        false
+      ],
+      [
+        "drinks_clustered",
+        false
+      ],
+      [
+        "gripper_clear",
+        true
+      ]
+    ],
+    "baseline": 1,
+    "total": 5,
+    "success_at_reset": false,
+    "lang": "Place the drinks on the dining counter in a tight cluster."
+  },
+  {
+    "task": "PlaceMicrowaveSafeItem",
+    "stages": [
+      [
+        "safe_item_in_microwave",
+        false
+      ],
+      [
+        "unsafe_item_left_out",
+        true
+      ],
+      [
+        "door_closed",
+        false
+      ],
+      [
+        "microwave_on",
+        false
+      ]
+    ],
+    "baseline": 1,
+    "total": 4,
+    "success_at_reset": false,
+    "lang": "Place the microwavable item in the microwave. Then, close the microwave door and press the start button."
+  },
+  {
+    "task": "PlaceVegetablesEvenly",
+    "stages": [
+      [
+        "veg1_in_pan",
+        false
+      ],
+      [
+        "veg2_in_pan",
+        false
+      ],
+      [
+        "not_stacked",
+        true
+      ],
+      [
+        "spread_apart",
+        true
+      ],
+      [
+        "gripper_clear",
+        true
+      ]
+    ],
+    "baseline": 3,
+    "total": 5,
+    "success_at_reset": false,
+    "lang": "Pick up the broccoli and lemon from the counter and place them inside the pan. Make sure they are evenly distributed and not overlapping each other."
+  },
+  {
+    "task": "PortionFruitBowl",
+    "stages": [
+      [
+        "two_fruits_in_bowl1",
+        false
+      ],
+      [
+        "two_fruits_in_bowl2",
+        false
+      ],
+      [
+        "gripper_clear",
+        true
+      ]
+    ],
+    "baseline": 1,
+    "total": 3,
+    "success_at_reset": false,
+    "lang": "Take the fruits from the plate on the dining counter and place two fruits in each bowl."
+  },
+  {
+    "task": "PortionHotDogs",
+    "stages": [
+      [
+        "one_bun_on_plate1",
+        false
+      ],
+      [
+        "one_sausage_on_plate1",
+        false
+      ],
+      [
+        "one_bun_on_plate2",
+        false
+      ],
+      [
+        "one_sausage_on_plate2",
+        false
+      ],
+      [
+        "gripper_clear",
+        true
+      ]
+    ],
+    "baseline": 1,
+    "total": 5,
+    "success_at_reset": false,
+    "lang": "Place one bun and one sausage from the bowl on each plate."
+  },
+  {
+    "task": "PrepareDrinkStation",
+    "stages": [
+      [
+        "cup_on_tray",
+        false
+      ],
+      [
+        "mug_on_tray",
+        false
+      ],
+      [
+        "pitcher_beside_tray",
+        false
+      ],
+      [
+        "gripper_clear",
+        true
+      ]
+    ],
+    "baseline": 1,
+    "total": 4,
+    "success_at_reset": false,
+    "lang": "There is a tray on the dining counter. Grab the cup, mug, and pitcher and place them on the tray. The pitcher may be placed next to the tray if it cannot fit the tray."
+  },
+  {
+    "task": "PrepareSmoothie",
+    "stages": [
+      [
+        "food1_on_plate",
+        false
+      ],
+      [
+        "food2_on_plate",
+        false
+      ],
+      [
+        "gripper_clear",
+        true
+      ],
+      [
+        "distractor_left_in_fridge",
+        true
+      ]
+    ],
+    "baseline": 2,
+    "total": 4,
+    "success_at_reset": false,
+    "lang": "Pick the apple and peach from the fridge and place them on the plate next to the blender to make a fruit smoothie."
+  },
+  {
+    "task": "PrepareStoringLeftovers",
+    "stages": [
+      [
+        "tupperware_on_counter",
+        false
+      ],
+      [
+        "foil_on_counter",
+        false
+      ],
+      [
+        "tupperware_near_plate",
+        false
+      ],
+      [
+        "foil_near_plate",
+        false
+      ],
+      [
+        "gripper_clear",
+        true
+      ]
+    ],
+    "baseline": 1,
+    "total": 5,
+    "success_at_reset": false,
+    "lang": "Retrieve the tupperware and aluminum foil from the cabinet and place them on the dining counter near the plate with lemon wedge and eggplant to prepare for storing leftovers."
+  },
+  {
+    "task": "RestockPantry",
+    "stages": [
+      [
+        "obj1_in_cabinet",
+        false
+      ],
+      [
+        "obj2_in_cabinet",
+        false
+      ],
+      [
+        "obj1_beside_existing_cans",
+        false
+      ],
+      [
+        "obj2_beside_existing_cans",
+        false
+      ],
+      [
+        "gripper_clear",
+        true
+      ]
+    ],
+    "baseline": 1,
+    "total": 5,
+    "success_at_reset": false,
+    "lang": "Pick the cans from the counter and place them in their designated side in the cabinet."
+  },
+  {
+    "task": "SeparateFreezerRack",
+    "stages": [
+      [
+        "meat_in_tupperware",
+        true
+      ],
+      [
+        "vegetable1_in_tupperware",
+        true
+      ],
+      [
+        "vegetable2_in_tupperware",
+        true
+      ],
+      [
+        "veg_tupperware_on_top_rack",
+        false
+      ],
+      [
+        "meat_tupperware_on_second_rack",
+        false
+      ],
+      [
+        "gripper_clear_of_meat_tupperware",
+        true
+      ],
+      [
+        "gripper_clear_of_veg_tupperware",
+        true
+      ]
+    ],
+    "baseline": 5,
+    "total": 7,
+    "success_at_reset": false,
+    "lang": "Take the meat container that has the chicken drumstick and place it on the second highest rack of the freezer. Then take the vegetable container that has the tomato and broccoli and place it on the highest rack of the freezer."
+  },
+  {
+    "task": "SetupButterPlate",
+    "stages": [
+      [
+        "butter_on_plate",
+        false
+      ],
+      [
+        "knife_near_plate",
+        false
+      ],
+      [
+        "gripper_clear_of_butter",
+        true
+      ],
+      [
+        "gripper_clear_of_knife",
+        true
+      ],
+      [
+        "knife_on_counter",
+        true
+      ]
+    ],
+    "baseline": 3,
+    "total": 5,
+    "success_at_reset": false,
+    "lang": "Retrieve the butter from the fridge and place it on a plate on the dining table. Then retrieve the butter knife by the fridge and place it near the plate."
+  },
+  {
+    "task": "SimmeringSauce",
+    "stages": [
+      [
+        "pan_on_named_burner",
+        false
+      ],
+      [
+        "tomato_in_pan",
+        false
+      ],
+      [
+        "onion_in_pan",
+        false
+      ],
+      [
+        "burner_on",
+        false
+      ]
+    ],
+    "baseline": 0,
+    "total": 4,
+    "success_at_reset": false,
+    "lang": "Place the pan on the front center burner on the stove. Then place the tomato and the onion in the pan and turn on the front center burner."
+  },
+  {
+    "task": "SortingCleanup",
+    "stages": [
+      [
+        "mug_in_sink",
+        false
+      ],
+      [
+        "bowl_in_cabinet",
+        false
+      ],
+      [
+        "cabinet_closed",
+        false
+      ],
+      [
+        "gripper_clear_of_mug",
+        true
+      ]
+    ],
+    "baseline": 1,
+    "total": 4,
+    "success_at_reset": false,
+    "lang": "Pick the mug and place it in the sink. Pick the bowl and place it in the open cabinet and then close the cabinet."
+  },
+  {
+    "task": "StoreLeftoversInBowl",
+    "stages": [
+      [
+        "chicken_in_bowl",
+        false
+      ],
+      [
+        "vegetable_in_bowl",
+        false
+      ],
+      [
+        "bowl_on_fridge_rack",
+        false
+      ],
+      [
+        "gripper_clear_of_bowl",
+        true
+      ]
+    ],
+    "baseline": 1,
+    "total": 4,
+    "success_at_reset": false,
+    "lang": "Pick the chicken drumstick and cucumber from their plates and place them in the bowl. Then put the bowl in the fridge."
+  },
+  {
+    "task": "SweetenCoffee",
+    "stages": [
+      [
+        "milk_on_counter",
+        false
+      ],
+      [
+        "coffee_on_counter",
+        true
+      ],
+      [
+        "milk_beside_coffee",
+        false
+      ],
+      [
+        "sugar_in_coffee",
+        false
+      ],
+      [
+        "gripper_clear",
+        true
+      ]
+    ],
+    "baseline": 2,
+    "total": 5,
+    "success_at_reset": false,
+    "lang": "Take a sugar cube from the saucer and place it inside the coffee. Then, grab milk from the fridge and place it next to the coffee on the counter to sweeten the coffee. "
+  },
+  {
+    "task": "ToastBagel",
+    "stages": [
+      [
+        "bagel_in_toaster",
+        false
+      ],
+      [
+        "door_closed",
+        false
+      ],
+      [
+        "timer_set",
+        false
+      ],
+      [
+        "gripper_clear",
+        true
+      ]
+    ],
+    "baseline": 1,
+    "total": 4,
+    "success_at_reset": false,
+    "lang": "Pick up the bagel from the plate, place it on the toaster oven rack, close the door, and set the timer."
+  },
+  {
+    "task": "ToastOnCorrectRack",
+    "stages": [
+      [
+        "bread_on_its_rack",
+        false
+      ],
+      [
+        "meat_on_its_rack",
+        false
+      ],
+      [
+        "gripper_clear",
+        true
+      ]
+    ],
+    "baseline": 1,
+    "total": 3,
+    "success_at_reset": false,
+    "lang": "Open the toaster oven door. Place the hotdog bun on the bottom rack in the toaster oven and place the chicken drumstick on the top rack."
+  },
+  {
+    "task": "VeggieDipPrep",
+    "stages": [
+      [
+        "gripper_clear",
+        true
+      ],
+      [
+        "cucumber_on_tray",
+        false
+      ],
+      [
+        "carrot_on_tray",
+        false
+      ],
+      [
+        "bowl_on_tray",
+        false
+      ]
+    ],
+    "baseline": 1,
+    "total": 4,
+    "success_at_reset": false,
+    "lang": "Place the two vegetables and bowl onto the tray for setting up a vegetable dip station."
+  },
+  {
+    "task": "WarmCroissant",
+    "stages": [
+      [
+        "croissant_in_pan",
+        false
+      ],
+      [
+        "burner_on",
+        false
+      ],
+      [
+        "gripper_clear_of_croissant",
+        true
+      ]
+    ],
+    "baseline": 1,
+    "total": 3,
+    "success_at_reset": false,
+    "lang": "Pick the croissant and place it on the pan. Then turn on the stove to warm the croissant."
+  }
+]

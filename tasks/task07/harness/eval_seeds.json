@@ -1,0 +1,14 @@
+{
+  "_comment": "task07 hidden evaluation seeds \u2014 VERIFIER-ONLY (never ship to the agent environment; see the sandbox threat model). smoke drives the gate + determinism probe; eval drives the scored battery.",
+  "smoke": 483898813954909708,
+  "eval": [
+    3672971350956117234,
+    8839858331189243848,
+    384634609664249065,
+    1133600575668419045,
+    4114120610979382378,
+    5314680192156177233,
+    565822075445296840,
+    7580374755512399761
+  ]
+}

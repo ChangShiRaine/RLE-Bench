@@ -1,0 +1,1551 @@
+{
+ "tasks": [
+  "adjust_bottle",
+  "beat_block_hammer",
+  "blocks_ranking_rgb",
+  "click_alarmclock",
+  "click_bell",
+  "grab_roller",
+  "handover_block",
+  "hanging_mug",
+  "lift_pot",
+  "move_can_pot",
+  "open_laptop",
+  "open_microwave",
+  "pick_dual_bottles",
+  "place_a2b_left",
+  "place_container_plate"
+ ],
+ "episodes": {
+  "adjust_bottle": [
+   {
+    "seed": 300000,
+    "config": "clean",
+    "instruction": "Grab the medium dark brown bottle head-up using the left arm from the table."
+   },
+   {
+    "seed": 300001,
+    "config": "clean",
+    "instruction": "Hold the hand-sized soda bottle upright after lifting with the right arm"
+   },
+   {
+    "seed": 300002,
+    "config": "clean",
+    "instruction": "Pick the bottle with rounded neck upright from the table"
+   },
+   {
+    "seed": 300003,
+    "config": "clean",
+    "instruction": "Secure the dark drink bottle with logo upright with the right arm"
+   },
+   {
+    "seed": 300006,
+    "config": "clean",
+    "instruction": "Grab the bottle with white neck and red top and lift it with the right arm"
+   },
+   {
+    "seed": 300007,
+    "config": "clean",
+    "instruction": "Lift the red-capped bottle from the table with the left arm"
+   },
+   {
+    "seed": 300009,
+    "config": "clean",
+    "instruction": "Lift the dark drink bottle with logo head-up from the table."
+   },
+   {
+    "seed": 300011,
+    "config": "clean",
+    "instruction": "Use the left arm to lift the hand-sized soda bottle head-up"
+   },
+   {
+    "seed": 300012,
+    "config": "clean",
+    "instruction": "Grab the bottle with rounded neck and lift it upward from the table."
+   },
+   {
+    "seed": 300013,
+    "config": "clean",
+    "instruction": "Pick up the long thin bottle from the table carefully."
+   },
+   {
+    "seed": 300014,
+    "config": "clean",
+    "instruction": "Lift the handheld green bottle head-up from the table"
+   },
+   {
+    "seed": 300015,
+    "config": "clean",
+    "instruction": "Pick the smooth green plastic bottle upright from the table"
+   },
+   {
+    "seed": 300016,
+    "config": "clean",
+    "instruction": "Lift the green bottle with indented base from the table and secure upright"
+   },
+   {
+    "seed": 300017,
+    "config": "clean",
+    "instruction": "Position the plastic drink bottle head-up and lift it"
+   },
+   {
+    "seed": 300018,
+    "config": "clean",
+    "instruction": "Using the left arm, pick the medium green bottle with capped neck upright"
+   },
+   {
+    "seed": 300019,
+    "config": "clean",
+    "instruction": "Use the left arm to pick up the handheld green bottle from the table."
+   },
+   {
+    "seed": 300020,
+    "config": "clean",
+    "instruction": "Hold the green bottle with indented base upright from the table"
+   },
+   {
+    "seed": 300021,
+    "config": "clean",
+    "instruction": "Identify the plastic bottle and grab it with the right arm"
+   },
+   {
+    "seed": 300022,
+    "config": "clean",
+    "instruction": "Identify the long thin bottle and grab it with the left arm"
+   },
+   {
+    "seed": 300024,
+    "config": "clean",
+    "instruction": "Raise the bottle with ridges near base from the table using the correct arm, the right arm."
+   }
+  ],
+  "beat_block_hammer": [
+   {
+    "seed": 300000,
+    "config": "clean",
+    "instruction": "Utilize the right arm to hold the hammer with claw-shaped end and strike."
+   },
+   {
+    "seed": 300001,
+    "config": "clean",
+    "instruction": "Grab the silver curved hammer head using the left arm and strike the block"
+   },
+   {
+    "seed": 300002,
+    "config": "clean",
+    "instruction": "Grab the silver curved hammer head with the right arm and strike block"
+   },
+   {
+    "seed": 300003,
+    "config": "clean",
+    "instruction": "Lift the plastic handle metal hammer with the right arm then strike block"
+   },
+   {
+    "seed": 300004,
+    "config": "clean",
+    "instruction": "Grab the hammer with claw-shaped end, then hit the block"
+   },
+   {
+    "seed": 300005,
+    "config": "clean",
+    "instruction": "With the right arm, grab the hammer with claw-shaped end and hit the block"
+   },
+   {
+    "seed": 300006,
+    "config": "clean",
+    "instruction": "With the left arm, grab the black and yellow hammer grip and hammer the block"
+   },
+   {
+    "seed": 300007,
+    "config": "clean",
+    "instruction": "Beat the block after grabbing the nail-driving hammer"
+   },
+   {
+    "seed": 300009,
+    "config": "clean",
+    "instruction": "Pick the plastic handle metal hammer and strike the block."
+   },
+   {
+    "seed": 300011,
+    "config": "clean",
+    "instruction": "Grab the silver curved hammer head, then strike the block."
+   },
+   {
+    "seed": 300012,
+    "config": "clean",
+    "instruction": "Use the silver curved hammer head to beat after grabbing with the right arm"
+   },
+   {
+    "seed": 300013,
+    "config": "clean",
+    "instruction": "Use the left arm to grab the silver hammer and beat"
+   },
+   {
+    "seed": 300014,
+    "config": "clean",
+    "instruction": "Grab the grippy handle hammer using the right arm then pound block"
+   },
+   {
+    "seed": 300015,
+    "config": "clean",
+    "instruction": "Take the hammer with two-tone handle and hammer the block"
+   },
+   {
+    "seed": 300017,
+    "config": "clean",
+    "instruction": "With the right arm, grab the grippy handle hammer and beat the block."
+   },
+   {
+    "seed": 300018,
+    "config": "clean",
+    "instruction": "Pick the black and yellow hammer grip and smash the block"
+   },
+   {
+    "seed": 300019,
+    "config": "clean",
+    "instruction": "Grab the grippy handle hammer using the left arm and hit the block"
+   },
+   {
+    "seed": 300020,
+    "config": "clean",
+    "instruction": "Grab the handheld medium claw hammer, then hit the block"
+   },
+   {
+    "seed": 300021,
+    "config": "clean",
+    "instruction": "Grab the silver hammer using the left arm, then beat the block"
+   },
+   {
+    "seed": 300022,
+    "config": "clean",
+    "instruction": "Grab the silver hammer using the right arm, then beat the block"
+   }
+  ],
+  "blocks_ranking_rgb": [
+   {
+    "seed": 300000,
+    "config": "clean",
+    "instruction": "Grab red block with the right arm, place it leftmost, then green block using the left arm, followed by blue block with the left arm."
+   },
+   {
+    "seed": 300001,
+    "config": "clean",
+    "instruction": "Using the left arm, the left arm, and the right arm, set red block, green block, and blue block from left to right in the sequence red, green, blue."
+   },
+   {
+    "seed": 300003,
+    "config": "clean",
+    "instruction": "Pick up red block, green block, and blue block in sequence and position them in a left-to-right row."
+   },
+   {
+    "seed": 300004,
+    "config": "clean",
+    "instruction": "Start with red block on the left, add green block next to it, and then place blue block on the right."
+   },
+   {
+    "seed": 300005,
+    "config": "clean",
+    "instruction": "Place red block to the left, green block in the middle, and blue block on the right in a linear fashion."
+   },
+   {
+    "seed": 300006,
+    "config": "clean",
+    "instruction": "Position red block, green block, and blue block on a surface from left to right in the order red, green, blue."
+   },
+   {
+    "seed": 300007,
+    "config": "clean",
+    "instruction": "Grab and place red block first, followed by green block, and finish with blue block in a row."
+   },
+   {
+    "seed": 300008,
+    "config": "clean",
+    "instruction": "Place red block to the left, green block in the middle, and blue block on the right in a linear fashion."
+   },
+   {
+    "seed": 300009,
+    "config": "clean",
+    "instruction": "Set red block, green block, and blue block side by side in the order of red block, green block, then blue block."
+   },
+   {
+    "seed": 300010,
+    "config": "clean",
+    "instruction": "Line up the objects in the order red block, green block, and blue block, starting from the left."
+   },
+   {
+    "seed": 300011,
+    "config": "clean",
+    "instruction": "Pick up red block, position it on the left, add green block next to it, and finally set blue block on the far right."
+   },
+   {
+    "seed": 300012,
+    "config": "clean",
+    "instruction": "Grab red block with the right arm, place it leftmost, then green block using the left arm, followed by blue block with the right arm."
+   },
+   {
+    "seed": 300013,
+    "config": "clean",
+    "instruction": "Use the left arm to place red block on the left, then use the left arm for green block beside red block, and finally the right arm for blue block next to green block."
+   },
+   {
+    "seed": 300014,
+    "config": "clean",
+    "instruction": "Grab and place red block first, followed by green block, and finish with blue block in a row."
+   },
+   {
+    "seed": 300015,
+    "config": "clean",
+    "instruction": "With the left arm, the right arm, and the right arm, place red block, green block, and blue block sequentially from left to right as red, green, blue."
+   },
+   {
+    "seed": 300016,
+    "config": "clean",
+    "instruction": "Use the left arm to grab red block and position it on the left, then the right arm for green block, and the left arm for blue block."
+   },
+   {
+    "seed": 300017,
+    "config": "clean",
+    "instruction": "Position red block, green block, and blue block on a surface from left to right in the order red, green, blue."
+   },
+   {
+    "seed": 300018,
+    "config": "clean",
+    "instruction": "Line up the objects in the order red block, green block, and blue block, starting from the left."
+   },
+   {
+    "seed": 300019,
+    "config": "clean",
+    "instruction": "Grab red block, position it on the left. Next, grab green block to place beside red block, then grab blue block and set it to the right of green block."
+   },
+   {
+    "seed": 300020,
+    "config": "clean",
+    "instruction": "Start with red block on the left, add green block next to it, and then place blue block on the right."
+   }
+  ],
+  "click_alarmclock": [
+   {
+    "seed": 300000,
+    "config": "clean",
+    "instruction": "Click the top center button of the palm-sized dark blue clock"
+   },
+   {
+    "seed": 300001,
+    "config": "clean",
+    "instruction": "Push the center area of the black matte alarm-clock's top"
+   },
+   {
+    "seed": 300002,
+    "config": "clean",
+    "instruction": "Press the top middle button of the small plastic alarm clock"
+   },
+   {
+    "seed": 300003,
+    "config": "clean",
+    "instruction": "Push the top button of the alarm-clock with rounded edges using the right arm"
+   },
+   {
+    "seed": 300004,
+    "config": "clean",
+    "instruction": "Click the middle button on the smooth black alarm-clock's top side"
+   },
+   {
+    "seed": 300005,
+    "config": "clean",
+    "instruction": "Click the center of the smooth black alarm-clock's top"
+   },
+   {
+    "seed": 300006,
+    "config": "clean",
+    "instruction": "Use the left arm to activate the rounded square-shaped alarm clock's button"
+   },
+   {
+    "seed": 300007,
+    "config": "clean",
+    "instruction": "Use the right arm to press the clock with white dial's top button"
+   },
+   {
+    "seed": 300008,
+    "config": "clean",
+    "instruction": "Click the center of the digital screen alarm-clock's top"
+   },
+   {
+    "seed": 300009,
+    "config": "clean",
+    "instruction": "the right arm clicks the center top button on the alarm-clock with rounded edges"
+   },
+   {
+    "seed": 300012,
+    "config": "clean",
+    "instruction": "Click the button centered on the black matte alarm-clock's top."
+   },
+   {
+    "seed": 300013,
+    "config": "clean",
+    "instruction": "Use the left arm to press the black alarm-clock's top center button."
+   },
+   {
+    "seed": 300014,
+    "config": "clean",
+    "instruction": "Locate and press the clock with black hands's top center button"
+   },
+   {
+    "seed": 300015,
+    "config": "clean",
+    "instruction": "Tap the square plastic alarm clock's top button with the left arm"
+   },
+   {
+    "seed": 300016,
+    "config": "clean",
+    "instruction": "Use the left arm to press the center top of the alarm clock with green stripe"
+   },
+   {
+    "seed": 300018,
+    "config": "clean",
+    "instruction": "Activate the alarm-clock with digital display by clicking its top button"
+   },
+   {
+    "seed": 300019,
+    "config": "clean",
+    "instruction": "Push the button on the palm-sized alarm-clock's top center."
+   },
+   {
+    "seed": 300020,
+    "config": "clean",
+    "instruction": "Click the middle button on the alarm clock with green stripe's top side"
+   },
+   {
+    "seed": 300021,
+    "config": "clean",
+    "instruction": "Use the left arm to click the top of the black alarm-clock"
+   },
+   {
+    "seed": 300022,
+    "config": "clean",
+    "instruction": "Use the right arm to click the top of the dark blue clock"
+   }
+  ],
+  "click_bell": [
+   {
+    "seed": 300000,
+    "config": "clean",
+    "instruction": "Press the center top of the blue dome-shaped bell."
+   },
+   {
+    "seed": 300001,
+    "config": "clean",
+    "instruction": "Press the small desk bell for tapping's top center with the right arm firmly."
+   },
+   {
+    "seed": 300002,
+    "config": "clean",
+    "instruction": "Direct the right arm to click the top of the small desk bell for tapping."
+   },
+   {
+    "seed": 300003,
+    "config": "clean",
+    "instruction": "Make the right arm interact with the rounded bell with flat black part's top center."
+   },
+   {
+    "seed": 300004,
+    "config": "clean",
+    "instruction": "Press the center top of the blue dome-shaped bell."
+   },
+   {
+    "seed": 300005,
+    "config": "clean",
+    "instruction": "Press the center top of the blue dome-shaped bell."
+   },
+   {
+    "seed": 300006,
+    "config": "clean",
+    "instruction": "Activate the bell with metallic top and plastic base by pressing its top center."
+   },
+   {
+    "seed": 300007,
+    "config": "clean",
+    "instruction": "Press the specified top area of the compact tabletop bell."
+   },
+   {
+    "seed": 300008,
+    "config": "clean",
+    "instruction": "Press the top center of the bell with circular body on table."
+   },
+   {
+    "seed": 300009,
+    "config": "clean",
+    "instruction": "Use the right arm to press the small blue and brown bell's top section."
+   },
+   {
+    "seed": 300010,
+    "config": "clean",
+    "instruction": "Guide the right arm to click the brown-bottomed bell's top center."
+   },
+   {
+    "seed": 300011,
+    "config": "clean",
+    "instruction": "Press the bell with brown base's top center on the table."
+   },
+   {
+    "seed": 300012,
+    "config": "clean",
+    "instruction": "Push the center of the bell with brown base using the right arm."
+   },
+   {
+    "seed": 300013,
+    "config": "clean",
+    "instruction": "Click using the left arm on the white bell's center."
+   },
+   {
+    "seed": 300014,
+    "config": "clean",
+    "instruction": "Use the right arm to touch the flat-topped bell's top center."
+   },
+   {
+    "seed": 300015,
+    "config": "clean",
+    "instruction": "Press down the bell with circular body's top center gently."
+   },
+   {
+    "seed": 300016,
+    "config": "clean",
+    "instruction": "Use the left arm to touch the bell with protruding knob's top center."
+   },
+   {
+    "seed": 300017,
+    "config": "clean",
+    "instruction": "Press down the flat-topped bell's top center gently."
+   },
+   {
+    "seed": 300018,
+    "config": "clean",
+    "instruction": "Press the center top of the metal bell with plastic parts."
+   },
+   {
+    "seed": 300019,
+    "config": "clean",
+    "instruction": "Click using the left arm on the plastic and metal bell's center."
+   }
+  ],
+  "grab_roller": [
+   {
+    "seed": 300000,
+    "config": "clean",
+    "instruction": "Reach for the light brown wooden roller and grab it firmly."
+   },
+   {
+    "seed": 300001,
+    "config": "clean",
+    "instruction": "Securely grab the roller for rolling using both arms."
+   },
+   {
+    "seed": 300002,
+    "config": "clean",
+    "instruction": "Secure the wooden rolling tool with both arms."
+   },
+   {
+    "seed": 300003,
+    "config": "clean",
+    "instruction": "Take hold of the smooth light brown roller."
+   },
+   {
+    "seed": 300004,
+    "config": "clean",
+    "instruction": "Grasp the slim wooden roller on the table."
+   },
+   {
+    "seed": 300005,
+    "config": "clean",
+    "instruction": "Get hold of the light brown wooden roller using your arms"
+   },
+   {
+    "seed": 300006,
+    "config": "clean",
+    "instruction": "Secure the roller shaped like cylinder from the table using arms"
+   },
+   {
+    "seed": 300007,
+    "config": "clean",
+    "instruction": "Secure the light brown roller using your arms."
+   },
+   {
+    "seed": 300008,
+    "config": "clean",
+    "instruction": "Get hold of the narrow tapered roller using your arms"
+   },
+   {
+    "seed": 300009,
+    "config": "clean",
+    "instruction": "Both arms should grab the smooth light brown roller now."
+   },
+   {
+    "seed": 300010,
+    "config": "clean",
+    "instruction": "Use arms to hold the cylindrical roller tightly."
+   },
+   {
+    "seed": 300011,
+    "config": "clean",
+    "instruction": "Use arms to firmly grab the wooden rolling tool."
+   },
+   {
+    "seed": 300012,
+    "config": "clean",
+    "instruction": "Reach for the roller for rolling and grab it firmly."
+   },
+   {
+    "seed": 300013,
+    "config": "clean",
+    "instruction": "Reach out to grab the wood roller from the table"
+   },
+   {
+    "seed": 300014,
+    "config": "clean",
+    "instruction": "Grip the light wood roller firmly with arms."
+   },
+   {
+    "seed": 300015,
+    "config": "clean",
+    "instruction": "Hold the narrow tapered roller on the table with hands."
+   },
+   {
+    "seed": 300016,
+    "config": "clean",
+    "instruction": "Reach out to grab the smooth cylindrical roller from the table"
+   },
+   {
+    "seed": 300017,
+    "config": "clean",
+    "instruction": "Pick up the palm-length roller using both arms equally"
+   },
+   {
+    "seed": 300018,
+    "config": "clean",
+    "instruction": "Hold the roller with smooth and shiny texture on the table with hands."
+   },
+   {
+    "seed": 300019,
+    "config": "clean",
+    "instruction": "Pick up the palm-length roller from the table."
+   }
+  ],
+  "handover_block": [
+   {
+    "seed": 300000,
+    "config": "clean",
+    "instruction": "Take the red block using the left arm and hand it over."
+   },
+   {
+    "seed": 300001,
+    "config": "clean",
+    "instruction": "Lift the red block with the left arm, move it to the right, and place it onto the blue pad."
+   },
+   {
+    "seed": 300002,
+    "config": "clean",
+    "instruction": "Lift the red block with your left arm."
+   },
+   {
+    "seed": 300004,
+    "config": "clean",
+    "instruction": "Pick up and handover the red block."
+   },
+   {
+    "seed": 300005,
+    "config": "clean",
+    "instruction": "Pick up the red block using your left arm, pass it to the right arm, and place it on the blue pad."
+   },
+   {
+    "seed": 300006,
+    "config": "clean",
+    "instruction": "The left arm should grab the red block, hand it to the right, and put it on the blue pad."
+   },
+   {
+    "seed": 300007,
+    "config": "clean",
+    "instruction": "Move the red block using the left arm."
+   },
+   {
+    "seed": 300008,
+    "config": "clean",
+    "instruction": "Pick up the red block using your left arm, pass it to the right arm, and place it on the blue pad."
+   },
+   {
+    "seed": 300009,
+    "config": "clean",
+    "instruction": "Pass the red block from the left to the right."
+   },
+   {
+    "seed": 300010,
+    "config": "clean",
+    "instruction": "Grab the red block with the left arm, pass it to the right hand, and drop it on the blue pad."
+   },
+   {
+    "seed": 300011,
+    "config": "clean",
+    "instruction": "Hold the red block with the left arm and place it on the pad."
+   },
+   {
+    "seed": 300012,
+    "config": "clean",
+    "instruction": "Lift the red block from the table with the left arm, pass it to the right arm, and place it on the blue pad."
+   },
+   {
+    "seed": 300013,
+    "config": "clean",
+    "instruction": "Use the left arm to grab the red block, hand it to the right arm, and place it on the blue pad."
+   },
+   {
+    "seed": 300014,
+    "config": "clean",
+    "instruction": "Grab the red block and transfer to the right."
+   },
+   {
+    "seed": 300015,
+    "config": "clean",
+    "instruction": "Grasp the block in your left arm, pass it into the right, and place it onto the blue pad."
+   },
+   {
+    "seed": 300016,
+    "config": "clean",
+    "instruction": "With the left arm, grab the red block, pass it to the right, and set it on the blue pad."
+   },
+   {
+    "seed": 300017,
+    "config": "clean",
+    "instruction": "Grab the red block, hand it to the right arm, then set it down."
+   },
+   {
+    "seed": 300019,
+    "config": "clean",
+    "instruction": "Lift the red block with the left arm, pass it to the right arm, and place it on the blue pad."
+   },
+   {
+    "seed": 300020,
+    "config": "clean",
+    "instruction": "Pick up and handover the red block."
+   },
+   {
+    "seed": 300021,
+    "config": "clean",
+    "instruction": "Lift the red block off the table using the left arm, give it to the right hand, and put it on the blue pad."
+   }
+  ],
+  "hanging_mug": [
+   {
+    "seed": 300000,
+    "config": "clean",
+    "instruction": "Use the right arm to lift the brown mug for drinking, rotate it, and attach it to the dark gray angled rack after setting it down."
+   },
+   {
+    "seed": 300001,
+    "config": "clean",
+    "instruction": "Use the left arm to lift the white mug, rotate it, put it down, then hook onto the smooth rack."
+   },
+   {
+    "seed": 300002,
+    "config": "clean",
+    "instruction": "With the left arm, pick the cylindrical mug with curved handle, rotate it, place it, then hang it onto the dark gray rack."
+   },
+   {
+    "seed": 300003,
+    "config": "clean",
+    "instruction": "Take the cylindrical mug with black finish, rotate it, set it on the table's center, then hang it onto the dark gray rack."
+   },
+   {
+    "seed": 300004,
+    "config": "clean",
+    "instruction": "Using the left arm, pick the drinking mug shiny black exterior, turn it, place it down, and hang it on the angular rack with slanted support rod."
+   },
+   {
+    "seed": 300005,
+    "config": "clean",
+    "instruction": "Lift the light brown mug from the table, turn it, put it down in the middle, then hang it onto the dark gray rack."
+   },
+   {
+    "seed": 300006,
+    "config": "clean",
+    "instruction": "Use the left arm to pick the medium mug with blue design, turn it, place it, then hang on the dark gray angled rack."
+   },
+   {
+    "seed": 300007,
+    "config": "clean",
+    "instruction": "Use your left arm to grab the brown mug for drinking, rotate it, place it in the middle, then use the right arm to hang it onto the rack with two rods sticking out."
+   },
+   {
+    "seed": 300008,
+    "config": "clean",
+    "instruction": "Take the white mug with glossy finish, rotate it, place it back on the table, and hang it on the rack with two rods sticking out afterward."
+   },
+   {
+    "seed": 300009,
+    "config": "clean",
+    "instruction": "Use the left arm to grab the brown mug, rotate it, place it down, and hang it onto the medium rack with protruding rods with the right arm."
+   },
+   {
+    "seed": 300010,
+    "config": "clean",
+    "instruction": "Use the left arm to pick the black mug, turn it, place it, then hang on the metal rack."
+   },
+   {
+    "seed": 300011,
+    "config": "clean",
+    "instruction": "Use the left arm to grab the black mug, rotate it, place it down, and hang it onto the dark gray rack with the right arm."
+   },
+   {
+    "seed": 300012,
+    "config": "clean",
+    "instruction": "Take the cylindrical mug made of ceramic, rotate it, set it on the table's center, then hang it onto the smooth rack."
+   },
+   {
+    "seed": 300013,
+    "config": "clean",
+    "instruction": "Use the left arm to grab the white drinking mug with smooth surface, rotate it, place it in the middle, then use the right arm to hang it onto the rack with two rods sticking out."
+   },
+   {
+    "seed": 300014,
+    "config": "clean",
+    "instruction": "Take the dark green ceramic cup, rotate it, place it in the center, then hang it on the smooth dark gray rack."
+   },
+   {
+    "seed": 300015,
+    "config": "clean",
+    "instruction": "Use your left arm to pick the hand-sized ceramic mug, rotate it, set it down, and hang it onto the rack with angular body."
+   },
+   {
+    "seed": 300016,
+    "config": "clean",
+    "instruction": "Lift the mug with cartoon design, turn it around, set it in the middle, and place it on the metallic angular rack with rod pair."
+   },
+   {
+    "seed": 300017,
+    "config": "clean",
+    "instruction": "Take the medium beige mug from the table, rotate it, place it in the center, then hang it onto the dark gray angled rack."
+   },
+   {
+    "seed": 300018,
+    "config": "clean",
+    "instruction": "Use your left arm to pick the mug with prints, rotate it, set it down, and hang it onto the dark gray angled rack."
+   },
+   {
+    "seed": 300019,
+    "config": "clean",
+    "instruction": "Use your left arm to grab the green mug, rotate it, set it down, then hang on the angled rack with long and short rods."
+   }
+  ],
+  "lift_pot": [
+   {
+    "seed": 300002,
+    "config": "clean",
+    "instruction": "Securely lift the dark gray stove kitchenpot together"
+   },
+   {
+    "seed": 300005,
+    "config": "clean",
+    "instruction": "Raise the round kitchenpot with handles using both arms"
+   },
+   {
+    "seed": 300007,
+    "config": "clean",
+    "instruction": "Hold the cylindrical kitchenpot firmly with arms"
+   },
+   {
+    "seed": 300013,
+    "config": "clean",
+    "instruction": "Raise the gray kitchenpot together using arms"
+   },
+   {
+    "seed": 300017,
+    "config": "clean",
+    "instruction": "Raise the smooth gray kitchenpot steadily using arms"
+   },
+   {
+    "seed": 300018,
+    "config": "clean",
+    "instruction": "Grab the kitchenpot for boiling and cooking and lift together"
+   },
+   {
+    "seed": 300020,
+    "config": "clean",
+    "instruction": "Lift the gray cylindrical metal kitchenpot carefully using arms"
+   },
+   {
+    "seed": 300022,
+    "config": "clean",
+    "instruction": "Hold the gray kitchenpot with both arms"
+   },
+   {
+    "seed": 300028,
+    "config": "clean",
+    "instruction": "Grab the smooth gray kitchenpot and lift it upwards"
+   },
+   {
+    "seed": 300029,
+    "config": "clean",
+    "instruction": "Lift the cylindrical kitchenpot using both arms now."
+   },
+   {
+    "seed": 300031,
+    "config": "clean",
+    "instruction": "Use both arms to raise the dark gray stove kitchenpot"
+   },
+   {
+    "seed": 300034,
+    "config": "clean",
+    "instruction": "Lift the cooking kitchenpot with side grips carefully using arms"
+   },
+   {
+    "seed": 300035,
+    "config": "clean",
+    "instruction": "Carry the metal kitchenpot securely using arms"
+   },
+   {
+    "seed": 300036,
+    "config": "clean",
+    "instruction": "Engage arms to grip and lift the metal kitchenpot."
+   },
+   {
+    "seed": 300042,
+    "config": "clean",
+    "instruction": "Pick up the kitchenpot with smooth exterior with both arms"
+   },
+   {
+    "seed": 300043,
+    "config": "clean",
+    "instruction": "Raise the smooth gray kitchenpot evenly with arms"
+   },
+   {
+    "seed": 300044,
+    "config": "clean",
+    "instruction": "Pick up the medium kitchenpot made of metal with both arms"
+   },
+   {
+    "seed": 300047,
+    "config": "clean",
+    "instruction": "Hold and raise the cooking kitchenpot with side grips together"
+   },
+   {
+    "seed": 300049,
+    "config": "clean",
+    "instruction": "Raise the kitchenpot for boiling and cooking with strong support"
+   },
+   {
+    "seed": 300050,
+    "config": "clean",
+    "instruction": "Hold the dark gray stove kitchenpot firmly and lift it"
+   }
+  ],
+  "move_can_pot": [
+   {
+    "seed": 300000,
+    "config": "clean",
+    "instruction": "Take the brown top sauce can with the left arm, bring it, and set next to the rounded pot with curved handles"
+   },
+   {
+    "seed": 300001,
+    "config": "clean",
+    "instruction": "Lift the smooth sauce can and set it beside the teal pot for boiling and cooking"
+   },
+   {
+    "seed": 300002,
+    "config": "clean",
+    "instruction": "Use the left arm to grab the brown top white sauce can and transfer it near the black kitchenpot with plastic lid handle"
+   },
+   {
+    "seed": 300003,
+    "config": "clean",
+    "instruction": "Use the right arm to pick the cylindrical sauce can up and set it beside the smooth teal kitchenpot for stovetop use"
+   },
+   {
+    "seed": 300004,
+    "config": "clean",
+    "instruction": "Place the red sauce can for holding condiments next to the blue kitchenpot with smooth matte sides"
+   },
+   {
+    "seed": 300005,
+    "config": "clean",
+    "instruction": "Use the left arm to take the cylindrical sauce can to the silver pot with matching lid"
+   },
+   {
+    "seed": 300006,
+    "config": "clean",
+    "instruction": "Set the brown top sauce can right next to the black cooking pot with silver handles"
+   },
+   {
+    "seed": 300007,
+    "config": "clean",
+    "instruction": "Lift the small cylindrical sauce can and set it next to the rounded pot with curved handles"
+   },
+   {
+    "seed": 300008,
+    "config": "clean",
+    "instruction": "Use the right arm to take the printed label sauce can to the smooth teal kitchenpot for stovetop use"
+   },
+   {
+    "seed": 300009,
+    "config": "clean",
+    "instruction": "Use the left arm to grab the medium-sized red sauce can and move it next to the gray kitchenpot"
+   },
+   {
+    "seed": 300010,
+    "config": "clean",
+    "instruction": "Take the red sauce can using the right arm, set it next to the gray kitchenpot"
+   },
+   {
+    "seed": 300011,
+    "config": "clean",
+    "instruction": "Use the left arm to lift the cylindrical sauce can, then move it next to the grey kitchenpot"
+   },
+   {
+    "seed": 300012,
+    "config": "clean",
+    "instruction": "Pick the metal body sauce can and position it next to the kitchenpot used for cooking meals"
+   },
+   {
+    "seed": 300013,
+    "config": "clean",
+    "instruction": "Lift the red cylindrical sauce can and set it next to the black kitchenpot with silver and black handles"
+   },
+   {
+    "seed": 300014,
+    "config": "clean",
+    "instruction": "Lift the yellow brown sauce can using the left arm and position it by the medium kitchenpot made of metal"
+   },
+   {
+    "seed": 300015,
+    "config": "clean",
+    "instruction": "Pick up the sauce can with flat top with the left arm and set by the metal pot with dark handles"
+   },
+   {
+    "seed": 300016,
+    "config": "clean",
+    "instruction": "Move the red can with gold patterns to the smooth teal kitchenpot for stovetop use with the right arm"
+   },
+   {
+    "seed": 300017,
+    "config": "clean",
+    "instruction": "Move the sauce can with red lid beside the round kitchenpot after lifting it"
+   },
+   {
+    "seed": 300018,
+    "config": "clean",
+    "instruction": "Move the red plastic sauce can to be next to the silver pot with black grips"
+   },
+   {
+    "seed": 300019,
+    "config": "clean",
+    "instruction": "Pick up the round sauce can with yellow pattern using the right arm, transfer it beside the metal kitchenpot"
+   }
+  ],
+  "open_laptop": [
+   {
+    "seed": 300000,
+    "config": "clean",
+    "instruction": "Open the laptop with silver base entirely."
+   },
+   {
+    "seed": 300001,
+    "config": "clean",
+    "instruction": "Open the black and silver portable laptop lifting with the left arm"
+   },
+   {
+    "seed": 300004,
+    "config": "clean",
+    "instruction": "Open the compact black and silver computer by lifting its lid."
+   },
+   {
+    "seed": 300005,
+    "config": "clean",
+    "instruction": "Use the left arm to open the laptop with silver base"
+   },
+   {
+    "seed": 300006,
+    "config": "clean",
+    "instruction": "Use the left arm to lift the laptop with silver buttons on keyboard"
+   },
+   {
+    "seed": 300007,
+    "config": "clean",
+    "instruction": "Lift the keyboard laptop's lid upwards."
+   },
+   {
+    "seed": 300008,
+    "config": "clean",
+    "instruction": "Use the left arm to open the laptop featuring built-in keyboard"
+   },
+   {
+    "seed": 300009,
+    "config": "clean",
+    "instruction": "Raise the hinged laptop with display lid with the right arm."
+   },
+   {
+    "seed": 300010,
+    "config": "clean",
+    "instruction": "Raise the medium-sized silver laptop using the left arm firmly."
+   },
+   {
+    "seed": 300011,
+    "config": "clean",
+    "instruction": "Raise the smooth textured laptop using the right arm."
+   },
+   {
+    "seed": 300012,
+    "config": "clean",
+    "instruction": "Pull the black laptop with red accents's lid upward."
+   },
+   {
+    "seed": 300014,
+    "config": "clean",
+    "instruction": "Grip and lift the blue base black lid laptop's lid."
+   },
+   {
+    "seed": 300015,
+    "config": "clean",
+    "instruction": "Pull open the laptop with screen and keyboard"
+   },
+   {
+    "seed": 300016,
+    "config": "clean",
+    "instruction": "Raise the folding laptop with black exterior to expose the screen"
+   },
+   {
+    "seed": 300017,
+    "config": "clean",
+    "instruction": "Pull the hinged screen laptop open with the left arm."
+   },
+   {
+    "seed": 300018,
+    "config": "clean",
+    "instruction": "Hold the laptop with wood panel background steady, lift lid."
+   },
+   {
+    "seed": 300020,
+    "config": "clean",
+    "instruction": "Open the laptop featuring textured exterior by lifting its lid."
+   },
+   {
+    "seed": 300021,
+    "config": "clean",
+    "instruction": "Gently lift the black laptop using the left arm"
+   },
+   {
+    "seed": 300022,
+    "config": "clean",
+    "instruction": "Gently lift the metallic laptop using the left arm"
+   },
+   {
+    "seed": 300023,
+    "config": "clean",
+    "instruction": "Pull the laptop with black keyboard upward lightly."
+   }
+  ],
+  "open_microwave": [
+   {
+    "seed": 300001,
+    "config": "clean",
+    "instruction": "Engage the microwave with smooth surface's handle and open it."
+   },
+   {
+    "seed": 300002,
+    "config": "clean",
+    "instruction": "Handle the rectangular microwave and open it with the left arm."
+   },
+   {
+    "seed": 300003,
+    "config": "clean",
+    "instruction": "Grasp the gray and glass microwave for cooking's handle and pull to open."
+   },
+   {
+    "seed": 300004,
+    "config": "clean",
+    "instruction": "Pull the door to open the dark gray slanted microwave box."
+   },
+   {
+    "seed": 300009,
+    "config": "clean",
+    "instruction": "Pull the handle of the gray and glass microwave for cooking to open it."
+   },
+   {
+    "seed": 300010,
+    "config": "clean",
+    "instruction": "Get the dark gray kitchen microwave open."
+   },
+   {
+    "seed": 300012,
+    "config": "clean",
+    "instruction": "Grasp the microwave with smooth surface's handle and pull to open."
+   },
+   {
+    "seed": 300013,
+    "config": "clean",
+    "instruction": "Utilize the left arm to pull the microwave open."
+   },
+   {
+    "seed": 300014,
+    "config": "clean",
+    "instruction": "Pull the handle of the microwave for heating food with the left arm."
+   },
+   {
+    "seed": 300016,
+    "config": "clean",
+    "instruction": "Use the left arm to engage the microwave with glossy dark gray finish's opening mechanism."
+   },
+   {
+    "seed": 300017,
+    "config": "clean",
+    "instruction": "Engage the microwave with knobs's handle and open it."
+   },
+   {
+    "seed": 300018,
+    "config": "clean",
+    "instruction": "Pull the handle to open the gray and yellow microwave with rounded edges."
+   },
+   {
+    "seed": 300020,
+    "config": "clean",
+    "instruction": "Pull the the microwave with patterned top and knobs's handle using the left arm."
+   },
+   {
+    "seed": 300021,
+    "config": "clean",
+    "instruction": "Grab the handle and open the microwave with the left arm."
+   },
+   {
+    "seed": 300022,
+    "config": "clean",
+    "instruction": "Use the left arm to open the microwave by pulling."
+   },
+   {
+    "seed": 300023,
+    "config": "clean",
+    "instruction": "Use the left arm to open the microwave with smooth surface by pulling."
+   },
+   {
+    "seed": 300024,
+    "config": "clean",
+    "instruction": "Engage the gray and glass microwave for cooking using the left arm to open."
+   },
+   {
+    "seed": 300025,
+    "config": "clean",
+    "instruction": "Use the left arm to grab and pull the gray microwave."
+   },
+   {
+    "seed": 300026,
+    "config": "clean",
+    "instruction": "Use the left arm to pull open the door of the dark gray slanted microwave box."
+   },
+   {
+    "seed": 300027,
+    "config": "clean",
+    "instruction": "Grab the handle and open the microwave with smooth surface."
+   }
+  ],
+  "pick_dual_bottles": [
+   {
+    "seed": 300001,
+    "config": "clean",
+    "instruction": "Lift the long thin bottle in one arm and the medium green bottle in the other."
+   },
+   {
+    "seed": 300002,
+    "config": "clean",
+    "instruction": "Hold the bottle with ridges on bottom and the smooth green bottle, one in each hand."
+   },
+   {
+    "seed": 300003,
+    "config": "clean",
+    "instruction": "Grab the bottles the smooth bottle with red lid and the smooth green bottle."
+   },
+   {
+    "seed": 300004,
+    "config": "clean",
+    "instruction": "Pick the brown bottle with red label first and then the medium green bottle with capped neck."
+   },
+   {
+    "seed": 300005,
+    "config": "clean",
+    "instruction": "Lift the red-capped bottle and the smooth green bottle simultaneously with both arms."
+   },
+   {
+    "seed": 300006,
+    "config": "clean",
+    "instruction": "Catch the medium dark brown bottle with one hand, catch the handheld green bottle with the other."
+   },
+   {
+    "seed": 300007,
+    "config": "clean",
+    "instruction": "Secure the medium dark brown bottle in one hand, the medium-sized green bottle in other."
+   },
+   {
+    "seed": 300008,
+    "config": "clean",
+    "instruction": "Lift the smooth bottle with red lid and the medium-sized green bottle simultaneously with both arms."
+   },
+   {
+    "seed": 300009,
+    "config": "clean",
+    "instruction": "Take the long thin bottle with one arm, hold the bottle with ridges near base too."
+   },
+   {
+    "seed": 300010,
+    "config": "clean",
+    "instruction": "Catch the long thin bottle in one arm, the plastic bottle in the other."
+   },
+   {
+    "seed": 300012,
+    "config": "clean",
+    "instruction": "Lift the bottle with ridges on bottom and the medium green bottle together with both hands."
+   },
+   {
+    "seed": 300013,
+    "config": "clean",
+    "instruction": "Hold the bottle with white neck and red top in one hand, the medium-sized green bottle in another."
+   },
+   {
+    "seed": 300014,
+    "config": "clean",
+    "instruction": "Grab the smooth bottle with red lid and the bottle with narrow top one by one."
+   },
+   {
+    "seed": 300015,
+    "config": "clean",
+    "instruction": "Hold the plastic drink bottle in one hand, then hold the bottle with rounded neck in the other."
+   },
+   {
+    "seed": 300016,
+    "config": "clean",
+    "instruction": "Handle the smooth bottle with red lid, then handle the green bottle with indented base without arm specifics."
+   },
+   {
+    "seed": 300017,
+    "config": "clean",
+    "instruction": "Reach for the Coca-Cola bottle, then grab the handheld green bottle."
+   },
+   {
+    "seed": 300018,
+    "config": "clean",
+    "instruction": "Lift both the Coca-Cola bottle and the handheld green bottle bottles."
+   },
+   {
+    "seed": 300019,
+    "config": "clean",
+    "instruction": "Grab the Coca-Cola bottle with one arm, the bottle with white printed label with the other."
+   },
+   {
+    "seed": 300020,
+    "config": "clean",
+    "instruction": "Pick the smooth bottle with red lid first and then the bottle with white printed label."
+   },
+   {
+    "seed": 300021,
+    "config": "clean",
+    "instruction": "Raise the long thin bottle first, then grab the smooth green bottle next."
+   }
+  ],
+  "place_a2b_left": [
+   {
+    "seed": 300000,
+    "config": "clean",
+    "instruction": "Move the square-shaped tea box to the left of the medium rectangular coffee-box."
+   },
+   {
+    "seed": 300001,
+    "config": "clean",
+    "instruction": "Set the plastic mouse directly to the left of the rectangular phone"
+   },
+   {
+    "seed": 300002,
+    "config": "clean",
+    "instruction": "Grab the gray rectangular soap with angled edges with the left arm and shift it left of the small playingcards pack."
+   },
+   {
+    "seed": 300003,
+    "config": "clean",
+    "instruction": "Use the right arm to move the sleek rectangular phone to the left of the hand-sized rolling toycar."
+   },
+   {
+    "seed": 300004,
+    "config": "clean",
+    "instruction": "Set the rubikscube with matching color blocks on the left side of the palm-sized black and white phone."
+   },
+   {
+    "seed": 300006,
+    "config": "clean",
+    "instruction": "Place the phone with camera lens at back to rest left of the compact teal toycar using the left arm"
+   },
+   {
+    "seed": 300007,
+    "config": "clean",
+    "instruction": "Move the mouse with scroll wheel in center to the left of the tea box with leafy design."
+   },
+   {
+    "seed": 300008,
+    "config": "clean",
+    "instruction": "Use the left arm, move the phone with smooth glass front left of the green car-shaped toycar"
+   },
+   {
+    "seed": 300009,
+    "config": "clean",
+    "instruction": "Grab the plastic mouse using the right arm and place left of the stapler with silver inner plates."
+   },
+   {
+    "seed": 300011,
+    "config": "clean",
+    "instruction": "Grab the blue toycar with the right arm and set left of the box holding playing cards"
+   },
+   {
+    "seed": 300012,
+    "config": "clean",
+    "instruction": "Set the phone with buttons and screen to the left of the multi-colored cube"
+   },
+   {
+    "seed": 300013,
+    "config": "clean",
+    "instruction": "Put the rubikscube with rotating rows and columns to the left of the blue dome-shaped bell"
+   },
+   {
+    "seed": 300014,
+    "config": "clean",
+    "instruction": "With the right arm, move the compact golden tea box to the left side of the rounded computer mouse."
+   },
+   {
+    "seed": 300015,
+    "config": "clean",
+    "instruction": "Using the left arm, put the plastic and metal bell on left of the metallic stapler with blue cover"
+   },
+   {
+    "seed": 300016,
+    "config": "clean",
+    "instruction": "Using the left arm, place the play car in teal and white on the left of the round bread with crusty texture"
+   },
+   {
+    "seed": 300017,
+    "config": "clean",
+    "instruction": "Shift the golden bread leftward to the side of the compact blue stapler"
+   },
+   {
+    "seed": 300018,
+    "config": "clean",
+    "instruction": "Shift the toycar with black wheels and position it left of the mouse with curved top."
+   },
+   {
+    "seed": 300019,
+    "config": "clean",
+    "instruction": "Use the left arm to set the silver-edged phone left of the black box with rectangular shape"
+   },
+   {
+    "seed": 300020,
+    "config": "clean",
+    "instruction": "Set the toycar with rounded compact shape on the left side of the glossy rectangular playingcards box."
+   },
+   {
+    "seed": 300021,
+    "config": "clean",
+    "instruction": "Place the rubikscube exactly to the left of the small mouse with smooth surface"
+   }
+  ],
+  "place_container_plate": [
+   {
+    "seed": 300000,
+    "config": "clean",
+    "instruction": "Move the cup with black base and drop the container onto the flat round greenish plate"
+   },
+   {
+    "seed": 300001,
+    "config": "clean",
+    "instruction": "Use the round white bowl to place the container into the dish plate"
+   },
+   {
+    "seed": 300002,
+    "config": "clean",
+    "instruction": "Position the container onto the ceramic plate with smooth surface using the bowl with shiny texture."
+   },
+   {
+    "seed": 300003,
+    "config": "clean",
+    "instruction": "Move the container with the ceramic bowl to the medium round ceramic plate."
+   },
+   {
+    "seed": 300004,
+    "config": "clean",
+    "instruction": "Use the dark ribbed plastic drinking cup to place the container onto the greenish-gray flat dinner plate."
+   },
+   {
+    "seed": 300005,
+    "config": "clean",
+    "instruction": "Position the container using the dark brown ribbed cup onto the round plate."
+   },
+   {
+    "seed": 300006,
+    "config": "clean",
+    "instruction": "Lift the container with the smooth gray bowl, then place it onto the flat round greenish plate."
+   },
+   {
+    "seed": 300007,
+    "config": "clean",
+    "instruction": "Guide the container with the ceramic bowl light gray onto the flat round greenish plate"
+   },
+   {
+    "seed": 300010,
+    "config": "clean",
+    "instruction": "Position the white cup to lower the container on the dish plate"
+   },
+   {
+    "seed": 300011,
+    "config": "clean",
+    "instruction": "Grab container using the simple serving bowl, transfer it to the dish plate."
+   },
+   {
+    "seed": 300013,
+    "config": "clean",
+    "instruction": "Use the white bowl with curved shape to place the container onto the flat ceramic plate with smooth texture."
+   },
+   {
+    "seed": 300014,
+    "config": "clean",
+    "instruction": "Drop the container onto the medium round ceramic plate using the cup with blue flowers"
+   },
+   {
+    "seed": 300016,
+    "config": "clean",
+    "instruction": "Use the dark green smooth drinking cup to place the container into the medium round ceramic plate"
+   },
+   {
+    "seed": 300018,
+    "config": "clean",
+    "instruction": "Use the bowl with brown outer rim to place the container onto the food plate."
+   },
+   {
+    "seed": 300019,
+    "config": "clean",
+    "instruction": "Guide the container with the dark inside bowl light blue outside onto the food plate"
+   },
+   {
+    "seed": 300020,
+    "config": "clean",
+    "instruction": "Drop the container onto the medium round ceramic plate using the cup shaped like ribbed cylinder"
+   },
+   {
+    "seed": 300021,
+    "config": "clean",
+    "instruction": "Place the container onto the dish plate with the simple serving bowl."
+   },
+   {
+    "seed": 300022,
+    "config": "clean",
+    "instruction": "Lift the container with the gray bowl with rounded edges, then place it onto the medium round flat plate."
+   },
+   {
+    "seed": 300023,
+    "config": "clean",
+    "instruction": "Use the bowl-shaped white ceramic cup to place the container into the greenish-gray flat dinner plate"
+   },
+   {
+    "seed": 300024,
+    "config": "clean",
+    "instruction": "Position the container using the brown cup smooth top edge onto the smooth ceramic plate."
+   }
+  ]
+ }
+}

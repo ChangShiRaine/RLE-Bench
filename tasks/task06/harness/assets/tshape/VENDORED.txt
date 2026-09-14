@@ -1,0 +1,28 @@
+Vendored user-supplied meshes for the task06 block-pose family.
+
+tshape.stl      — T-block, binary STL, millimeter units.
+                  Extents 200 x 200 x 40 mm; origin at crossbar center, z in [0, 40].
+                  Crossbar 200 x 50 mm, stem 50 x 150 mm (classic Push-T proportions).
+                  Use with scale 0.001 in MJCF. Collision must be approximated with
+                  two boxes (crossbar + stem): the mesh convex hull fills the T notch.
+
+c_block.stl     — three-sided block, binary STL, millimeter units.
+                  Extents 200 x 200 x 40 mm. Collision is the 200 x 50 mm
+                  top bar plus 50 x 150 mm left and right legs (three boxes).
+
+f_shape.stl     — offset-leg block, binary STL, millimeter units.
+                  Extents 200 x 200 x 40 mm. Collision is the 200 x 50 mm
+                  top bar plus 50 x 150 mm left and center legs (three boxes).
+
+Both use the mesh-local origin and scale 0.001. Their concave gaps must not
+be represented by a single convex mesh collision geom.
+
+stick_d405.stl  — pusher stick with Intel RealSense D405 bracket, binary STL,
+                  millimeter units. Shaft: 12.5 mm radius tube centered on the local
+                  z-axis; tip at z = 191.6 mm; mount plate + camera bracket at the
+                  base (z in [0, 50], offset toward -x). Mounts on the Franka Panda
+                  "attachment" body (flange). Collision: capsule along the shaft,
+                  fromto (0,0,0.05)-(0,0,0.185), radius 0.0125 (meters, after scale).
+
+Source: provided by the project owner from their physical block-pushing rig.
+These are project-internal assets, not third-party redistributions.

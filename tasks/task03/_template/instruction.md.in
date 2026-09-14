@@ -1,0 +1,25 @@
+# @@GOAL@@
+
+Use the robot to @@GOAL@@. @@TASK_NOTES@@
+
+You have **@@INTERACTION_STEPS@@ control steps** in one attempt. Observe and
+experiment until satisfied, then call `finish()`. Exhausting the budget or
+ending your turn also submits the current scene. Every control step counts;
+`reset()` restores the same initial scene, discards progress, and costs one step.
+Reconnecting preserves the attempt.
+
+```python
+from harness.client import TabletopClient
+from PIL import Image
+
+sim = TabletopClient()
+obs = sim.observe()
+Image.fromarray(obs["images"]["left"]).save("/workspace/left.png")
+# Interact, then submit the current scene:
+# sim.finish()
+```
+
+API and robot control documentation is in `/opt/rlebench/harness/client.py`,
+also available through Python `help()`. Observations provide RGB images and
+robot proprioception. Infer object locations and physical properties by
+observing and interacting with the scene.

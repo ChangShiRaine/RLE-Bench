@@ -1,0 +1,6 @@
+menagerie commit: 71f066ad0be9cd271f7ed58c030243ef157af9f4
+source: https://github.com/google-deepmind/mujoco_menagerie/tree/main/ufactory_xarm7
+
+Pruned to the files the families need. All retained files match upstream at this
+commit by Git blob hash except xarm7_nohand.xml, modified here: link_base pos
+"0 0 .12" -> "0 0 0", so the arm mounts at the attachment frame origin.

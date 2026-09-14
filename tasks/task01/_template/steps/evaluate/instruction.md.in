@@ -1,0 +1,97 @@
+# RoboCasa speed-run — evaluation phase (@@ROBOCASA_TASK@@)
+
+**You are being evaluated. This is your one and only attempt, and the result is
+final.**
+
+This is the same session you have been working in — the task is the one you developed
+against, you remember what you learned about it, and the code you wrote is still on
+disk. Work exactly as you did before: reuse it, write more if you need to, run it, and
+look at what comes back.
+
+**Two things differ from development:**
+
+1. You are being scored.
+2. **`sim.reset()` now ends the current trajectory and scores it immediately** — it is
+   a "give up on this attempt" move, not a restart. Whatever state the trial is in
+   when you reset is what gets graded.
+
+## Where you are
+
+The evaluation is already open — you do not need to start it. Ask where you are:
+
+```python
+from harness.client import SpeedrunClient
+
+with SpeedrunClient() as sim:
+    print(sim.phase())          # "evaluation"
+    trial = sim.trial_info()    # position, total_trials, obs, instruction
+    print(trial["instruction"]) # the goal for THIS trial
+```
+
+The simulator serves one connection at a time — close your client before opening another.
+
+There are **several trials**, across several kitchens. `trial_info()["total_trials"]`
+says how many; each one you solve raises your score.
+
+`sim.step` and `sim.observe` behave here exactly as they did in development, so the loop you
+debugged is the loop that drives a graded trial, and you can still work in as many pieces as
+you like. Looking is still free and still ends nothing.
+
+The lenses, if you deproject a pixel yourself: `robot0_agentview_left` and `_right` are
+**fovy 60°**, `robot0_eye_in_hand` is **fovy 75°**, and `f = (H/2) / tan(fovy/2)` for the
+height `H` you rendered at. Where the cameras sit on the robot is yours to measure.
+
+One thing is worth re-reading: resolution is paid for in **wall clock**, and this phase has
+its own. Streaming full-size frames on every step of every trial can run you out of time
+before the plan is finished, and an unreached trial scores zero.
+
+## How a trial ends
+
+Only the first of these is your choice:
+
+| ending | what happens |
+|---|---|
+| you call `sim.reset()` while the trial is running | the trajectory is scored where it stands — you have given up on it |
+| the environment stops | the task's success condition fires, or the episode finishes |
+| the step limit | the trial runs out of steps — the ceiling is `trial_info()["max_steps"]` |
+| the trial errors | the scene or environment failed; that trial is lost and the run continues |
+
+Those last three are not your choice, so watch for them: `res["episode_over"]` tells you
+the trial is finished and scored. The step figures in `sim.status()` and
+`res["steps_remaining"]` count this trial, not the spent development budget.
+
+**Call `sim.reset()` to move to the next trial.**
+
+```python
+res = sim.step(actions)
+if res["episode_over"]:
+    sim.reset()          # trial already scored — this just starts the next one
+```
+
+`reset()` costs you a trial *only* when the trial was still alive. Stepping after a
+trial has ended raises `RemoteError` saying which trial was scored: `reset()` is the
+only way to advance, and it returns the new trial's descriptor.
+
+Your score is judged entirely by the environment's own success condition. There is no
+channel for asserting it.
+
+## How you are scored
+
+```
+reward = 0.80 x success_rate
+       + 0.20 x success_rate x (1 - development_steps / interaction_budget)
+```
+
+`success_rate` is the fraction of these trials that ended in success — continuous, with no
+bar to clear. The second term is what you saved during development. Nothing you do now can
+change `development_steps`: in this phase the only thing that moves your score is solving
+trials.
+
+**This phase has its own wall clock**, reported by `sim.status()["seconds_remaining"]`.
+Nothing is saved by finishing early — an unspent evaluation is simply an unscored one, and a
+trial you never drove scores the same as one you drove and failed.
+
+If a trial is clearly unrecoverable, resetting frees the remaining time for the next one —
+but it forfeits that trial, so only do it when the attempt is genuinely lost.
+
+When you reset after the last trial, the result is returned to you and the run is over.

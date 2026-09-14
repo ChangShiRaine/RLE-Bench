@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="stock pickup payload">
+  <worldbody>
+    <body name="payload">
+      <geom name="payload_geom" type="sphere" size="0.04" mass="1" rgba="0.80 0.10 0.10 1" />
+    </body>
+  </worldbody>
+</mujoco>

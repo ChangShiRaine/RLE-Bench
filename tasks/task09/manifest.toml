@@ -1,0 +1,19 @@
+# rlebench manifest: how this family is prepared and addressed. Read by the
+# CLI only; ships into no image.
+[task]
+layout = "single"
+
+[prepare]
+commands = [["make", "task09"]]
+
+[verify]
+images = ["rlebench-task09-agent:dev", "rlebench-task09-verifier:dev"]
+paths = [
+  "tasks/task09/environment/assets",
+  "tasks/task09/tests/harness",
+  "tasks/task09/solution/payload",
+]
+
+[run]
+lane = "environment-host"
+gpu = false

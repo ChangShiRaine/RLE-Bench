@@ -1,0 +1,38 @@
+schema_version = "1.4"
+
+[task]
+name = "rlebench/task07-bin-clearing"
+version = "1.0.0"
+description = "Clear a bin of stamped steel brackets onto a conveyor drop zone with a magnet-tipped Franka Panda in MuJoCo, as fast as possible. Open-ended: ship a closed-loop policy (RGB-D in, joint targets + magnet command out); any method is legal. Scored on hidden pile seeds by clearance and speed, minus floor drops and part damage."
+authors = [{ name = "Haitong Ma", email = "haitongma@g.harvard.edu" }]
+keywords = ["robotics", "mujoco", "simulation", "manipulation", "bin-picking", "throughput", "custom-verifier"]
+
+[metadata]
+category = "robotics-manipulation"
+difficulty = "hard"
+tags = ["closed-loop-control", "rgb-d", "hidden-seeds", "cpu"]
+difficulty_explanation = "Open-ended manipulation throughput: perception, motion generation and picking strategy graded end-to-end against hidden pile seeds; rewards anchored to scripted reference pickers."
+
+[environment]
+# Prebuilt by `make task07`; environment/ and tests/ remain the build inputs.
+docker_image = "rlebench-task07-agent:dev"
+build_timeout_sec = 1800.0
+cpus = 4
+memory_mb = 6144
+storage_mb = 10240
+network_mode = "no-network"
+
+[agent]
+timeout_sec = 14400.0
+
+[verifier]
+timeout_sec = 10800.0
+network_mode = "no-network"
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "rlebench-task07-verifier:dev"
+cpus = 4
+memory_mb = 6144
+storage_mb = 10240
+network_mode = "no-network"

@@ -1,0 +1,69 @@
+services:
+  main:
+    shm_size: "16gb"
+    pids_limit: 16384
+    security_opt: ["no-new-privileges:true"]
+    environment:
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility
+    volumes:
+      - type: bind
+        source: ${NANOVLA_SHARDS_L10:?set NANOVLA_SHARDS_L10}
+        target: /assets/nanovla/shards
+        read_only: true
+      - type: volume
+        source: nanovla-eval
+        target: /run/nanovla-eval
+    depends_on:
+      evaluator:
+        condition: service_healthy
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ['${RLEBENCH_GPU:-0}']
+              capabilities: [gpu]
+  # The evaluation service: the simulator and the development episode sets live
+  # here, reachable from main only through the sockets in the shared directory.
+  evaluator:
+    image: rlebench-task05-libero-verifier-base:dev
+    command: ["python3", "/opt/nanovla-verifier/eval_service.py", "--subtask", "01-libero-open-design", "--workers", "8"]
+    network_mode: none
+    read_only: true
+    shm_size: "8gb"
+    security_opt: ["no-new-privileges:true"]
+    tmpfs:
+      - /tmp:rw,exec,size=16g,mode=1777
+    environment:
+      NVIDIA_DRIVER_CAPABILITIES: compute,graphics,utility
+    volumes:
+      - type: volume
+        source: nanovla-eval
+        target: /run/nanovla-eval
+      - type: bind
+        source: ${NANOVLA_EVAL_LOGS:-/tmp/rlebench-task05-eval-logs}
+        target: /logs/eval-service
+    healthcheck:
+      test: ["CMD", "test", "-S", "/run/nanovla-eval/service.sock"]
+      interval: 5s
+      timeout: 3s
+      retries: 60
+      start_period: 20s
+    deploy:
+      resources:
+        limits:
+          cpus: "16"
+          memory: 32g
+          pids: 4096
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ['${RLEBENCH_GPU:-0}']
+              capabilities: [gpu]
+
+volumes:
+  nanovla-eval:
+    driver_opts:
+      type: tmpfs
+      device: tmpfs
+      o: "size=64m"

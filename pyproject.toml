@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rlebench"
+version = "2.0.0"
+description = "RLE-Bench: a full-stack robotics engineering benchmark for coding agents, packaged as Harbor tasks"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.12"
+authors = [{ name = "RLE-Bench contributors" }]
+keywords = ["benchmark", "robotics", "coding-agents", "harbor", "mujoco"]
+classifiers = [
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+# Deliberately stdlib-only: the CLI shells out to harbor/docker/make, so the
+# eval surface never depends on it. harbor itself is pinned in
+# requirements-dev.txt.
+dependencies = []
+
+[project.scripts]
+rlebench = "rlebench.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["rlebench*"]
+
+[tool.setuptools.package-data]
+"rlebench.view" = ["static/*"]
+

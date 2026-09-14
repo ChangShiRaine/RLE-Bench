@@ -1,0 +1,16 @@
+# GPU passthrough for GPU-enabled task06 agent containers (1x NVIDIA GPU).
+# Harbor's Docker backend appends this to its own compose templates; the
+# service name must stay `main`. Requires nvidia-container-toolkit on the
+# host. The GPU is exposed for model training and optional agent-side compute;
+# the root-owned rendering service remains pinned to OSMesa.
+services:
+  main:
+    environment:
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]

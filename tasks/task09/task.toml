@@ -1,0 +1,36 @@
+schema_version = "1.4"
+
+[task]
+name = "rlebench/task09-gello-codesign-multirobot"
+version = "1.0.0"
+description = "Hardware/software co-design of CAD-assembled GELLO lead arms for Franka, UR5e, and xArm7 in one task. All three followers are available together and scored independently."
+authors = [{ name = "Haitong Ma", email = "haitongma@g.harvard.edu" }]
+keywords = ["robotics", "mujoco", "teleoperation", "mechanical-design", "control", "system-identification", "co-design"]
+
+[metadata]
+category = "robotics-engineering"
+difficulty = "hard"
+tags = ["co-design", "mujoco", "cpu", "system-id"]
+difficulty_explanation = "Cross-robot co-design under a common physical platform: the agent receives the Franka, UR5e, and xArm7 GELLO designs together for one three-hour session. Each follower independently measures valid/buildable hardware, passive balancing, adaptive software on a verifier-owned arm, and their combined robustness. Per-follower continuous bars are calibrated from references using identical margins and checkpoint weights, and the final reward is their mean."
+
+[environment]
+# Prebuilt by `make task09`; environment/ and tests/ remain the build inputs.
+docker_image = "rlebench-task09-agent:dev"
+build_timeout_sec = 1800.0
+cpus = 4
+memory_mb = 4096
+network_mode = "no-network"
+
+[agent]
+timeout_sec = 10800.0
+
+[verifier]
+timeout_sec = 3600.0
+network_mode = "no-network"
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "rlebench-task09-verifier:dev"
+cpus = 4
+memory_mb = 4096
+network_mode = "no-network"

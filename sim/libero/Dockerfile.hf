@@ -1,0 +1,4 @@
+# One offline Hugging Face bundle, built from a validated HF_HOME directory
+# (sim/libero/libero.sh bundles). Only ever used as a COPY --from source.
+FROM scratch
+COPY . /assets/hf

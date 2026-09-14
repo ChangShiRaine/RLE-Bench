@@ -1,0 +1,27 @@
+{
+  "description": "Astra-derived design optimized with verifier access; 16 measured probes and a known 20/48/76 g payload-class prior.",
+  "reward": 0.7154333333333334,
+  "variants": {
+    "franka": {
+      "reward": 0.758,
+      "sha256": {
+        "lead.xml": "3eee60554891d088bf1aa4cadd1ff75fd9a7f8c889b9368baeef46d399fc5cfd",
+        "trim.py": "72e7d4600fdbce23a27d7061e5f745dd899724c508f1adaf8aeea8c510ca367c"
+      }
+    },
+    "ur5e": {
+      "reward": 0.7045,
+      "sha256": {
+        "lead.xml": "68b717890dd8417910170e482a45390c1faa481b282a35edc5f0a264ef583e97",
+        "trim.py": "72e7d4600fdbce23a27d7061e5f745dd899724c508f1adaf8aeea8c510ca367c"
+      }
+    },
+    "xarm7": {
+      "reward": 0.6838,
+      "sha256": {
+        "lead.xml": "cf35660d7405ee87f6dc62b329f67621b3da960f3e81a00f1851ab46bdb1b3af",
+        "trim.py": "dcee52f8e8f46513424b5f2d7a4c0e06067fb10257141741ffa62f887dda6420"
+      }
+    }
+  }
+}

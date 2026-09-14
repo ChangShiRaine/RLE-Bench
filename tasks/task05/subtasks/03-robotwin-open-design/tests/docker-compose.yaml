@@ -1,0 +1,40 @@
+services:
+  main:
+    read_only: true
+    shm_size: "16gb"
+    pids_limit: 16384
+    cap_drop: [ALL]
+    cap_add: [CHOWN, KILL, SETGID, SETUID]
+    security_opt: ["no-new-privileges:true"]
+    tmpfs:
+      - /tmp:rw,exec,size=64g,mode=1777
+      - /logs/artifacts:rw,size=2m,mode=0755
+      - /logs/nanovla-handoff:rw,size=2m,mode=0700
+    environment:
+      HOME: /tmp/nanovla-jit
+      MPLCONFIGDIR: /tmp/nanovla-jit/mpl
+      TORCHINDUCTOR_CACHE_DIR: /tmp/nanovla-jit/inductor
+      TRITON_CACHE_DIR: /tmp/nanovla-jit/triton
+      WARP_CACHE_PATH: /tmp/nanovla-jit/warp
+      XDG_CACHE_HOME: /tmp/nanovla-jit/cache
+      NVIDIA_DRIVER_CAPABILITIES: compute,graphics,utility
+      # Where the verifier looks for an operator-supplied resume point. With no
+      # NANOVLA_RESUME_DIR set the empty directory below is mounted, there is no
+      # ckpt.pt, and the run takes the ordinary replay path.
+      NANOVLA_RESUME_DIR: /resume
+    volumes:
+      - type: bind
+        source: ${NANOVLA_RESUME_DIR:-./empty}
+        target: /resume
+        read_only: true
+      - type: bind
+        source: ${NANOVLA_ROBOTWIN_SHARDS:?set NANOVLA_ROBOTWIN_SHARDS}
+        target: /assets/nanovla/shards
+        read_only: true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ['${RLEBENCH_GPU:-0}']
+              capabilities: [gpu]

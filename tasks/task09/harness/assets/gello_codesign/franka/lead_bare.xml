@@ -1,0 +1,87 @@
+<mujoco model="gello_franka">
+  <compiler angle="radian" autolimits="true" meshdir="meshes" />
+  <option timestep="0.002" integrator="implicitfast" gravity="0 0 -9.81" iterations="100" ls_iterations="50" />
+  <default>
+    <geom contype="0" conaffinity="0" />
+  </default>
+  <asset>
+    <mesh name="base" file="base.stl" scale="0.001 0.001 0.001" inertia="legacy" />
+    <mesh name="L1" file="L1.stl" scale="0.001 0.001 0.001" inertia="legacy" />
+    <mesh name="L2" file="L2.stl" scale="0.001 0.001 0.001" inertia="legacy" />
+    <mesh name="L3" file="L3.stl" scale="0.001 0.001 0.001" inertia="legacy" />
+    <mesh name="L4" file="L4.stl" scale="0.001 0.001 0.001" inertia="legacy" />
+    <mesh name="L5" file="L5.stl" scale="0.001 0.001 0.001" inertia="legacy" />
+    <mesh name="L6" file="L6.stl" scale="0.001 0.001 0.001" inertia="legacy" />
+    <mesh name="handle" file="handle.stl" scale="0.001 0.001 0.001" inertia="legacy" />
+    <mesh name="servo" file="servo.stl" scale="0.001 0.001 0.001" inertia="legacy" />
+    <mesh name="servo_single" file="servo_single.stl" scale="0.001 0.001 0.001" inertia="legacy" />
+    <mesh name="trigger" file="trigger.stl" scale="0.001 0.001 0.001" inertia="legacy" />
+  </asset>
+  <worldbody>
+    <body name="lead_base" pos="0 0 0" quat="1 0 0 0">
+      <geom name="printed_base" type="mesh" mesh="base" density="1000.0" rgba="0.93 0.92 0.88 1" />
+      <geom name="servo1" type="box" pos="-0.065281904581567296 -5.8254716867520228e-05 0.022546155186152723" quat="0.47982727111171003 0.52167156585229457 0.51938982460010719 0.47734555343257962" mass="0.018" rgba="0 0 0 0" size="0.009105755772092692 0.011051149327476129 0.015989273239492972" group="3" />
+      <body name="lead_link1" pos="-0.07225 0 0.0363" quat="1 0 0 0">
+        <joint name="lead_joint1" type="hinge" axis="0 0 1" damping="0.01" armature="0.002" frictionloss="0.03" range="-2.8973 2.8973" />
+        <geom name="printed_link1" type="mesh" mesh="L1" pos="0 0 0" quat="1 0 0 0" density="1000.0" rgba="0.93 0.92 0.88 1" />
+        <geom name="servo2" type="box" pos="-2.5253645528376667e-05 -5.5724486651656165e-05 0.093709069326266464" quat="0.013917031524625695 0.70703099348465159 0.70696981281632054 0.010352499799917869" mass="0.018" rgba="0 0 0 0" size="0.0088431563840316967 0.011775031092503089 0.015626773765056633" group="3" />
+        <body name="lead_link2" pos="0 0 0.1002" quat="0.2707281011 0.6532275984 0.2707281011 0.6532275984">
+          <joint name="lead_joint2" type="hinge" axis="0 0 1" damping="0.01" armature="0.002" frictionloss="0.03" range="-1.7628 1.7628" />
+          <geom name="printed_link2" type="mesh" mesh="L2" pos="0 -0.01125 0" quat="0.707106781187 0 -0.707106781187 0" density="1000.0" rgba="0.93 0.92 0.88 1" />
+          <geom name="servo3" type="box" pos="-5.8254716867520228e-05 0.083496155186152721 -0.0080319045815673007" quat="0.9991171074983457 0.041944282954056056 -0.0023817294656588617 -9.9988213471535661e-05" mass="0.018" rgba="0 0 0 0" size="0.009105755772092692 0.011051149327476129 0.015989273239492972" group="3" />
+          <body name="lead_link3" pos="0 0.09725 -0.015" quat="-0.5 0.5 0.5 0.5">
+            <joint name="lead_joint3" type="hinge" axis="0 0 1" damping="0.01" armature="0.002" frictionloss="0.03" range="-2.8973 2.8973" />
+            <geom name="printed_link3" type="mesh" mesh="L3" pos="-0.015 0 0" quat="0.707106781187 0.707106781187 0 0" density="1000.0" rgba="0.93 0.92 0.88 1" />
+            <geom name="servo4" type="box" pos="-2.5253645528376667e-05 0.041305724486651658 0.052240930673733532" quat="-0.70703099348465159 0.013917031524625695 -0.010352499799917869 0.70696981281632054" mass="0.018" rgba="0 0 0 0" size="0.0088431563840316967 0.011775031092503089 0.015626773765056633" group="3" />
+            <body name="lead_link4" pos="0 0.04125 0.04575" quat="0.2706615772 0.653255165 0.2706615772 0.653255165">
+              <joint name="lead_joint4" type="hinge" axis="0 0 1" damping="0.01" armature="0.002" frictionloss="0.03" range="-3.0718 -0.0698" />
+              <geom name="printed_link4" type="mesh" mesh="L4" pos="-0.044 0 0" quat="1 0 0 0" density="1000.0" rgba="0.93 0.92 0.88 1" />
+              <geom name="servo5" type="box" pos="-0.03428190458157622 0.062746155186162014 5.8254716867445669e-05" quat="-0.7081666189672351 -0.029588384565016963 -0.70479834485499882 0.029729789252585792" mass="0.018" rgba="0 0 0 0" size="0.009105755772092692 0.011051149327476129 0.015989273239492972" group="3" />
+              <body name="lead_link5" pos="-0.04125 0.0765 0" quat="-0.5 0.5 0.5 0.5">
+                <joint name="lead_joint5" type="hinge" axis="0 0 1" damping="0.01" armature="0.002" frictionloss="0.03" range="-2.8973 2.8973" />
+                <geom name="printed_link5" type="mesh" mesh="L5" pos="0 0 0" quat="1 0 0 0" density="1000.0" rgba="0.93 0.92 0.88 1" />
+                <geom name="servo6" type="box" pos="-2.5253645528376667e-05 -5.5724486651656165e-05 0.079009069326266473" quat="0.013917031524625695 0.70703099348465159 0.70696981281632054 0.010352499799917869" mass="0.018" rgba="0 0 0 0" size="0.0088431563840316967 0.011775031092503089 0.015626773765056633" group="3" />
+                <body name="lead_link6" pos="0 0 0.0855" quat="-0.4999490791 0.5000509157 -0.4999490791 0.5000509157">
+                  <joint name="lead_joint6" type="hinge" axis="0 0 1" damping="0.01" armature="0.002" frictionloss="0.03" range="-0.0175 3.7525" />
+                  <geom name="printed_link6" type="mesh" mesh="L6" pos="-0.059 0 0" quat="1 0 0 0" density="1000.0" rgba="0.93 0.92 0.88 1" />
+                  <geom name="servo7" type="box" pos="-0.052055104581576216 0.039746155186162008 5.8254716867445669e-05" quat="-0.7081666189672351 -0.029588384565016963 -0.70479834485499882 0.029729789252585792" mass="0.018" rgba="0 0 0 0" size="0.009105755772092692 0.011051149327476129 0.015989273239492972" group="3" />
+                  <body name="lead_link7" pos="-0.0590232 0.0535 0" quat="0.6533353406 -0.6533353406 -0.2704679883 -0.2704679883">
+                    <joint name="lead_joint7" type="hinge" axis="0 0 1" damping="0.01" armature="0.002" frictionloss="0.03" range="-2.8973 2.8973" />
+                    <geom name="servo_trigger" type="box" pos="0.0071798025054070702 -0.0061380185847465345 0.024108854279015188" quat="0.72536681421762084 0.04830396691213755 0.68498946542390515 -0.047949388640871837" mass="0.018" rgba="0 0 0 0" size="0.009105755772092692 0.011051149327476129 0.015989273239492972" group="3" />
+                    <geom name="visual_servo_trigger" type="mesh" mesh="servo_single" pos="0.00061347460766 0.00146990767716 0.0236859974613" quat="0.525482745499 -0.5 0.5 0.473146789256" mass="0" rgba="0.12 0.12 0.14 1" />
+                    <body name="lead_handle">
+                      <geom name="printed_handle" type="mesh" mesh="handle" pos="0.0142112544868 -0.000744780288481 0.0217163417801" quat="0.707106781187 0.706137715918 -0.0370071095593 0" density="1000.0" rgba="0.93 0.92 0.88 1" />
+                      <body name="lead_trigger" pos="0.000953658323239 0.00796099965307 0.0236859974613" quat="0.525482745499 -0.5 0.5 0.473146789256">
+                        <geom name="printed_trigger" type="mesh" mesh="trigger" pos="0 0 -0.008" quat="0.707106781187 0.707106781187 0 0" density="1000.0" rgba="0.93 0.92 0.88 1" />
+                      </body>
+                      <site name="lead_ee_site" pos="-0.0576480385247 0.0030212056791 -7.95146511684e-05" size="0.006" rgba="1 0 0 1" />
+                    </body>
+                  </body>
+                  <geom name="visual_servo7" type="mesh" mesh="servo_single" pos="-0.0590232 0.047 0" quat="-0.5 0.5 -0.5 -0.5" mass="0" rgba="0.12 0.12 0.14 1" />
+                </body>
+                <geom name="visual_servo6" type="mesh" mesh="servo" pos="0.008 0 0.0855" quat="0.5 0.5 0.5 0.5" mass="0" rgba="0.12 0.12 0.14 1" />
+              </body>
+              <geom name="visual_servo5" type="mesh" mesh="servo_single" pos="-0.04125 0.07 0" quat="-0.5 0.5 -0.5 -0.5" mass="0" rgba="0.12 0.12 0.14 1" />
+            </body>
+            <geom name="visual_servo4" type="mesh" mesh="servo" pos="0.008 0.04125 0.04575" quat="-0.5 0.5 -0.5 0.5" mass="0" rgba="0.12 0.12 0.14 1" />
+          </body>
+          <geom name="visual_servo3" type="mesh" mesh="servo_single" pos="0 0.09075 -0.015" quat="0.707106781187 -0.707106781187 0 -0" mass="0" rgba="0.12 0.12 0.14 1" />
+        </body>
+        <geom name="visual_servo2" type="mesh" mesh="servo" pos="0.008 0 0.1002" quat="0.5 0.5 0.5 0.5" mass="0" rgba="0.12 0.12 0.14 1" />
+      </body>
+      <geom name="visual_servo1" type="mesh" mesh="servo_single" pos="-0.07225 0 0.0298" quat="0.707106781187 0 0 0.707106781187" mass="0" rgba="0.12 0.12 0.14 1" />
+    </body>
+  </worldbody>
+  <keyframe>
+    <key name="home" qpos="0 -0.785 0 -2.356 0 1.571 0.785" ctrl="0 -0.785 0 -2.356 0 1.571 0.785" />
+  </keyframe>
+  <actuator>
+    <position name="lead_actuator1" joint="lead_joint1" kp="8" kv="0.4" forcerange="-0.35 0.35" ctrlrange="-2.8973 2.8973" />
+    <position name="lead_actuator2" joint="lead_joint2" kp="8" kv="0.4" forcerange="-0.35 0.35" ctrlrange="-1.7628 1.7628" />
+    <position name="lead_actuator3" joint="lead_joint3" kp="8" kv="0.4" forcerange="-0.35 0.35" ctrlrange="-2.8973 2.8973" />
+    <position name="lead_actuator4" joint="lead_joint4" kp="8" kv="0.4" forcerange="-0.35 0.35" ctrlrange="-3.0718 -0.0698" />
+    <position name="lead_actuator5" joint="lead_joint5" kp="8" kv="0.4" forcerange="-0.35 0.35" ctrlrange="-2.8973 2.8973" />
+    <position name="lead_actuator6" joint="lead_joint6" kp="8" kv="0.4" forcerange="-0.35 0.35" ctrlrange="-0.0175 3.7525" />
+    <position name="lead_actuator7" joint="lead_joint7" kp="8" kv="0.4" forcerange="-0.35 0.35" ctrlrange="-2.8973 2.8973" />
+  </actuator>
+</mujoco>

@@ -1,0 +1,46 @@
+schema_version = "1.4"
+
+[task]
+name = "rlebench/task04-@@SLUG@@-motion-tracking"
+version = "1.0.0"
+description = "Write the training pipeline for a humanoid whole-body @@TITLE@@ motion-tracking policy on LAFAN1 clip @@MOTION@@. The environment, reference clip, dataset and an optional reference PPO are given; the algorithm, network, hyperparameters, rewards and randomization are yours. Train under a fixed time and model-size budget, then submit a policy checkpoint scored by sim-to-sim evaluation in a different simulator under unpublished dynamics randomization."
+authors = [{ name = "Haitong Ma", email = "haitongma@g.harvard.edu" }]
+keywords = ["robotics", "mujoco", "reinforcement-learning", "humanoid", "motion-tracking", "sim-to-sim"]
+
+[metadata]
+category = "robotics-learning"
+difficulty = "hard"
+tags = ["reinforcement-learning", "sim-to-sim", "hidden-randomization", "gpu"]
+difficulty_explanation = "Open-ended training-pipeline engineering for @@MOTION@@. The agent has one GPU for a 4 h session and writes the whole training loop against a frozen deployment contract. It is graded on tracking error and survival in a DIFFERENT simulator (MuJoCo-C at 2 ms vs MuJoCo-Warp at 5 ms) under hidden per-seed randomization of mass, friction, gains, latency and sensor noise. A null policy scores 0.000; the one-hour reference PPO run is a baseline rather than the agent's compute limit."
+
+[environment]
+# Prebuilt: the image carries the LAFAN1 dataset and the G1 meshes, so it is built
+# once from the repo root with `make task04` rather than from a staged context.
+docker_image = "rlebench-task04-agent:dev"
+build_timeout_sec = 3600.0
+cpus = 8
+memory_mb = 32768
+gpus = 1
+network_mode = "no-network"
+
+[environment.env]
+MOTIONTRACK_MOTION = "/workspace/assets/motions/@@MOTION@@.npz"
+
+[agent]
+timeout_sec = 14400.0
+
+[verifier]
+timeout_sec = 3600.0
+network_mode = "no-network"
+environment_mode = "separate"
+
+[verifier.env]
+MOTIONTRACK_MOTION = "/tests/assets/motions/@@MOTION@@.npz"
+
+# CPU only: training needs the GPU, but the sim-to-sim evaluation is MuJoCo-C, so
+# the verifier carries neither torch nor warp.
+[verifier.environment]
+docker_image = "rlebench-task04-verifier:dev"
+cpus = 4
+memory_mb = 8192
+network_mode = "no-network"

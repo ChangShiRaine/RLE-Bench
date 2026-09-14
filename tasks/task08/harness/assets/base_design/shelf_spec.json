@@ -1,0 +1,174 @@
+{
+  "coordinate_frame": {
+    "origin": "fixed world frame; the outside robot start is supplied in controller context qpos",
+    "forward_axis": "+x",
+    "units": "m"
+  },
+  "shelf": {
+    "face_x_m": 0.4,
+    "bin_interior_width_m": 0.5,
+    "bin_depth_m": 0.38,
+    "panel_thickness_m": 0.02,
+    "floor_top_z_m": [
+      0.2,
+      0.66,
+      1.02
+    ],
+    "top_z_m": 1.46
+  },
+  "reach_goal": {
+    "layout": "four inset corners in the horizontal plane above each shelf surface",
+    "edge_inset_m": 0.1,
+    "flange_hover_above_surface_m": 0.14,
+    "target_x_front_back_m": [
+      0.5,
+      0.68
+    ],
+    "target_y_left_right_m": [
+      0.15,
+      -0.15
+    ],
+    "target_names_in_order": [
+      "low_front_left",
+      "low_front_right",
+      "low_back_left",
+      "low_back_right",
+      "middle_front_left",
+      "middle_front_right",
+      "middle_back_left",
+      "middle_back_right",
+      "high_front_left",
+      "high_front_right",
+      "high_back_left",
+      "high_back_right"
+    ],
+    "flange_target_points_m": [
+      [
+        0.5,
+        0.15,
+        0.34
+      ],
+      [
+        0.5,
+        -0.15,
+        0.34
+      ],
+      [
+        0.68,
+        0.15,
+        0.34
+      ],
+      [
+        0.68,
+        -0.15,
+        0.34
+      ],
+      [
+        0.5,
+        0.15,
+        0.8
+      ],
+      [
+        0.5,
+        -0.15,
+        0.8
+      ],
+      [
+        0.68,
+        0.15,
+        0.8
+      ],
+      [
+        0.68,
+        -0.15,
+        0.8
+      ],
+      [
+        0.5,
+        0.15,
+        1.16
+      ],
+      [
+        0.5,
+        -0.15,
+        1.16
+      ],
+      [
+        0.68,
+        0.15,
+        1.16
+      ],
+      [
+        0.68,
+        -0.15,
+        1.16
+      ]
+    ],
+    "approach_points_m": [
+      [
+        0.22,
+        0.15,
+        0.34
+      ],
+      [
+        0.22,
+        -0.15,
+        0.34
+      ],
+      [
+        0.22,
+        0.15,
+        0.34
+      ],
+      [
+        0.22,
+        -0.15,
+        0.34
+      ],
+      [
+        0.22,
+        0.15,
+        0.8
+      ],
+      [
+        0.22,
+        -0.15,
+        0.8
+      ],
+      [
+        0.22,
+        0.15,
+        0.8
+      ],
+      [
+        0.22,
+        -0.15,
+        0.8
+      ],
+      [
+        0.22,
+        0.15,
+        1.16
+      ],
+      [
+        0.22,
+        -0.15,
+        1.16
+      ],
+      [
+        0.22,
+        0.15,
+        1.16
+      ],
+      [
+        0.22,
+        -0.15,
+        1.16
+      ]
+    ],
+    "payload_kg": 1.0,
+    "extra_payload_margin_kg": 1.0,
+    "margin_test_payload_kg": 2.0,
+    "approach_points_required": false
+  }
+}

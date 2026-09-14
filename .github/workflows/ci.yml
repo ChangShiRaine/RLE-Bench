@@ -1,0 +1,88 @@
+# What a public runner can honestly cover: lint, the host test suites, generator
+# self-checks, Harbor pin. Simulator tests, GPU suites, image builds and
+# oracle runs need real hardware -- see gpu-nightly.yml and CONTRIBUTING.md.
+name: ci
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  UV_PYTHON: "3.12"
+
+jobs:
+  host:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - run: sudo apt-get update && sudo apt-get install -y --no-install-recommends libosmesa6 libgl1
+      - run: uv venv --seed .venv --python 3.12
+      # Keep the PyTorch index separate from Harbor's PyPI dependencies.
+      - run: uv pip install --python .venv/bin/python -r requirements.txt
+      - run: uv pip install --python .venv/bin/python -r requirements-dev.txt
+      - run: uv pip install --python .venv/bin/python -e .
+      - run: make lint-strict check-harbor check-taskgen test-host
+        env:
+          MUJOCO_GL: osmesa
+      - run: .venv/bin/rlebench list
+
+  task04:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      CUDA_VISIBLE_DEVICES: ""
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - run: |
+          source sim/motiontrack/pins.env
+          uv venv .venv-motiontrack --python 3.12
+          uv pip install --python .venv-motiontrack/bin/python \
+            "mujoco==$MUJOCO_VER" "numpy==$NUMPY_VER" \
+            "onnx==$ONNX_VER" "onnxscript==$ONNXSCRIPT_VER" \
+            "onnxruntime==$ONNXRUNTIME_VER" \
+            "$(sed -n '/^pytest==/p' requirements.txt)"
+          uv pip install --python .venv-motiontrack/bin/python \
+            "torch==${TORCH_VER%%+*}+cpu" --index-url https://download.pytorch.org/whl/cpu
+      - uses: actions/cache@v4
+        with:
+          path: third_party/motiontrack
+          key: motiontrack-${{ runner.os }}-${{ hashFiles('sim/motiontrack/pins.env', 'tasks/task04/motions.tsv') }}
+      - run: sim/motiontrack/motiontrack.sh assets
+      - run: sim/motiontrack/motiontrack.sh motion
+      - run: make test TASK=task04 PYTEST_ARGS='--durations=10'
+
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        task: [task01, task02, task03, task05, task06, task07, task08, task09]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - run: sudo apt-get update && sudo apt-get install -y --no-install-recommends libosmesa6 libgl1
+      - run: uv venv --seed .venv --python 3.12
+      # Split installs: the pytorch extra index pins a stale `packaging` under
+      # uv's first-index strategy; dev deps (harbor needs packaging>=25) resolve
+      # from PyPI in their own step.
+      - run: uv pip install --python .venv/bin/python -r requirements.txt
+      - run: uv pip install --python .venv/bin/python -r requirements-dev.txt
+      # Nightly CI runs the deferred heavy tests.
+      - run: make test TASK=${{ matrix.task }} PYTEST_ARGS='-m "not heavy and not simulator" --durations=25'
+        env:
+          MUJOCO_GL: osmesa

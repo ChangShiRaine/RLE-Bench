@@ -1,0 +1,31 @@
+# Only the heavy tests deferred from PR CI; regular tests run there once.
+name: heavy-nightly
+
+on:
+  schedule:
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+
+env:
+  UV_PYTHON: "3.12"
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        task: [task06, task08, task09]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - run: sudo apt-get update && sudo apt-get install -y --no-install-recommends libosmesa6 libgl1
+      - run: uv venv --seed .venv --python 3.12
+      - run: uv pip install --python .venv/bin/python -r requirements.txt
+      - run: uv pip install --python .venv/bin/python -r requirements-dev.txt
+      - run: make test TASK=${{ matrix.task }} PYTEST_ARGS='-m "heavy and not simulator" --durations=25'
+        env:
+          MUJOCO_GL: osmesa

@@ -1,0 +1,68 @@
+**/__pycache__/
+*.pyc
+.venv/
+.venv-robocasa/
+.venv-motiontrack/
+# Vendored simulator sources + the ~15 GB RoboCasa asset dataset. Populated by
+# `make sim-robocasa` (sim/robocasa/robocasa.sh), never committed.
+third_party/
+.pytest_cache/
+*.egg-info/
+results/
+jobs/
+# Generated matrices: `make taskNN` regenerates these from _template/ and the
+# family's config, so they are build output, not source. L<n>/ holds the Harbor
+# tasks, images/ the docker build context per level.
+tasks/task01/L[0-9]/
+# synced from sim/robocasa by build_assets.py (SHARED_MODULES)
+tasks/task01/harness/eval_video.py
+tasks/task02/harness/eval_video.py
+tasks/task01/images/
+tasks/task02/[0-9][0-9]-*/
+tasks/task02/image/
+tasks/task03/[0-9][0-9]-*/
+tasks/task03/image/
+# task03's host package is the merged speedrun+tabletop emit (build_assets --host-pkg).
+tasks/task03/harness/
+tasks/task04/[0-9][0-9]-*/
+tasks/task05/[0-9][0-9]-*/
+*.mp4
+.DS_Store
+.claude
+.omc/
+datasets/
+.env
+
+
+# Generated from the family harnesses by task build scripts or generators.
+# Run `make task-assets` (or the family's `make taskNN`) before `harbor run` --
+# these task dirs are NOT self-contained in a fresh clone.
+tasks/task06/*/environment/agent/
+tasks/task06/*/environment/private/
+tasks/task06/*/solution/payload/
+tasks/task06/*/tests/assets/
+tasks/task06/*/tests/harness/
+tasks/task06/*/tests/rlebench/
+tasks/task07/environment/assets/
+tasks/task07/solution/payload/
+tasks/task07/tests/score_task.py
+tasks/task07/tests/harness/
+tasks/task07/tests/rlebench/
+tasks/task07/tests/assets/
+tasks/task08/environment/assets/
+tasks/task08/tests/harness/
+tasks/task08/tests/rlebench/
+tasks/task08/tests/models/
+tasks/task08/solution/payload/
+tasks/task08/reference/
+tasks/task09/environment/assets/
+tasks/task09/solution/payload/
+tasks/task09/tests/harness/
+tasks/task09/tests/rlebench/
+tasks/task09/tests/models/
+tasks/task09/harness/assets/gello_codesign/*/meshes/
+
+# Maintainer-local design records and specs; excluded from public checkouts.
+/docs/*
+!/docs/self-hosted-models.md
+tasks/*/docs/

@@ -1,0 +1,23 @@
+# rlebench manifest: how this family is prepared and addressed. Read by the
+# CLI only; ships into no image.
+[task]
+layout = "subtasks"
+
+[prepare]
+commands = [["make", "task06"]]
+
+[verify]
+images = ["rlebench-task06-rgb-only-agent:dev", "rlebench-task06-rgb-only-verifier:dev", "rlebench-task06-method-agnostic-agent:dev"]
+paths = [
+  "tasks/task06/rgb-only/environment/agent",
+  "tasks/task06/rgb-only/tests/harness",
+  "tasks/task06/rgb-only/solution/payload",
+]
+
+[run]
+lane = "environment-host"
+# rgb-depth-model-training and method-agnostic declare gpus = 1; the other two
+# subtasks are CPU-only. Their overlays reserve `count: 1`, so Docker picks the
+# card: `-d` sets concurrency only.
+gpu = true
+gpu_env = "any"

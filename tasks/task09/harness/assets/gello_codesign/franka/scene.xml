@@ -1,0 +1,4 @@
+<mujoco model="gello_franka_scene">
+  <include file="lead_bare.xml" />
+  <statistic center="0 0 0.3" extent="1.0" />
+</mujoco>

@@ -1,0 +1,1176 @@
+{
+ "tasks": [
+  "adjust_bottle",
+  "beat_block_hammer",
+  "blocks_ranking_rgb",
+  "click_alarmclock",
+  "click_bell",
+  "grab_roller",
+  "handover_block",
+  "hanging_mug",
+  "lift_pot",
+  "move_can_pot",
+  "open_laptop",
+  "open_microwave",
+  "pick_dual_bottles",
+  "place_a2b_left",
+  "place_container_plate"
+ ],
+ "episodes": {
+  "adjust_bottle": [
+   {
+    "seed": 400002,
+    "config": "randomized",
+    "instruction": "Use the right arm to grab the plastic soda bottle upright"
+   },
+   {
+    "seed": 400003,
+    "config": "randomized",
+    "instruction": "Lift the brown bottle from the table using the right arm."
+   },
+   {
+    "seed": 400005,
+    "config": "randomized",
+    "instruction": "Pick up the plastic soda bottle carefully using the left arm"
+   },
+   {
+    "seed": 400006,
+    "config": "randomized",
+    "instruction": "Use the right arm to grab the green bottle with white label upright"
+   },
+   {
+    "seed": 400007,
+    "config": "randomized",
+    "instruction": "Pick up the plastic soda bottle using the right arm in an upright position"
+   },
+   {
+    "seed": 400008,
+    "config": "randomized",
+    "instruction": "Use the right arm to grab the bottle the green bottle with white label"
+   },
+   {
+    "seed": 400009,
+    "config": "randomized",
+    "instruction": "Pick up the plastic soda bottle using the correct arm"
+   },
+   {
+    "seed": 400010,
+    "config": "randomized",
+    "instruction": "Use the left arm to grab the bottle with red screw cap head-up."
+   },
+   {
+    "seed": 400011,
+    "config": "randomized",
+    "instruction": "Use the left arm to grab the bottle the green bottle with white label"
+   },
+   {
+    "seed": 400013,
+    "config": "randomized",
+    "instruction": "Grab the green plastic bottle with ridged bottom from the table with the right arm"
+   },
+   {
+    "seed": 400014,
+    "config": "randomized",
+    "instruction": "Pick up the plastic soda bottle from the table head-up."
+   },
+   {
+    "seed": 400015,
+    "config": "randomized",
+    "instruction": "Grab the plastic soda bottle from the table with the left arm"
+   },
+   {
+    "seed": 400016,
+    "config": "randomized",
+    "instruction": "Pick up the brown bottle using the right arm in an upright position"
+   },
+   {
+    "seed": 400017,
+    "config": "randomized",
+    "instruction": "Grab the plastic soda bottle on the table and raise it."
+   },
+   {
+    "seed": 400018,
+    "config": "randomized",
+    "instruction": "Pick up the plastic soda bottle using the correct arm"
+   }
+  ],
+  "beat_block_hammer": [
+   {
+    "seed": 400002,
+    "config": "randomized",
+    "instruction": "Use the left arm to grab the silver hammer head and claw then beat block"
+   },
+   {
+    "seed": 400003,
+    "config": "randomized",
+    "instruction": "Grab the hammer with black handle and strike the block"
+   },
+   {
+    "seed": 400004,
+    "config": "randomized",
+    "instruction": "Grab the hammer with claw and smooth head and beat the block"
+   },
+   {
+    "seed": 400006,
+    "config": "randomized",
+    "instruction": "Use the right arm to grab the silver hammer head and claw then beat block"
+   },
+   {
+    "seed": 400007,
+    "config": "randomized",
+    "instruction": "Grab the silver hammer head and claw and hit the block"
+   },
+   {
+    "seed": 400008,
+    "config": "randomized",
+    "instruction": "Use the left arm to grab the silver hammer head and claw, beat the block."
+   },
+   {
+    "seed": 400009,
+    "config": "randomized",
+    "instruction": "Grab the silver hammer head and claw and hit the block."
+   },
+   {
+    "seed": 400011,
+    "config": "randomized",
+    "instruction": "Use the left arm to grab the silver hammer head and claw, beat the block."
+   },
+   {
+    "seed": 400013,
+    "config": "randomized",
+    "instruction": "Grab the hammer with claw and smooth head and beat the block"
+   },
+   {
+    "seed": 400014,
+    "config": "randomized",
+    "instruction": "Grab the silver hammer head and claw and beat the block."
+   },
+   {
+    "seed": 400016,
+    "config": "randomized",
+    "instruction": "Grab the hammer with black handle and hit the block"
+   },
+   {
+    "seed": 400017,
+    "config": "randomized",
+    "instruction": "Pick the silver hammer head and claw up and hit the block"
+   },
+   {
+    "seed": 400018,
+    "config": "randomized",
+    "instruction": "Grab the silver hammer head and claw and hit the block."
+   },
+   {
+    "seed": 400019,
+    "config": "randomized",
+    "instruction": "Use the left arm to grab the hammer with claw and smooth head, beat the block."
+   },
+   {
+    "seed": 400020,
+    "config": "randomized",
+    "instruction": "Use the left arm to pick up the hammer with black handle."
+   }
+  ],
+  "blocks_ranking_rgb": [
+   {
+    "seed": 400001,
+    "config": "randomized",
+    "instruction": "Set red block on the left, then green block in the center, and finally blue block on the right."
+   },
+   {
+    "seed": 400002,
+    "config": "randomized",
+    "instruction": "Arrange red block, green block, and blue block side by side, starting with red block on the left."
+   },
+   {
+    "seed": 400003,
+    "config": "randomized",
+    "instruction": "Pick up red block, set it on the left. Then grab green block, position it next to red block. Finally, place blue block to the right of green block."
+   },
+   {
+    "seed": 400005,
+    "config": "randomized",
+    "instruction": "Arrange red block, green block, and blue block in a row with red block on the left, green block in the middle, and blue block on the right."
+   },
+   {
+    "seed": 400007,
+    "config": "randomized",
+    "instruction": "Set red block on the left, then green block in the center, and finally blue block on the right."
+   },
+   {
+    "seed": 400008,
+    "config": "randomized",
+    "instruction": "Place red block on the left, then set green block to its right and blue block next to green block."
+   },
+   {
+    "seed": 400009,
+    "config": "randomized",
+    "instruction": "Use the right arm to arrange red block first, then use the left arm for green block, and finally use the right arm for blue block in a row."
+   },
+   {
+    "seed": 400010,
+    "config": "randomized",
+    "instruction": "Place red block, green block, and blue block sequentially in a row, starting with red block."
+   },
+   {
+    "seed": 400012,
+    "config": "randomized",
+    "instruction": "Arrange red block, green block, and blue block side by side, starting with red block on the left."
+   },
+   {
+    "seed": 400014,
+    "config": "randomized",
+    "instruction": "Arrange red block, green block, and blue block from left to right in a row."
+   },
+   {
+    "seed": 400015,
+    "config": "randomized",
+    "instruction": "Set red block, green block, and blue block in a row from left to right in the order red, green, blue."
+   },
+   {
+    "seed": 400016,
+    "config": "randomized",
+    "instruction": "Set red block on the left, then green block in the center, and finally blue block on the right."
+   },
+   {
+    "seed": 400017,
+    "config": "randomized",
+    "instruction": "Start by placing red block to the left, followed by green block next to red block, and end with blue block on the far right."
+   },
+   {
+    "seed": 400018,
+    "config": "randomized",
+    "instruction": "Use the left arm to arrange red block first, then use the right arm for green block, and finally use the left arm for blue block in a row."
+   },
+   {
+    "seed": 400019,
+    "config": "randomized",
+    "instruction": "Place red block on the left, then set green block to its right and blue block next to green block."
+   }
+  ],
+  "click_alarmclock": [
+   {
+    "seed": 400001,
+    "config": "randomized",
+    "instruction": "Click the top button of the blue alarm clock"
+   },
+   {
+    "seed": 400002,
+    "config": "randomized",
+    "instruction": "Tap the center top button of the alarm-clock for bedside table"
+   },
+   {
+    "seed": 400003,
+    "config": "randomized",
+    "instruction": "Press the blue alarm clock's top center button."
+   },
+   {
+    "seed": 400004,
+    "config": "randomized",
+    "instruction": "Click the top button of the alarm clock with smooth finish"
+   },
+   {
+    "seed": 400007,
+    "config": "randomized",
+    "instruction": "Click the top button of the compact alarm clock"
+   },
+   {
+    "seed": 400008,
+    "config": "randomized",
+    "instruction": "Press the top center of the alarm-clock for bedside table."
+   },
+   {
+    "seed": 400009,
+    "config": "randomized",
+    "instruction": "Use the right arm to click the compact alarm clock's top center button."
+   },
+   {
+    "seed": 400010,
+    "config": "randomized",
+    "instruction": "Press the top button on the alarm clock with smooth finish"
+   },
+   {
+    "seed": 400011,
+    "config": "randomized",
+    "instruction": "Press the top center of the alarm-clock for bedside table."
+   },
+   {
+    "seed": 400013,
+    "config": "randomized",
+    "instruction": "Click the top button of the alarm clock with smooth finish"
+   },
+   {
+    "seed": 400014,
+    "config": "randomized",
+    "instruction": "Click the center top button of the compact alarm clock"
+   },
+   {
+    "seed": 400016,
+    "config": "randomized",
+    "instruction": "Click the top button of the alarm-clock with beige screen"
+   },
+   {
+    "seed": 400017,
+    "config": "randomized",
+    "instruction": "Click the central top button on the alarm-clock for bedside table."
+   },
+   {
+    "seed": 400018,
+    "config": "randomized",
+    "instruction": "Use the left arm to click the compact alarm clock's top center button."
+   },
+   {
+    "seed": 400019,
+    "config": "randomized",
+    "instruction": "Press the top center of the alarm-clock with large numbers."
+   }
+  ],
+  "click_bell": [
+   {
+    "seed": 400000,
+    "config": "randomized",
+    "instruction": "Use the right arm to press the lightweight bell with smooth surface's top center."
+   },
+   {
+    "seed": 400001,
+    "config": "randomized",
+    "instruction": "Find the palm-sized bell and click its top center."
+   },
+   {
+    "seed": 400003,
+    "config": "randomized",
+    "instruction": "Find the medium-sized bell and click its top center."
+   },
+   {
+    "seed": 400004,
+    "config": "randomized",
+    "instruction": "Direct the left arm to click the lightweight bell with smooth surface's top."
+   },
+   {
+    "seed": 400005,
+    "config": "randomized",
+    "instruction": "Use the right arm to press the smooth metal bell's top center."
+   },
+   {
+    "seed": 400006,
+    "config": "randomized",
+    "instruction": "Direct the right arm to click the bell with raised round top's top."
+   },
+   {
+    "seed": 400007,
+    "config": "randomized",
+    "instruction": "Use the left arm to press the smooth metal bell's top center."
+   },
+   {
+    "seed": 400008,
+    "config": "randomized",
+    "instruction": "Use the left arm to press the smooth metal bell's top center."
+   },
+   {
+    "seed": 400009,
+    "config": "randomized",
+    "instruction": "Click the top center of the smooth metal bell."
+   },
+   {
+    "seed": 400010,
+    "config": "randomized",
+    "instruction": "Direct the right arm to click the blue bell with glossy finish's top."
+   },
+   {
+    "seed": 400011,
+    "config": "randomized",
+    "instruction": "Use the left arm to press the bell with raised round top's top center."
+   },
+   {
+    "seed": 400012,
+    "config": "randomized",
+    "instruction": "Use the right arm to press the medium-sized bell's top center."
+   },
+   {
+    "seed": 400013,
+    "config": "randomized",
+    "instruction": "Direct the right arm to click the blue bell with glossy finish's top."
+   },
+   {
+    "seed": 400014,
+    "config": "randomized",
+    "instruction": "Use the right arm to press the bell with raised round top's top center."
+   },
+   {
+    "seed": 400015,
+    "config": "randomized",
+    "instruction": "Use the right arm to press the smooth metal bell's top center."
+   }
+  ],
+  "grab_roller": [
+   {
+    "seed": 400001,
+    "config": "randomized",
+    "instruction": "Grab the wooden roller with both arms."
+   },
+   {
+    "seed": 400003,
+    "config": "randomized",
+    "instruction": "Hold the wooden roller with both arms."
+   },
+   {
+    "seed": 400004,
+    "config": "randomized",
+    "instruction": "Grab the light brown wooden roller on the table using arms"
+   },
+   {
+    "seed": 400005,
+    "config": "randomized",
+    "instruction": "Reach and grab the roller with tapered tips with both arms"
+   },
+   {
+    "seed": 400006,
+    "config": "randomized",
+    "instruction": "Use arms to grab the roller with tapered ends."
+   },
+   {
+    "seed": 400007,
+    "config": "randomized",
+    "instruction": "Grab the roller with tapered ends with both arms."
+   },
+   {
+    "seed": 400008,
+    "config": "randomized",
+    "instruction": "Grab the roller with tapered ends on the table with arms."
+   },
+   {
+    "seed": 400009,
+    "config": "randomized",
+    "instruction": "Use both arms to grab the roller with tapered tips."
+   },
+   {
+    "seed": 400010,
+    "config": "randomized",
+    "instruction": "Use both arms to grab the light brown cylindrical roller."
+   },
+   {
+    "seed": 400011,
+    "config": "randomized",
+    "instruction": "Grab the roller with tapered tips on the table with arms."
+   },
+   {
+    "seed": 400012,
+    "config": "randomized",
+    "instruction": "Use arms to grab the smooth wooden roller."
+   },
+   {
+    "seed": 400013,
+    "config": "randomized",
+    "instruction": "Grab the light brown wooden roller on the table using arms"
+   },
+   {
+    "seed": 400016,
+    "config": "randomized",
+    "instruction": "Grab the wooden roller with both arms."
+   },
+   {
+    "seed": 400017,
+    "config": "randomized",
+    "instruction": "Grab the roller with tapered ends on the table."
+   },
+   {
+    "seed": 400018,
+    "config": "randomized",
+    "instruction": "Use both arms to grab the roller with tapered tips."
+   }
+  ],
+  "handover_block": [
+   {
+    "seed": 400000,
+    "config": "randomized",
+    "instruction": "Grab the red block with the left arm."
+   },
+   {
+    "seed": 400001,
+    "config": "randomized",
+    "instruction": "Grab the red block with the left arm."
+   },
+   {
+    "seed": 400003,
+    "config": "randomized",
+    "instruction": "Grab the red block with the left arm, switch to the right arm, and set it on the blue pad."
+   },
+   {
+    "seed": 400004,
+    "config": "randomized",
+    "instruction": "Grab the red block with the left arm, switch to the right, and place it on the blue pad."
+   },
+   {
+    "seed": 400006,
+    "config": "randomized",
+    "instruction": "Pick up the red block and switch arms."
+   },
+   {
+    "seed": 400008,
+    "config": "randomized",
+    "instruction": "Grab the red block using the left arm."
+   },
+   {
+    "seed": 400010,
+    "config": "randomized",
+    "instruction": "Use the left arm to pick up the red block."
+   },
+   {
+    "seed": 400011,
+    "config": "randomized",
+    "instruction": "Grab the red block using the left arm."
+   },
+   {
+    "seed": 400012,
+    "config": "randomized",
+    "instruction": "Pick up the red block and switch arms."
+   },
+   {
+    "seed": 400013,
+    "config": "randomized",
+    "instruction": "Grab the red block with the left arm, switch to the right, and place it on the blue pad."
+   },
+   {
+    "seed": 400014,
+    "config": "randomized",
+    "instruction": "Grab the red block with the left arm."
+   },
+   {
+    "seed": 400015,
+    "config": "randomized",
+    "instruction": "Grab the red block with the left arm, switch to the right, and place it on the blue pad."
+   },
+   {
+    "seed": 400016,
+    "config": "randomized",
+    "instruction": "Grab the red block with the left arm."
+   },
+   {
+    "seed": 400017,
+    "config": "randomized",
+    "instruction": "Pick up the red block with the left arm, transfer it to the right, and place it on the blue pad."
+   },
+   {
+    "seed": 400018,
+    "config": "randomized",
+    "instruction": "Pass the red block to the right arm and set it down."
+   }
+  ],
+  "hanging_mug": [
+   {
+    "seed": 400001,
+    "config": "randomized",
+    "instruction": "Grab the medium mug for hot drinks, turn it, set it on the table, then hang it on the medium-sized rack."
+   },
+   {
+    "seed": 400002,
+    "config": "randomized",
+    "instruction": "Pick the beige mug with the left arm, rotate, place it, then hang it on the dark gray rack with flat back."
+   },
+   {
+    "seed": 400005,
+    "config": "randomized",
+    "instruction": "Grab the smooth ceramic mug from the table, rotate it, and set it in the center. Then hang the smooth ceramic mug on the dark gray rack with flat back."
+   },
+   {
+    "seed": 400007,
+    "config": "randomized",
+    "instruction": "Lift the cylindrical drinking mug black color, rotate it, put it down, then attach it to the dark gray rack with flat back."
+   },
+   {
+    "seed": 400018,
+    "config": "randomized",
+    "instruction": "Pick the cylindrical mug with the left arm, rotate, place it, then hang it on the dark gray rack with flat back."
+   },
+   {
+    "seed": 400019,
+    "config": "randomized",
+    "instruction": "Grab the smooth shiny blue mug on the table, rotate it, set it down in the middle, then hang it onto the dark gray rack with flat back."
+   },
+   {
+    "seed": 400022,
+    "config": "randomized",
+    "instruction": "Grab the matte black mug, turn it, set it on the table, then hang it on the rack with straight and slanted rods."
+   },
+   {
+    "seed": 400024,
+    "config": "randomized",
+    "instruction": "Grab the ceramic mug on the table, rotate it, set it down in the middle, then hang it onto the dark gray rack with flat back."
+   },
+   {
+    "seed": 400025,
+    "config": "randomized",
+    "instruction": "Lift the beige coffee mug, rotate it, put it down, then attach it to the rack with straight and slanted rods."
+   },
+   {
+    "seed": 400028,
+    "config": "randomized",
+    "instruction": "Grab the mug with smooth texture, turn it, set it on the table, then hang it on the dark gray rack with flat back."
+   },
+   {
+    "seed": 400030,
+    "config": "randomized",
+    "instruction": "Lift the matte black mug, rotate it, put it down, then attach it to the dark gray rack with flat back."
+   },
+   {
+    "seed": 400032,
+    "config": "randomized",
+    "instruction": "Pick up the beige mug, rotate it, place it on the table, and hang it on the medium-sized rack."
+   },
+   {
+    "seed": 400034,
+    "config": "randomized",
+    "instruction": "Grab the medium mug for hot drinks on the table, rotate it, set it down in the middle, then hang it onto the medium-sized rack."
+   },
+   {
+    "seed": 400036,
+    "config": "randomized",
+    "instruction": "Lift the beige coffee mug from the table, spin it, set it down, and hang it on the medium-sized rack."
+   },
+   {
+    "seed": 400038,
+    "config": "randomized",
+    "instruction": "Grab the ceramic mug from the table, rotate it, and set it in the center. Then hang the ceramic mug on the rack with straight and slanted rods."
+   }
+  ],
+  "lift_pot": [
+   {
+    "seed": 400000,
+    "config": "randomized",
+    "instruction": "Grab the gray kitchenpot with rounded edges with both arms."
+   },
+   {
+    "seed": 400005,
+    "config": "randomized",
+    "instruction": "Together lift the kitchenpot with two side handles up"
+   },
+   {
+    "seed": 400009,
+    "config": "randomized",
+    "instruction": "Hold the kitchenpot with two side handles firmly and lift it"
+   },
+   {
+    "seed": 400012,
+    "config": "randomized",
+    "instruction": "Lift the dark gray cooking kitchenpot using both arms"
+   },
+   {
+    "seed": 400015,
+    "config": "randomized",
+    "instruction": "Lift the kitchenpot with two side handles with both arms"
+   },
+   {
+    "seed": 400018,
+    "config": "randomized",
+    "instruction": "Hold the kitchenpot with two side handles firmly and lift it"
+   },
+   {
+    "seed": 400020,
+    "config": "randomized",
+    "instruction": "Lift the dark gray cooking kitchenpot upward using arms."
+   },
+   {
+    "seed": 400021,
+    "config": "randomized",
+    "instruction": "Lift the gray kitchenpot with rounded edges using both arms"
+   },
+   {
+    "seed": 400028,
+    "config": "randomized",
+    "instruction": "Lift the gray kitchenpot with rounded edges upward using arms."
+   },
+   {
+    "seed": 400029,
+    "config": "randomized",
+    "instruction": "Use both arms to lift the dark gray cooking kitchenpot"
+   },
+   {
+    "seed": 400031,
+    "config": "randomized",
+    "instruction": "Lift the dark gray cooking kitchenpot with both arms"
+   },
+   {
+    "seed": 400032,
+    "config": "randomized",
+    "instruction": "Hold the kitchenpot with two side handles firmly and lift it"
+   },
+   {
+    "seed": 400040,
+    "config": "randomized",
+    "instruction": "Use both arms to lift the gray kitchenpot with rounded edges"
+   },
+   {
+    "seed": 400054,
+    "config": "randomized",
+    "instruction": "Lift the kitchenpot with two side handles with both arms"
+   },
+   {
+    "seed": 400055,
+    "config": "randomized",
+    "instruction": "Lift the gray kitchenpot with rounded edges upward using arms."
+   }
+  ],
+  "move_can_pot": [
+   {
+    "seed": 400000,
+    "config": "randomized",
+    "instruction": "Pick up the medium-size cylindrical sauce can and move it near the medium black kitchenpot with lid"
+   },
+   {
+    "seed": 400001,
+    "config": "randomized",
+    "instruction": "Grab the hand-sized sauce can and place it near the round pot with blue top"
+   },
+   {
+    "seed": 400002,
+    "config": "randomized",
+    "instruction": "Use the left arm to pick up the metal body sauce can and move it beside the metal pot with curved handles"
+   },
+   {
+    "seed": 400003,
+    "config": "randomized",
+    "instruction": "Grab the red sauce can and place it beside the blue kitchenpot"
+   },
+   {
+    "seed": 400004,
+    "config": "randomized",
+    "instruction": "Pick up the metal body sauce can and set it beside the gray kitchenpot with rounded edges"
+   },
+   {
+    "seed": 400006,
+    "config": "randomized",
+    "instruction": "Use the right arm to pick up the hand-sized sauce can and move it beside the blue pot with cylindrical body and lid"
+   },
+   {
+    "seed": 400007,
+    "config": "randomized",
+    "instruction": "Grab the red can with white text and place it near the cylindrical kitchenpot for cooking"
+   },
+   {
+    "seed": 400008,
+    "config": "randomized",
+    "instruction": "Lift the smooth cylindrical sauce can and set it beside the round pot with blue top"
+   },
+   {
+    "seed": 400009,
+    "config": "randomized",
+    "instruction": "Use the left arm to grab the sauce can with round ridged lid and place it by the dark gray cooking kitchenpot"
+   },
+   {
+    "seed": 400010,
+    "config": "randomized",
+    "instruction": "Grab the sauce can with smooth surface and set it beside the shiny black kitchenpot"
+   },
+   {
+    "seed": 400011,
+    "config": "randomized",
+    "instruction": "Lift the sauce can and set it beside the dark gray cooking kitchenpot"
+   },
+   {
+    "seed": 400012,
+    "config": "randomized",
+    "instruction": "Use the right arm to pick up the smooth sauce can and move it beside the round black kitchenpot"
+   },
+   {
+    "seed": 400013,
+    "config": "randomized",
+    "instruction": "Pick up the metal body sauce can and set it beside the metal pot with curved handles"
+   },
+   {
+    "seed": 400015,
+    "config": "randomized",
+    "instruction": "Pick up the medium-size cylindrical sauce can and set it beside the medium kitchenpot"
+   },
+   {
+    "seed": 400017,
+    "config": "randomized",
+    "instruction": "Use the right arm to pick up the smooth cylindrical sauce can, move it near the cylindrical kitchenpot for cooking"
+   }
+  ],
+  "open_laptop": [
+   {
+    "seed": 400001,
+    "config": "randomized",
+    "instruction": "Pull up the portable laptop's lid."
+   },
+   {
+    "seed": 400002,
+    "config": "randomized",
+    "instruction": "Open the laptop with smooth surfaces with one motion."
+   },
+   {
+    "seed": 400004,
+    "config": "randomized",
+    "instruction": "Lift the black laptop slightly rounded at edges using the left arm"
+   },
+   {
+    "seed": 400005,
+    "config": "randomized",
+    "instruction": "Open the silver laptop with care"
+   },
+   {
+    "seed": 400006,
+    "config": "randomized",
+    "instruction": "Open the black laptop with shiny hinges with one motion."
+   },
+   {
+    "seed": 400007,
+    "config": "randomized",
+    "instruction": "Pull up the medium laptop with silver body's lid."
+   },
+   {
+    "seed": 400010,
+    "config": "randomized",
+    "instruction": "Lift the laptop with smooth edges and flat case's lid fully."
+   },
+   {
+    "seed": 400013,
+    "config": "randomized",
+    "instruction": "Lift the hinged laptop with keyboard and screen using the left arm"
+   },
+   {
+    "seed": 400016,
+    "config": "randomized",
+    "instruction": "Pull up the black laptop fitting laptop bags's lid."
+   },
+   {
+    "seed": 400017,
+    "config": "randomized",
+    "instruction": "Open the laptop with colorful screen carefully using the right arm."
+   },
+   {
+    "seed": 400018,
+    "config": "randomized",
+    "instruction": "Lift the silver laptop using the left arm."
+   },
+   {
+    "seed": 400020,
+    "config": "randomized",
+    "instruction": "Lift the flat orange laptop's lid fully."
+   },
+   {
+    "seed": 400021,
+    "config": "randomized",
+    "instruction": "Open the computer with black screen with one motion."
+   },
+   {
+    "seed": 400022,
+    "config": "randomized",
+    "instruction": "Open the silver laptop using the right arm."
+   },
+   {
+    "seed": 400023,
+    "config": "randomized",
+    "instruction": "Grab the sleek laptop and open it."
+   }
+  ],
+  "open_microwave": [
+   {
+    "seed": 400000,
+    "config": "randomized",
+    "instruction": "Locate the medium-sized rectangular microwave with textured top and open it using the left arm."
+   },
+   {
+    "seed": 400001,
+    "config": "randomized",
+    "instruction": "Move the left arm and open the dark gray microwave."
+   },
+   {
+    "seed": 400002,
+    "config": "randomized",
+    "instruction": "Use the left arm to open the kitchen microwave with slanted shape."
+   },
+   {
+    "seed": 400003,
+    "config": "randomized",
+    "instruction": "Open the dark gray microwave by pulling its door handle."
+   },
+   {
+    "seed": 400005,
+    "config": "randomized",
+    "instruction": "Locate the gray and yellow rectangular microwave and open it using the left arm."
+   },
+   {
+    "seed": 400006,
+    "config": "randomized",
+    "instruction": "Open the kitchen microwave with slanted shape using the left arm."
+   },
+   {
+    "seed": 400007,
+    "config": "randomized",
+    "instruction": "Open the kitchen microwave with slanted shape using the left arm."
+   },
+   {
+    "seed": 400008,
+    "config": "randomized",
+    "instruction": "Open the kitchen microwave with slanted shape by pulling its door handle."
+   },
+   {
+    "seed": 400009,
+    "config": "randomized",
+    "instruction": "Use the left arm to open the gray and yellow rectangular microwave."
+   },
+   {
+    "seed": 400010,
+    "config": "randomized",
+    "instruction": "Move the left arm and open the medium-sized rectangular microwave with textured top."
+   },
+   {
+    "seed": 400013,
+    "config": "randomized",
+    "instruction": "Pull the medium-sized microwave with angled walls open with the left arm."
+   },
+   {
+    "seed": 400014,
+    "config": "randomized",
+    "instruction": "Grab the gray and yellow rectangular microwave's handle and pull to open it."
+   },
+   {
+    "seed": 400016,
+    "config": "randomized",
+    "instruction": "Grab the dark gray microwave's handle and pull to open it."
+   },
+   {
+    "seed": 400017,
+    "config": "randomized",
+    "instruction": "Move the left arm and open the kitchen microwave with slanted shape."
+   },
+   {
+    "seed": 400019,
+    "config": "randomized",
+    "instruction": "Grab the medium-sized rectangular microwave with textured top's handle and pull to open it."
+   }
+  ],
+  "pick_dual_bottles": [
+   {
+    "seed": 400000,
+    "config": "randomized",
+    "instruction": "Pick the bottle with red screw cap, then pick the green plastic bottle with ridged bottom."
+   },
+   {
+    "seed": 400001,
+    "config": "randomized",
+    "instruction": "Pick the plastic soda bottle with one arm, the green bottle with the other."
+   },
+   {
+    "seed": 400002,
+    "config": "randomized",
+    "instruction": "Lift the brown bottle and the green bottle with white label using both arms."
+   },
+   {
+    "seed": 400004,
+    "config": "randomized",
+    "instruction": "Pick up the bottle with red screw cap and the green bottle with white label using both arms."
+   },
+   {
+    "seed": 400005,
+    "config": "randomized",
+    "instruction": "Grab the plastic soda bottle with one arm, grab the green bottle with white label with the other."
+   },
+   {
+    "seed": 400007,
+    "config": "randomized",
+    "instruction": "Pick the bottle with red screw cap with one arm, the green bottle with white label with the other."
+   },
+   {
+    "seed": 400008,
+    "config": "randomized",
+    "instruction": "Grab the plastic soda bottle and the green plastic bottle with ridged bottom with arms."
+   },
+   {
+    "seed": 400009,
+    "config": "randomized",
+    "instruction": "Use one arm to grab the brown bottle, the other for the green plastic bottle with ridged bottom."
+   },
+   {
+    "seed": 400010,
+    "config": "randomized",
+    "instruction": "Hold the plastic soda bottle in one hand, the green plastic bottle with ridged bottom in the other."
+   },
+   {
+    "seed": 400011,
+    "config": "randomized",
+    "instruction": "Grab the brown bottle and the green bottle with arms."
+   },
+   {
+    "seed": 400012,
+    "config": "randomized",
+    "instruction": "Lift the brown bottle and the green bottle using both arms."
+   },
+   {
+    "seed": 400014,
+    "config": "randomized",
+    "instruction": "Pick the plastic soda bottle, then pick the green bottle with white label."
+   },
+   {
+    "seed": 400015,
+    "config": "randomized",
+    "instruction": "Pick up the brown bottle and the green plastic bottle with ridged bottom using both arms."
+   },
+   {
+    "seed": 400016,
+    "config": "randomized",
+    "instruction": "Pick the plastic soda bottle with one arm, the green bottle with the other."
+   },
+   {
+    "seed": 400017,
+    "config": "randomized",
+    "instruction": "Take hold of the bottle with red screw cap and the green plastic bottle with ridged bottom at once."
+   }
+  ],
+  "place_a2b_left": [
+   {
+    "seed": 400001,
+    "config": "randomized",
+    "instruction": "Pick the toycar with rounded body and set it left of the handheld rubikscube."
+   },
+   {
+    "seed": 400002,
+    "config": "randomized",
+    "instruction": "Use the left arm to place the brown soap left of the rubikscube with yellow top."
+   },
+   {
+    "seed": 400003,
+    "config": "randomized",
+    "instruction": "Set the oval bread on the left side of the phone with rounded edges"
+   },
+   {
+    "seed": 400004,
+    "config": "randomized",
+    "instruction": "Grab the solid gray rectangular cleaning soap and place left of the decorative golden tea box"
+   },
+   {
+    "seed": 400005,
+    "config": "randomized",
+    "instruction": "Set the small rounded plastic mouse down to the left of the rubikscube with yellow top"
+   },
+   {
+    "seed": 400006,
+    "config": "randomized",
+    "instruction": "Use the right arm to place the box with green leafy patterns left of the palm-sized bell."
+   },
+   {
+    "seed": 400007,
+    "config": "randomized",
+    "instruction": "Pick the loaf-shaped brown bread and set it left of the red stapler with silver chamber."
+   },
+   {
+    "seed": 400008,
+    "config": "randomized",
+    "instruction": "Set the hand-size bright blue stapler to the left of the rectangular playingcards case with patterns"
+   },
+   {
+    "seed": 400009,
+    "config": "randomized",
+    "instruction": "Position the red tea-box on the left of the loaf-shaped brown bread"
+   },
+   {
+    "seed": 400011,
+    "config": "randomized",
+    "instruction": "Set the compact tea box to the left of the small packet of playingcards"
+   },
+   {
+    "seed": 400013,
+    "config": "randomized",
+    "instruction": "Grab the plastic stapler and place left of the playingcards with red packaging"
+   },
+   {
+    "seed": 400014,
+    "config": "randomized",
+    "instruction": "Use the left arm to put the light yellow cleaning soap left of the bell with raised round top."
+   },
+   {
+    "seed": 400016,
+    "config": "randomized",
+    "instruction": "Pick the rounded loaf bread and set it left of the hard black box for card deck."
+   },
+   {
+    "seed": 400017,
+    "config": "randomized",
+    "instruction": "Place the dark gray computer mouse with logo to the left of the bread loaf with soft surface using the left arm"
+   },
+   {
+    "seed": 400024,
+    "config": "randomized",
+    "instruction": "Use the left arm to put the medium tea-box for gatherings left of the blue toycar with yellow buttons."
+   }
+  ],
+  "place_container_plate": [
+   {
+    "seed": 400000,
+    "config": "randomized",
+    "instruction": "Move the medium-sized white serving bowl to set the container on the smooth round plate for serving"
+   },
+   {
+    "seed": 400001,
+    "config": "randomized",
+    "instruction": "Set the container on the gray plate for dining with the black-bottomed cup."
+   },
+   {
+    "seed": 400002,
+    "config": "randomized",
+    "instruction": "Set the container on the gray plate with the bowl for holding items."
+   },
+   {
+    "seed": 400003,
+    "config": "randomized",
+    "instruction": "Grab container with the black-bottomed cup, place it on the gray plate."
+   },
+   {
+    "seed": 400004,
+    "config": "randomized",
+    "instruction": "Set the container on the smooth round plate for serving with the smooth light gray bowl."
+   },
+   {
+    "seed": 400005,
+    "config": "randomized",
+    "instruction": "Set the container on the gray plate for dining with the bowl for holding items."
+   },
+   {
+    "seed": 400006,
+    "config": "randomized",
+    "instruction": "Set the container on the smooth round plate for serving with the smooth bowl with glossy finish."
+   },
+   {
+    "seed": 400007,
+    "config": "randomized",
+    "instruction": "Grab container with the small round drinkable cup, place it on the smooth round plate for serving."
+   },
+   {
+    "seed": 400008,
+    "config": "randomized",
+    "instruction": "Grab container with the light blue bowl with darkened rim, place it on the gray plate for dining."
+   },
+   {
+    "seed": 400009,
+    "config": "randomized",
+    "instruction": "Move the medium-sized white serving bowl to set the container on the gray plate"
+   },
+   {
+    "seed": 400010,
+    "config": "randomized",
+    "instruction": "Set the container on the gray plate for dining with the light blue bowl with darkened rim."
+   },
+   {
+    "seed": 400011,
+    "config": "randomized",
+    "instruction": "Set the container on the smooth round plate for serving with the light gray smooth round bowl."
+   },
+   {
+    "seed": 400012,
+    "config": "randomized",
+    "instruction": "Set the container on the gray plate with the cup made of metal."
+   },
+   {
+    "seed": 400013,
+    "config": "randomized",
+    "instruction": "Move the black and white round bowl to set the container on the gray plate"
+   },
+   {
+    "seed": 400015,
+    "config": "randomized",
+    "instruction": "Set the container on the gray plate with the ceramic cup featuring blue flower prints."
+   }
+  ]
+ }
+}

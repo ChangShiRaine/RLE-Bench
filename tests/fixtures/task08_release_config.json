@@ -1,0 +1,74 @@
+{
+  "config": {
+    "BASE_MASS_BUDGET_KG": 38.0,
+    "BATTERY_MASS_KG": 10.0,
+    "BATTERY_MASS_RTOL": 0.02,
+    "BATTERY_SIZE_HALF_M": [
+      0.14,
+      0.09,
+      0.04
+    ],
+    "BATTERY_SIZE_RTOL": 0.05,
+    "CONSTRAINT_BAND": 1.5,
+    "D2_MAX_LIFTOFF_DURATION_S": 1.0,
+    "D2_MAX_LIFTOFF_EVENTS": 7,
+    "DESIGN_SEEDS": [
+      11,
+      23,
+      37
+    ],
+    "FASM_SAT": 39.0,
+    "FOOTPRINT_BUDGET_M": 0.56,
+    "GATE_CAP": 0.15,
+    "HIDDEN_SEEDS": [
+      101,
+      211,
+      307
+    ],
+    "MASS_BUDGET_KG": 60.0,
+    "PICK_CONTROLLER_CPU_SECONDS": 60,
+    "PICK_CONTROLLER_REPLY_SECONDS": 2.0,
+    "PICK_CONTROLLER_SEED": 0,
+    "PICK_CONTROLLER_SOURCE_BYTES": 1048576,
+    "PICK_CONTROLLER_STARTUP_SECONDS": 30.0,
+    "PICK_CONTROL_DT": 0.02,
+    "PICK_EPISODE_SECONDS": 30.0,
+    "PICK_EXTRA_PAYLOAD_KG": 1.0,
+    "PICK_PAYLOAD_KG": 1.0,
+    "PICK_SHELF_FACE_X_M": 0.4,
+    "PICK_START_POSITION": [
+      -0.6,
+      0.0,
+      0.08
+    ],
+    "PICK_START_QUATERNION": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "PROFILE_LENGTH_BUDGET_M": 12.0,
+    "REACH_BEYOND_MIN_M": 0.29,
+    "REACH_PRESERVED_FRAC": 0.99,
+    "ROBOT_SOURCE_BYTES": 4194304,
+    "ROLL_LIMIT_DEG": 10.0,
+    "S5_TRACKING_GATE": 0.304,
+    "SCENARIO_A_QUIET_V": 0.02,
+    "SCENARIO_A_QUIET_W": 0.05,
+    "SSM_SAT_M": 0.055,
+    "SSM_THRESHOLD_M": 0.033,
+    "TRACKING_RMS_TOL": 0.138,
+    "WHEEL_CTRLRANGE_MAX": 45.0,
+    "WHEEL_FORCERANGE_MAX": 15.0,
+    "WHEEL_KV_MAX": 12.0
+  },
+  "envelope": {
+    "bump_amp_m": 0.012,
+    "bump_wavelength_m": 0.5,
+    "curb_height_m": 0.02,
+    "max_grade_deg": 10.0,
+    "payload_max_kg": 3.0,
+    "payload_min_kg": 1.0,
+    "require_wheel_center_attachment": true
+  }
+}

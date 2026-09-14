@@ -1,0 +1,16 @@
+# rlebench manifest: how this family is prepared and addressed. Read by the
+# CLI only; ships into no image.
+[task]
+layout = "subtasks"
+
+[prepare]
+# sim-motiontrack: the pinned G1 model + LAFAN1 clips under third_party/ and .venv-motiontrack.
+commands = [["make", "sim-motiontrack"], ["make", "task04"]]
+
+[verify]
+images = ["rlebench-task04-agent:dev", "rlebench-task04-verifier:dev"]
+paths = ["tasks/task04/01-dance", "third_party/motiontrack/unitree_g1/g1.xml", "third_party/motiontrack/lafan1/.rev"]
+
+[run]
+lane = "environment-host"
+gpu = true

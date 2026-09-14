@@ -1,0 +1,9 @@
+{
+  "obs_history_length": 1,
+  "obs_dim": 160,
+  "action_dim": 29,
+  "n_params": 250717,
+  "iterations": 4237,
+  "algorithm": "ppo",
+  "minutes": 60.01
+}

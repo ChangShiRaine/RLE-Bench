@@ -1,0 +1,5 @@
+assets: /opt/LIBERO/libero/libero/assets
+bddl_files: /opt/LIBERO/libero/libero/bddl_files
+benchmark_root: /opt/LIBERO/libero/libero
+datasets: /assets/nanovla/unused-datasets
+init_states: /opt/LIBERO/libero/libero/init_files

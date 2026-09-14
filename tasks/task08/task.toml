@@ -1,0 +1,37 @@
+schema_version = "1.4"
+artifacts = ["/logs/artifacts"]
+
+[task]
+name = "rlebench/task08-mobile-manipulator-from-scratch"
+version = "1.0.0"
+description = "From-scratch common mobile-base design: build one aluminum-profile chassis for canonical Panda, UR5e, and xArm7 arms, submit a shelf-entry controller and demonstrate stable 12-point shelf reach with every arm under payload."
+authors = [{ name = "Haitong Ma", email = "haitongma@g.harvard.edu" }]
+keywords = ["robotics", "mujoco", "simulation", "engineering", "full-stack", "mechanical-design"]
+
+[metadata]
+category = "robotics-engineering"
+difficulty = "hard"
+tags = ["mechanical-design", "mujoco", "cpu", "hidden-scenarios"]
+difficulty_explanation = "Open-ended common-base mechanical design from stock components. The same submitted geometry is evaluated with three trusted arms, submitted shelf control, verifier-owned deterministic dynamic scenarios, and all 12 public shelf targets for every arm at a required 1 kg payload plus a 1 kg payload-margin test; checkpoint scores use the worst arm."
+
+[environment]
+# Prebuilt by `make task08`; environment/ and tests/ remain the build inputs.
+docker_image = "rlebench-task08-agent:dev"
+build_timeout_sec = 1800.0
+cpus = 4
+memory_mb = 4096
+network_mode = "no-network"
+
+[agent]
+timeout_sec = 7200.0
+
+[verifier]
+timeout_sec = 5400.0
+network_mode = "no-network"
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "rlebench-task08-verifier:dev"
+cpus = 4
+memory_mb = 4096
+network_mode = "no-network"

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco model="stock universal arm adapter example">
+  <worldbody>
+    <body name="arm_adapter_EXAMPLE">
+      <geom name="arm_adapter_plate_EXAMPLE" type="box" size="0.09 0.09 0.005" pos="0 0 0.005" mass="0.875" rgba="0.35 0.38 0.42 1"/>
+      <site name="base_mount_plane_EXAMPLE" pos="0 0 0" size="0.004" rgba="0.2 0.8 0.2 1"/>
+      <site name="arm_mount_plane_EXAMPLE" pos="0 0 0.01" size="0.004" rgba="0.2 0.4 0.9 1"/>
+    </body>
+  </worldbody>
+</mujoco>

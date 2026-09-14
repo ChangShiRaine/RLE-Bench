@@ -1,0 +1,96 @@
+# One table per subtask: everything task.toml.in and README.md.in substitute.
+# Emitted trees must stay byte-identical: build_subtasks.py --check enforces it.
+
+[01-libero-open-design]
+hf_bundle = "dinov2"
+agent_timeout_sec = 14400.0
+description = "Build a LIBERO-10 policy from a DINOv2-base encoder with no supplied model or trainer, explore for four hours on one GPU, then replay one 30-minute recipe and score it on the 500 official LIBERO-10 episodes."
+keywords = ["robot-learning", "vla", "libero-10", "dinov2", "gpu"]
+tags = ["robot-learning", "vla", "libero-10", "gpu"]
+difficulty_explanation = "The only pretrained component is DINOv2-base, used however the agent likes; encoder treatment, language handling, policy architecture, optimisation and serving are all the agent's design under a one-GPU replay budget."
+cpus = 48
+memory_mb = 65536
+storage_mb = 131072
+gpus = 1
+verifier_timeout_sec = 6000.0
+readme_summary = """
+One-GPU open-design subtask on LIBERO-10 with DINOv2-base as the only pretrained
+initialisation, frozen or fine-tuned. The submitted `solution.py` trains in
+1,800 seconds and then serves its policy; reward is success rate over the 500
+official LIBERO-10 episodes (50 initial states per task), while development
+evaluation uses fixed seeded resets.
+"""
+readme_assets = """
+Required asset: `NANOVLA_SHARDS_L10`; the encoder bundle is baked into the images.
+"""
+
+[02-libero-robustness]
+hf_bundle = "open"
+agent_timeout_sec = 14400.0
+description = "Train a LIBERO-10 policy with no supplied model or trainer, explore for four hours on one GPU with standard development episodes only, then replay it in 30 minutes and score it on 500 LIBERO-plus perturbed episodes."
+keywords = ["robot-learning", "vla", "libero-10", "libero-plus", "robustness", "gpu"]
+tags = ["robot-learning", "vla", "libero-plus", "gpu"]
+difficulty_explanation = "Distribution-shift robustness on the long-horizon suite: development evaluation is standard LIBERO-10 only, while the score comes from paraphrased instructions, lighting, texture, added-object and layout perturbations the agent never observes."
+cpus = 48
+memory_mb = 65536
+storage_mb = 131072
+gpus = 1
+verifier_timeout_sec = 7200.0
+readme_summary = """
+One-GPU robustness subtask on LIBERO-10. The submitted `solution.py` trains in
+1,800 seconds and then serves its policy; reward is success over 500
+LIBERO-plus perturbed episodes (50 sampled variants per task), which the
+development service never shows.
+"""
+readme_assets = """
+Required assets: `NANOVLA_SHARDS_L10` and `NANOVLA_LIBERO_PLUS_ASSETS`; the
+encoder bundle is baked into the images.
+"""
+
+[03-robotwin-open-design]
+hf_bundle = "dinov2"
+simulator = "robotwin"
+agent_timeout_sec = 14400.0
+description = "Build a dual-arm RoboTwin 2.0 policy from a DINOv2-base encoder with no supplied model or trainer, explore for four hours on one GPU, then replay one 30-minute recipe and score it on 300 held-out clean episodes."
+keywords = ["robot-learning", "vla", "robotwin", "dual-arm", "dinov2", "gpu"]
+tags = ["robot-learning", "vla", "robotwin", "gpu"]
+difficulty_explanation = "Fifteen bimanual aloha-agilex tasks from 700 demonstrations under a one-GPU replay budget; the only pretrained component is DINOv2-base and the test scenes are unseen seeds of the clean setting."
+cpus = 48
+memory_mb = 65536
+storage_mb = 131072
+gpus = 1
+verifier_timeout_sec = 23400.0
+readme_summary = """
+One-GPU open-design subtask on RoboTwin 2.0 (15 bimanual tasks). The submitted
+`solution.py` trains in 1,800 seconds and then serves its policy; reward is
+success rate over 300 held-out clean-scene episodes (20 solvable seeds per
+task) with the training-style instructions.
+"""
+readme_assets = """
+Required asset: `NANOVLA_ROBOTWIN_SHARDS`; the encoder bundle and the
+simulator are baked into the images.
+"""
+
+[04-robotwin-robustness]
+hf_bundle = "open"
+simulator = "robotwin"
+agent_timeout_sec = 14400.0
+description = "Train a dual-arm RoboTwin 2.0 policy with no supplied model or trainer, explore for four hours on one GPU with clean development episodes only, then replay it in 30 minutes and score it on 225 domain-randomised episodes with unseen instruction paraphrases."
+keywords = ["robot-learning", "vla", "robotwin", "dual-arm", "robustness", "gpu"]
+tags = ["robot-learning", "vla", "robotwin", "robustness", "gpu"]
+difficulty_explanation = "Clean demonstrations and clean development episodes only; the score comes from cluttered tables, random backgrounds, lighting and table height plus instruction paraphrases the agent never observes."
+cpus = 48
+memory_mb = 65536
+storage_mb = 131072
+gpus = 1
+verifier_timeout_sec = 23400.0
+readme_summary = """
+One-GPU robustness subtask on RoboTwin 2.0 (15 bimanual tasks). The submitted
+`solution.py` trains in 1,800 seconds and then serves its policy; reward is
+success rate over 225 domain-randomised episodes (15 solvable seeds per task)
+whose instructions come from the held-out paraphrase set.
+"""
+readme_assets = """
+Required asset: `NANOVLA_ROBOTWIN_SHARDS`; the encoder bundle and the
+simulator are baked into the images.
+"""

@@ -1,0 +1,28 @@
+# The coverage a public runner cannot give: task04's CUDA trainer checks,
+# the RoboCasa simulator marker (~15 GB dataset + EGL), and per-family
+# oracle runs. Gated behind a self-hosted GPU runner; until one is registered
+# (repo variable HAS_GPU_RUNNER=true), this workflow documents the manual
+# release gate that CONTRIBUTING.md requires before eval-affecting changes.
+name: gpu-nightly
+
+on:
+  schedule:
+    - cron: "0 8 * * *"
+  workflow_dispatch:
+
+jobs:
+  gpu:
+    if: vars.HAS_GPU_RUNNER == 'true'
+    runs-on: [self-hosted, gpu]
+    timeout-minutes: 480
+    steps:
+      - uses: actions/checkout@v4
+      - run: make install
+      - run: make sim-motiontrack
+      - run: make test TASK=task04
+      - run: make sim-robocasa
+      - run: |
+          export ROBOCASA_ASSET_DIR="$PWD/third_party/robocasa/robocasa/models/assets"
+          MUJOCO_GL=egl make test TASK=task02 PY=.venv-robocasa/bin/python PYTEST_ARGS='-m simulator'
+      - run: make task08
+      - run: .venv/bin/harbor run -p tasks/task08 -a oracle --job-name nightly-t08 -o jobs/nightly

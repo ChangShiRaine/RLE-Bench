@@ -1,0 +1,297 @@
+{
+  "franka": {
+    "sref": {
+      "springs": {
+        "lead_joint2": {
+          "stiffness": "0.332079661121",
+          "springref": "0.0247013481024"
+        },
+        "lead_joint4": {
+          "stiffness": "0.01",
+          "springref": "18.6976814715"
+        },
+        "lead_joint6": {
+          "stiffness": "0.01",
+          "springref": "2.77933393554"
+        }
+      },
+      "geoms": {}
+    },
+    "oracle": {
+      "springs": {
+        "lead_joint2": {
+          "stiffness": "0.626200754932",
+          "springref": "-0.775008926787"
+        },
+        "lead_joint4": {
+          "stiffness": "0.01",
+          "springref": "-2.1711604739"
+        },
+        "lead_joint5": {
+          "stiffness": "0.01",
+          "springref": "0.0602602669462"
+        }
+      },
+      "geoms": {
+        "lead_link3": [
+          {
+            "name": "printed_cw_support_3",
+            "type": "capsule",
+            "fromto": "-0.01317554859 -0.002357716124 -7.564789212e-10 -0.12 -0.12 -0.12",
+            "size": "0.003",
+            "density": "248.0",
+            "rgba": "0.93 0.92 0.88 1"
+          },
+          {
+            "name": "counterweight_3_0",
+            "type": "sphere",
+            "size": "0.0165958298142",
+            "pos": "-0.12 -0.12 -0.12",
+            "mass": "0.153170635456",
+            "rgba": "0.35 0.35 0.4 1"
+          }
+        ],
+        "lead_link4": [
+          {
+            "name": "printed_cw_support_4",
+            "type": "capsule",
+            "fromto": "0.003361000216 -0.00941826199 0.01874999918 0.03490785963 -0.12 0.07959789004",
+            "size": "0.003",
+            "density": "248.0",
+            "rgba": "0.93 0.92 0.88 1"
+          },
+          {
+            "name": "counterweight_4_0",
+            "type": "sphere",
+            "size": "0.0190064147418",
+            "pos": "0.03490785963 -0.12 0.07959789004",
+            "mass": "0.230080176469",
+            "rgba": "0.35 0.35 0.4 1"
+          }
+        ],
+        "lead_link5": [
+          {
+            "name": "printed_cw_support_5",
+            "type": "capsule",
+            "fromto": "-0.0103908657 -0.01081803586 1.647279743e-10 -0.12 -0.12 -0.12",
+            "size": "0.003",
+            "density": "248.0",
+            "rgba": "0.93 0.92 0.88 1"
+          },
+          {
+            "name": "counterweight_5_0",
+            "type": "sphere",
+            "size": "0.00321920651916",
+            "pos": "-0.12 -0.12 -0.12",
+            "mass": "0.00111795703158",
+            "rgba": "0.35 0.35 0.4 1"
+          }
+        ],
+        "lead_link6": [
+          {
+            "name": "printed_cw_support_6",
+            "type": "capsule",
+            "fromto": "0.006427879358 -0.007660444291 0.01474999997 0.1128806344 -0.12 0.00198189378",
+            "size": "0.003",
+            "density": "248.0",
+            "rgba": "0.93 0.92 0.88 1"
+          },
+          {
+            "name": "counterweight_6_0",
+            "type": "sphere",
+            "size": "0.0111853915471",
+            "pos": "0.1128806344 -0.12 0.00198189378",
+            "mass": "0.0468956079212",
+            "rgba": "0.35 0.35 0.4 1"
+          }
+        ]
+      }
+    }
+  },
+  "ur5e": {
+    "sref": {
+      "springs": {
+        "lead_joint2": {
+          "stiffness": "0.617814626501",
+          "springref": "1.62585298351"
+        },
+        "lead_joint3": {
+          "stiffness": "0.01",
+          "springref": "-26.3131850653"
+        },
+        "lead_joint4": {
+          "stiffness": "0.01",
+          "springref": "1.71755406537"
+        }
+      },
+      "geoms": {}
+    },
+    "oracle": {
+      "springs": {
+        "lead_joint2": {
+          "stiffness": "1.21008303907",
+          "springref": "1.1324758712"
+        },
+        "lead_joint3": {
+          "stiffness": "0.01",
+          "springref": "1.95966857571"
+        },
+        "lead_joint4": {
+          "stiffness": "0.01",
+          "springref": "0.642265884612"
+        }
+      },
+      "geoms": {
+        "lead_link3": [
+          {
+            "name": "printed_cw_support_3",
+            "type": "capsule",
+            "fromto": "-0.01249693058 0.00127997795 0.0455545549 -0.12 3.308342744e-06 0.12",
+            "size": "0.003",
+            "density": "248.0",
+            "rgba": "0.93 0.92 0.88 1"
+          },
+          {
+            "name": "counterweight_3_0",
+            "type": "sphere",
+            "size": "0.0208783496766",
+            "pos": "-0.12 3.308342744e-06 0.12",
+            "mass": "0.304977006502",
+            "rgba": "0.35 0.35 0.4 1"
+          }
+        ],
+        "lead_link4": [
+          {
+            "name": "printed_cw_support_4",
+            "type": "capsule",
+            "fromto": "0.002118859968 0.01826286915 0.05374999409 0.01551809301 0.12 0.12",
+            "size": "0.003",
+            "density": "248.0",
+            "rgba": "0.93 0.92 0.88 1"
+          },
+          {
+            "name": "counterweight_4_0",
+            "type": "sphere",
+            "size": "0.00675081383457",
+            "pos": "0.01551809301 0.12 0.12",
+            "mass": "0.0103097228717",
+            "rgba": "0.35 0.35 0.4 1"
+          }
+        ],
+        "lead_link5": [
+          {
+            "name": "printed_cw_support_5",
+            "type": "capsule",
+            "fromto": "-0.01799999752 6.103492323e-09 1.243460369e-10 -0.12 -0.002331426221 -0.12",
+            "size": "0.003",
+            "density": "248.0",
+            "rgba": "0.93 0.92 0.88 1"
+          },
+          {
+            "name": "counterweight_5_0",
+            "type": "sphere",
+            "size": "0.00841567192201",
+            "pos": "-0.12 -0.002331426221 -0.12",
+            "mass": "0.0199730774409",
+            "rgba": "0.35 0.35 0.4 1"
+          }
+        ]
+      }
+    }
+  },
+  "xarm7": {
+    "sref": {
+      "springs": {
+        "lead_joint2": {
+          "stiffness": "0.330199578859",
+          "springref": "0.28257130092"
+        },
+        "lead_joint4": {
+          "stiffness": "0.0352378609934",
+          "springref": "-3.95461819577"
+        },
+        "lead_joint6": {
+          "stiffness": "0.01",
+          "springref": "0.589332563288"
+        },
+        "lead_joint7": {
+          "stiffness": "0.01",
+          "springref": "0.00468778631373"
+        }
+      },
+      "geoms": {}
+    },
+    "oracle": {
+      "springs": {
+        "lead_joint2": {
+          "stiffness": "0.635146131872",
+          "springref": "-0.23472748559"
+        },
+        "lead_joint4": {
+          "stiffness": "0.01",
+          "springref": "0.833933680743"
+        },
+        "lead_joint7": {
+          "stiffness": "0.01",
+          "springref": "0.00468778631373"
+        }
+      },
+      "geoms": {
+        "lead_link3": [
+          {
+            "name": "printed_cw_support_3",
+            "type": "capsule",
+            "fromto": "-0.007999999848 -0.01399999975 6.989662148e-10 0 -0.12 -0.12",
+            "size": "0.003",
+            "density": "248.0",
+            "rgba": "0.93 0.92 0.88 1"
+          },
+          {
+            "name": "counterweight_3_0",
+            "type": "sphere",
+            "size": "0.0121902663932",
+            "pos": "0 -0.12 -0.12",
+            "mass": "0.0607041224573",
+            "rgba": "0.35 0.35 0.4 1"
+          }
+        ],
+        "lead_link4": [
+          {
+            "name": "printed_cw_support_4",
+            "type": "capsule",
+            "fromto": "-0.006715591079 -0.04506127623 0.002921552002 -0.07568549921 -0.12 0.01394420465",
+            "size": "0.003",
+            "density": "248.0",
+            "rgba": "0.93 0.92 0.88 1"
+          },
+          {
+            "name": "counterweight_4_0",
+            "type": "sphere",
+            "size": "0.0185525595737",
+            "pos": "-0.07568549921 -0.12 0.01394420465",
+            "mass": "0.213988335566",
+            "rgba": "0.35 0.35 0.4 1"
+          }
+        ],
+        "lead_link6": [
+          {
+            "name": "printed_cw_support_6",
+            "type": "capsule",
+            "fromto": "0.007999998845 0.01199999883 -0.002499999974 0.05880265831 0.12 -0.01024343424",
+            "size": "0.003",
+            "density": "248.0",
+            "rgba": "0.93 0.92 0.88 1"
+          },
+          {
+            "name": "counterweight_6_0",
+            "type": "sphere",
+            "size": "0.0114970453479",
+            "pos": "0.05880265831 0.12 -0.01024343424",
+            "mass": "0.0509257377637",
+            "rgba": "0.35 0.35 0.4 1"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+# Task05 / @@SLUG@@
+
+@@README_SUMMARY@@
+
+```bash
+harbor run -p tasks/task05/@@SLUG@@ -a oracle --override-gpus 0 --yes
+```
+
+@@README_ASSETS@@

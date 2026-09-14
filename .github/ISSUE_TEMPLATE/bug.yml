@@ -1,0 +1,22 @@
+name: Bug
+description: Harness, generator, CLI or infrastructure defect
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened vs what you expected
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Minimal reproduction
+      placeholder: commands, from a fresh clone where possible
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      placeholder: OS, python, harbor version, GPU

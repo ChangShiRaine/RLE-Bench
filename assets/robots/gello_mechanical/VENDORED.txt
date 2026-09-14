@@ -1,0 +1,17 @@
+source: https://github.com/wuphilipp/gello_mechanical
+license: MIT (see LICENSE)
+fetched: 2026-09-04 from branch main
+verified revision: 8ea3f2e661b55d4a128683b09227f8e771cd729e
+
+All 22 STL files and LICENSE match the same relative paths at this revision
+by Git blob hash. This identifies matching upstream content; the original
+fetch did not record a commit.
+
+The printable GELLO parts for task09's three followers, plus the shared
+gripper. Data, not code: the task09 generator copies them by path.
+
+Units are millimetres; MJCF must load them with scale="0.001 0.001 0.001".
+The joint-to-part assembly is not published in machine-readable form --
+gello_software never computes leader forward kinematics -- so the frames
+are solved from the servo mounting features by
+tasks/task09/dev/assemble.py and checked by dev/check_assembly.py.

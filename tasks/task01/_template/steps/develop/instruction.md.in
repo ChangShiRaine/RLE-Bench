@@ -1,0 +1,263 @@
+# RoboCasa speed-run — development phase
+
+You are controlling a simulated Franka-class arm on a mobile base in a RoboCasa
+kitchen. The task is **@@ROBOCASA_TASK@@** — @@GOAL@@. Your goal in this phase is to
+**learn to solve it and write the code you will need**.
+
+Nothing you do in this phase is scored directly. What is recorded is **how much
+simulator interaction you spend** before you are ready.
+
+## Reaching the simulator
+
+The simulator is only reachable through a metered client. There is no environment
+object in your process, and every `env.step` is counted.
+
+```python
+from harness.client import SpeedrunClient, ObsSpec
+
+with SpeedrunClient() as sim:
+    info = sim.task_info()      # task, action layout, action_dim, budgets, clock
+    obs = sim.reset()           # start an episode (costs one interaction step)
+    print(sim.status())         # budgets and time remaining (free)
+```
+
+The simulator serves one connection at a time — close your client before opening another.
+
+`sim.task_info()["instruction"]` is the natural-language goal for the current
+episode, produced by the simulator itself. Read it — it names the specific object or
+fixture involved, and it changes between episodes.
+
+## Observations
+
+You see **three cameras and the robot's own state — nothing else**:
+
+| keys | what |
+|---|---|
+| `robot0_agentview_left_image`, `robot0_agentview_right_image`, `robot0_eye_in_hand_image` | RGB uint8 |
+| `robot0_agentview_left_depth`, `robot0_agentview_right_depth`, `robot0_eye_in_hand_depth` | **z-depth in metres**, float32 `HxW` — only when you ask |
+| `robot0_joint_pos` / `_cos` / `_sin` / `_vel` / `_acc`, `robot0_gripper_qpos` / `_qvel` | joints and gripper |
+| `robot0_base_to_eef_pos` / `_quat` | end-effector in the **base frame** — the same frame actions are in |
+| `robot0_eef_pos` / `_quat`, `robot0_base_pos` / `_quat` | ego pose in the world frame |
+| `robot0_proprio-state` | the above proprioception, concatenated |
+
+@@HARNESS_SECTION@@
+
+### Looking is free, and you choose what you get
+
+`sim.observe()` returns the current observation without stepping anything. It costs no
+interaction budget, ends no episode, and works in **both** phases.
+
+An `ObsSpec` says how big the pictures are, which of them you want, and whether depth comes
+too. The same object shapes a free look and a step, so what you *look* at and what you *act
+on* cannot disagree:
+
+```python
+look = sim.observe()                               # frames as the step pipeline made them
+look = sim.observe(ObsSpec(width=384))             # ask for more detail
+img  = look["obs"]["robot0_agentview_left_image"]
+print(look["resolution"], look["max_resolution"], look["live"])
+
+sim.step(action, obs_spec=ObsSpec(width=384))      # the same, on what comes back
+sim.step(action, obs_spec=ObsSpec(cameras=()))     # no pictures at all
+```
+
+It is per call and nothing is remembered between calls. `look["live"]` is `False` once the
+episode or trial is over; an observation taken then is thinner than the one you asked for,
+because there is nothing left to render against — check it rather than meeting the gap as a
+`KeyError` further down.
+
+`depth=True` adds a `<camera>_depth` map beside each `<camera>_image` — float32 `HxW`, in
+**metres**, for the same cameras at the same size:
+
+```python
+look = sim.observe(ObsSpec(width=512, depth=True))
+d = look["obs"]["robot0_eye_in_hand_depth"]     # metres
+print(d[v, u])                                  # z-depth at pixel (u, v)
+```
+
+`depth[v, u]` is **z-depth** — measured along the camera's optical axis, not along that
+pixel's own ray, so a deprojection that assumes range is wrong by 1/cos of the angle off the
+axis. It is a sensor reading, not object state: it says how far a surface is, never what it
+is. Two things to measure rather than assume: the gripper occludes the wrist camera near
+contact, and the reading is to the *camera*, not the fingertips.
+
+### The lenses, given
+
+Each camera is specified by its **vertical field of view**:
+
+| camera | `fovy` |
+|---|---|
+| `robot0_agentview_left`, `robot0_agentview_right` | **60°** |
+| `robot0_eye_in_hand` | **75°** |
+
+```python
+f = (H / 2) / math.tan(math.radians(fovy) / 2)     # H = rendered image height, pixels
+```
+
+`f` is in pixels, so it scales with the size you rendered at. With `cx, cy` the image
+centre, a pixel `(u, v)` at z-depth `d` sits at `((u - cx) * d / f, (v - cy) * d / f, d)`
+in that camera's own frame. **Where each camera sits on the robot is yours to measure.**
+
+**Resolution is a real trade, in both directions.** Every step renders and transfers
+whatever you asked for: a bigger `width` costs render plus encode and decode each time,
+depth roughly doubles an observation, and `cameras=()` makes a step dramatically cheaper.
+None of it touches your interaction budget; it is paid in wall clock, which is also a
+budget. A batch renders **once**, for the observation it hands back.
+
+## Actions
+
+`action_dim` is 12, every component in `[-1, 1]`:
+
+| dims | part |
+|---|---|
+| 0–6 | arm, operational-space pose delta (3 position + 3 rotation) |
+| 6–7 | gripper |
+| 7–10 | mobile base (x, y, yaw) |
+| 10–11 | torso |
+| 11 | `base_mode`: `> 0` base mode, `-1` arm mode |
+
+`base_mode` does **not** gate dims 7–11: the base and the torso respond in either mode.
+What it does change is yours to measure.
+
+**Actions are expressed in the ROBOT BASE frame, not the world frame.** The base is
+rotated differently in each episode, so if you compute a target in world coordinates
+you must rotate the error into the base frame before sending it:
+
+```python
+import robosuite.utils.transform_utils as T
+R = T.quat2mat(obs["robot0_base_quat"])
+action[:3] = R.T @ (target_world - obs["robot0_eef_pos"])   # target_world is YOURS to
+                                                            # estimate, from the cameras
+```
+
+Skipping this does not raise an error — the end-effector simply drifts away from the
+goal and never touches anything.
+
+**Commanded is not achieved.** An action of ±1.0 *commands* a ±5 cm translation or
+±0.5 rad rotation target, but the arm is driven by an impedance controller that does not
+get there in one step. Measure the achieved rate yourself and budget your step counts
+against that, not against the commanded one.
+
+## Acting
+
+`sim.step(actions)` is the whole acting surface.
+
+```python
+res = sim.step(action)          # one action
+obs = res["obs"]
+
+res = sim.step([hold] * 15)     # or a batch, applied in order, one round trip
+```
+
+| field | meaning |
+|---|---|
+| `obs` | the observation after the last action applied |
+| `steps` | how many were **applied** — fewer than asked for if the episode ended part-way |
+| `success` | the **environment's** own predicate. Nothing you send can assert it |
+| `episode_over` | the episode or graded trial is finished; only `reset()` starts the next |
+| `ended` | why it ended, or `None` while it is alive |
+| `steps_remaining` | interaction budget left; in a graded trial, that trial's remaining steps |
+
+A batch is applied in order and **stops at the first action that ends the episode**, so
+the rest are never applied and never charged. Use one for open-loop stretches (holding
+the gripper shut, letting the arm settle) where it saves a round trip per step; use
+single actions when you want to look at each result.
+
+`step` behaves identically in **both phases**, so the loop you debug here is the loop
+that drives a graded trial.
+
+### Work in whatever pieces you like
+
+**There is nothing to implement and nothing to hand over** — no class, no callback, no shape
+your code has to take. The session lives in the harness rather than your process and
+survives disconnecting, so one script can run, and a different script can carry on from
+exactly where it stopped. Nothing resets between them, and you can come back as many times
+as you like — one connection at a time.
+
+```python
+res = sim.step(actions)
+if res["episode_over"]:
+    sim.reset()
+```
+
+That is the entire control flow. Around it, do whatever the problem needs.
+
+### What ends an episode, and who decides
+
+| `ended` | why | episode still alive? |
+|---|---|---|
+| `None` | your actions simply ran out | yes |
+| `env_success` | the task's success predicate fired | **no** |
+| `env_done` | the environment stopped | **no** |
+| `horizon` | the episode ran out of steps | **no** |
+| `budget_exhausted` | your interaction budget ran out | **no** |
+
+`res["episode_over"]` is the authoritative answer to that last column. An episode and
+a graded trial run to the same step ceiling — `task_info()` reports it, as
+`max_episode_steps` and `max_steps_per_trial` — and a trial that runs out reports
+`horizon` the same way. **Stepping a finished episode or trial
+raises `RemoteError` rather than returning a verdict; only `reset()` starts the next
+one.** `observe()` still works there, but returns a thinner observation with `live`
+False — check it rather than meeting the gap as a `KeyError`.
+
+**Success is always the environment's own predicate.** There is no channel for claiming
+it, by design.
+
+## Save your work to disk
+
+**You keep everything you learn here.** The evaluation phase continues this same session, so
+what you worked out about the task and the scene comes with you. Even so, write your code as
+files in the working directory: it is what you import and run in the next phase.
+
+## Two budgets: interaction and time
+
+**Interaction.** `sim.status()` reports `steps_used` and `steps_remaining`. Requests
+past the budget are refused rather than silently truncated. Only development is charged —
+driving your graded trials in the next phase costs none of it. **A reset costs one step**
+as well as each action: it rebuilds a scene, so abandoning an episode is not free.
+
+**Time.** This phase also has a wall clock, and it behaves nothing like the step budget.
+There is no partial credit for being close: when it expires you are cut off exactly
+where you stand, with whatever you have not written to disk lost.
+
+Both are reported by `sim.status()` — `steps_remaining` and `seconds_remaining` — and
+they are the real numbers for **this** run, not any default you might assume. Read them
+more than once. They pull in opposite directions and it is easy to watch only one.
+
+## How you will be scored
+
+Evaluation will use the same task in unseen kitchen layouts. Do not declare readiness based
+only on one scene or hard-code the current scene's coordinates; validate a strategy that
+transfers across resets and layouts.
+
+The score comes entirely from the evaluation phase:
+
+```
+reward = 0.80 x success_rate
+       + 0.20 x success_rate x (1 - development_steps / interaction_budget)
+```
+
+`success_rate` is the fraction of evaluation trials the environment's own success condition
+accepted. **Solving the task dominates**: interaction you don't spend pays only in proportion
+to what you actually solve, so an agent that spends nothing and solves nothing scores zero,
+exactly like one that spends everything and solves nothing. Among equally capable runs, the
+cheaper one wins.
+
+## When you are ready
+
+Nothing in this phase is scored, so stopping early costs nothing and saves interaction. When
+you judge yourself ready, say so:
+
+```python
+with SpeedrunClient() as sim:
+    print(sim.status()["seconds_remaining"])   # how long you have left
+    sim.end_development()                       # your readiness signal
+```
+
+`end_development()` closes this phase and records the interaction you had spent at that
+moment. It does **not** start the evaluation, spend anything, or touch the simulator.
+Development interaction is refused afterwards, so call it when you mean it; calling it twice
+is harmless. Letting the clock end the phase instead hands over mid-thought.
+
+**You do not start the evaluation — the harness does**, after this phase ends. You carry on
+in the next phase with everything you know, and it begins with the evaluation already open.

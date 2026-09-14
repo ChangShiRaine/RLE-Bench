@@ -1,0 +1,2 @@
+# What the verifier stage adds to requirements.txt: the ffmpeg its episode videos use.
+imageio-ffmpeg==0.6.0

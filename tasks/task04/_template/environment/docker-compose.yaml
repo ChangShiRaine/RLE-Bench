@@ -1,0 +1,18 @@
+# Compose overlay Harbor layers over its own templates. Harbor's local Docker
+# provider cannot allocate GPUs, so the device comes from this reservation:
+# `gpus = 1` in task.toml stays as the portable declaration, and local runs pass
+# `--override-gpus 0`. Nothing is mounted: the dataset and the robot are baked
+# into the image.
+services:
+  main:
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              # Which GPU, not just how many, so concurrent runs do not share a card.
+              device_ids: ['${RLEBENCH_GPU:-0}']
+              capabilities: [gpu]
+    environment:
+      # The Oracle's training budget; lower it to smoke-test the plumbing.
+      ORACLE_MINUTES: ${ORACLE_MINUTES:-60}

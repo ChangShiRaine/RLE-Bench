@@ -1,0 +1,500 @@
+<mujoco model="robobench_base">
+  <compiler angle="radian" meshdir="../../../../../assets/robots/franka_emika_panda/assets/"/>
+
+  <option impratio="10" integrator="implicitfast" cone="elliptic">
+    <flag multiccd="enable"/>
+  </option>
+
+  <size nkey="1"/>
+
+  <default>
+    <default class="arm_main">
+      <default class="arm_panda">
+        <material shininess="0.25"/>
+        <joint range="-2.8973 2.8973" armature="0.1" damping="1"/>
+        <site size="0.001 0.005 0.005" group="4" rgba="0.5 0.5 0.5 0.3"/>
+        <general ctrlrange="-2.8973 2.8973" forcerange="-87 87" biastype="affine"/>
+        <default class="arm_finger">
+          <joint type="slide" range="0 0.04"/>
+        </default>
+        <default class="arm_panda/visual">
+          <geom type="mesh" contype="0" conaffinity="0" group="2"/>
+        </default>
+        <default class="arm_panda/collision">
+          <geom type="mesh" group="3"/>
+        </default>
+      </default>
+    </default>
+  </default>
+
+  <asset>
+    <material name="arm_white" class="arm_panda"/>
+    <material name="arm_off_white" class="arm_panda" rgba="0.901961 0.921569 0.929412 1"/>
+    <material name="arm_dark_grey" class="arm_panda" rgba="0.25 0.25 0.25 1"/>
+    <material name="arm_green" class="arm_panda" rgba="0 1 0 1"/>
+    <material name="arm_light_blue" class="arm_panda" rgba="0.039216 0.541176 0.780392 1"/>
+    <mesh name="arm_link0_c" file="link0.stl"/>
+    <mesh name="arm_link1_c" file="link1.stl"/>
+    <mesh name="arm_link2_c" file="link2.stl"/>
+    <mesh name="arm_link3_c" file="link3.stl"/>
+    <mesh name="arm_link4_c" file="link4.stl"/>
+    <mesh name="arm_link5_c0" file="link5_collision_0.obj"/>
+    <mesh name="arm_link5_c1" file="link5_collision_1.obj"/>
+    <mesh name="arm_link5_c2" file="link5_collision_2.obj"/>
+    <mesh name="arm_link6_c" file="link6.stl"/>
+    <mesh name="arm_link7_c" file="link7.stl"/>
+    <mesh name="arm_link0_0" file="link0_0.obj"/>
+    <mesh name="arm_link0_1" file="link0_1.obj"/>
+    <mesh name="arm_link0_2" file="link0_2.obj"/>
+    <mesh name="arm_link0_3" file="link0_3.obj"/>
+    <mesh name="arm_link0_4" file="link0_4.obj"/>
+    <mesh name="arm_link0_5" file="link0_5.obj"/>
+    <mesh name="arm_link0_7" file="link0_7.obj"/>
+    <mesh name="arm_link0_8" file="link0_8.obj"/>
+    <mesh name="arm_link0_9" file="link0_9.obj"/>
+    <mesh name="arm_link0_10" file="link0_10.obj"/>
+    <mesh name="arm_link0_11" file="link0_11.obj"/>
+    <mesh name="arm_link1" file="link1.obj"/>
+    <mesh name="arm_link2" file="link2.obj"/>
+    <mesh name="arm_link3_0" file="link3_0.obj"/>
+    <mesh name="arm_link3_1" file="link3_1.obj"/>
+    <mesh name="arm_link3_2" file="link3_2.obj"/>
+    <mesh name="arm_link3_3" file="link3_3.obj"/>
+    <mesh name="arm_link4_0" file="link4_0.obj"/>
+    <mesh name="arm_link4_1" file="link4_1.obj"/>
+    <mesh name="arm_link4_2" file="link4_2.obj"/>
+    <mesh name="arm_link4_3" file="link4_3.obj"/>
+    <mesh name="arm_link5_0" file="link5_0.obj"/>
+    <mesh name="arm_link5_1" file="link5_1.obj"/>
+    <mesh name="arm_link5_2" file="link5_2.obj"/>
+    <mesh name="arm_link6_0" file="link6_0.obj"/>
+    <mesh name="arm_link6_1" file="link6_1.obj"/>
+    <mesh name="arm_link6_2" file="link6_2.obj"/>
+    <mesh name="arm_link6_3" file="link6_3.obj"/>
+    <mesh name="arm_link6_4" file="link6_4.obj"/>
+    <mesh name="arm_link6_5" file="link6_5.obj"/>
+    <mesh name="arm_link6_6" file="link6_6.obj"/>
+    <mesh name="arm_link6_7" file="link6_7.obj"/>
+    <mesh name="arm_link6_8" file="link6_8.obj"/>
+    <mesh name="arm_link6_9" file="link6_9.obj"/>
+    <mesh name="arm_link6_10" file="link6_10.obj"/>
+    <mesh name="arm_link6_11" file="link6_11.obj"/>
+    <mesh name="arm_link6_12" file="link6_12.obj"/>
+    <mesh name="arm_link6_13" file="link6_13.obj"/>
+    <mesh name="arm_link6_14" file="link6_14.obj"/>
+    <mesh name="arm_link6_15" file="link6_15.obj"/>
+    <mesh name="arm_link6_16" file="link6_16.obj"/>
+    <mesh name="arm_link7_0" file="link7_0.obj"/>
+    <mesh name="arm_link7_1" file="link7_1.obj"/>
+    <mesh name="arm_link7_2" file="link7_2.obj"/>
+    <mesh name="arm_link7_3" file="link7_3.obj"/>
+    <mesh name="arm_link7_4" file="link7_4.obj"/>
+    <mesh name="arm_link7_5" file="link7_5.obj"/>
+    <mesh name="arm_link7_6" file="link7_6.obj"/>
+    <mesh name="arm_link7_7" file="link7_7.obj"/>
+  </asset>
+
+  <worldbody>
+    <body name="base" pos="0 0 0.076">
+      <joint name="base_free" type="free"/>
+      <geom name="chassis" size="0.26 0.18 0.06" pos="0 0 0.045" type="box" mass="18" rgba="0.7 0.45 0.12 1"/>
+      <geom name="arm_mount" size="0.07 0.01" pos="0 0 0.115" type="cylinder" mass="1" rgba="0.4 0.4 0.4 1"/>
+      <site name="arm_mount_site" pos="0 0 0.125" size="0.01"/>
+      <site name="base_center" pos="0 0 0" size="0.01"/>
+      <body name="battery" pos="0 0 0.02">
+        <geom name="battery_geom" size="0.14 0.09 0.04" type="box" mass="10" rgba="0.15 0.3 0.6 1"/>
+      </body>
+      <body name="wheel_FL" pos="0.19 0.235 0">
+        <joint name="drive_FL" pos="0 0 0" axis="0 1 0" armature="0.002" damping="0.01"/>
+        <geom name="hub_FL" size="0.052 0.02" quat="0.707107 0.707107 0 0" type="cylinder" mass="1.2" rgba="0.25 0.25 0.28 1"/>
+        <body name="roller_FL_0" pos="0.06 0 0">
+          <joint name="rollerj_FL_0" pos="0 0 0" axis="0 -0.707107 0.707107" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FL_0" size="0.016 0.019403" quat="0.382683 -0.92388 0 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_FL_1" pos="0.05543 0 0.02296">
+          <joint name="rollerj_FL_1" pos="0 0 0" axis="-0.270598 -0.707107 0.653281" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FL_1" size="0.016 0.0194058" quat="0.416284 -0.849187 0.324944 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_FL_2" pos="0.04243 0 0.04243">
+          <joint name="rollerj_FL_2" pos="0 0 0" axis="-0.5 -0.707107 0.5" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FL_2" size="0.016 0.0194115" quat="0.499891 -0.706952 0.500328 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_FL_3" pos="0.02296 0 0.05543">
+          <joint name="rollerj_FL_3" pos="0 0 0" axis="-0.653281 -0.707107 0.270598" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FL_3" size="0.016 0.0194058" quat="0.60393 -0.585339 0.540969 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_FL_4" pos="0 0 0.06">
+          <joint name="rollerj_FL_4" pos="0 0 0" axis="-0.707107 -0.707107 0" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FL_4" size="0.016 0.019403" quat="0.707107 -0.5 0.5 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_FL_5" pos="-0.02296 0 0.05543">
+          <joint name="rollerj_FL_5" pos="0 0 0" axis="-0.653281 -0.707107 -0.270598" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FL_5" size="0.016 0.0194058" quat="0.797038 -0.443522 0.409902 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_FL_6" pos="-0.04243 0 0.04243">
+          <joint name="rollerj_FL_6" pos="0 0 0" axis="-0.5 -0.707107 -0.5" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FL_6" size="0.016 0.0194115" quat="0.866089 -0.40804 0.28878 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_FL_7" pos="-0.05543 0 0.02296">
+          <joint name="rollerj_FL_7" pos="0 0 0" axis="-0.270598 -0.707107 -0.653281" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FL_7" size="0.016 0.0194058" quat="0.909234 -0.388792 0.148773 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_FL_8" pos="-0.06 0 0">
+          <joint name="rollerj_FL_8" pos="0 0 0" axis="0 -0.707107 -0.707107" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FL_8" size="0.016 0.019403" quat="0.92388 -0.382683 0 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_FL_9" pos="-0.05543 0 -0.02296">
+          <joint name="rollerj_FL_9" pos="0 0 0" axis="0.270598 -0.707107 -0.653281" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FL_9" size="0.016 0.0194058" quat="0.909234 -0.388792 -0.148773 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_FL_10" pos="-0.04243 0 -0.04243">
+          <joint name="rollerj_FL_10" pos="0 0 0" axis="0.5 -0.707107 -0.5" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FL_10" size="0.016 0.0194115" quat="0.866089 -0.40804 -0.28878 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_FL_11" pos="-0.02296 0 -0.05543">
+          <joint name="rollerj_FL_11" pos="0 0 0" axis="0.653281 -0.707107 -0.270598" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FL_11" size="0.016 0.0194058" quat="0.797038 -0.443522 -0.409902 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_FL_12" pos="0 0 -0.06">
+          <joint name="rollerj_FL_12" pos="0 0 0" axis="0.707107 -0.707107 0" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FL_12" size="0.016 0.019403" quat="0.707107 -0.5 -0.5 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_FL_13" pos="0.02296 0 -0.05543">
+          <joint name="rollerj_FL_13" pos="0 0 0" axis="0.653281 -0.707107 0.270598" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FL_13" size="0.016 0.0194058" quat="0.60393 -0.585339 -0.540969 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_FL_14" pos="0.04243 0 -0.04243">
+          <joint name="rollerj_FL_14" pos="0 0 0" axis="0.5 -0.707107 0.5" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FL_14" size="0.016 0.0194115" quat="0.499891 -0.706952 -0.500328 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_FL_15" pos="0.05543 0 -0.02296">
+          <joint name="rollerj_FL_15" pos="0 0 0" axis="0.270598 -0.707107 0.653281" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FL_15" size="0.016 0.0194058" quat="0.416284 -0.849187 -0.324944 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+      </body>
+      <body name="wheel_FR" pos="0.19 -0.235 0">
+        <joint name="drive_FR" pos="0 0 0" axis="0 1 0" armature="0.002" damping="0.01"/>
+        <geom name="hub_FR" size="0.052 0.02" quat="0.707107 0.707107 0 0" type="cylinder" mass="1.2" rgba="0.25 0.25 0.28 1"/>
+        <body name="roller_FR_0" pos="0.06 0 0">
+          <joint name="rollerj_FR_0" pos="0 0 0" axis="0 0.707107 0.707107" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FR_0" size="0.016 0.019403" quat="0.382683 0.92388 0 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_FR_1" pos="0.05543 0 0.02296">
+          <joint name="rollerj_FR_1" pos="0 0 0" axis="-0.270598 0.707107 0.653281" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FR_1" size="0.016 0.0194058" quat="0.416284 0.849187 0.324944 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_FR_2" pos="0.04243 0 0.04243">
+          <joint name="rollerj_FR_2" pos="0 0 0" axis="-0.5 0.707107 0.5" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FR_2" size="0.016 0.0194115" quat="0.499891 0.706952 0.500328 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_FR_3" pos="0.02296 0 0.05543">
+          <joint name="rollerj_FR_3" pos="0 0 0" axis="-0.653281 0.707107 0.270598" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FR_3" size="0.016 0.0194058" quat="0.60393 0.585339 0.540969 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_FR_4" pos="0 0 0.06">
+          <joint name="rollerj_FR_4" pos="0 0 0" axis="-0.707107 0.707107 0" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FR_4" size="0.016 0.019403" quat="0.707107 0.5 0.5 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_FR_5" pos="-0.02296 0 0.05543">
+          <joint name="rollerj_FR_5" pos="0 0 0" axis="-0.653281 0.707107 -0.270598" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FR_5" size="0.016 0.0194058" quat="0.797038 0.443522 0.409902 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_FR_6" pos="-0.04243 0 0.04243">
+          <joint name="rollerj_FR_6" pos="0 0 0" axis="-0.5 0.707107 -0.5" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FR_6" size="0.016 0.0194115" quat="0.866089 0.40804 0.28878 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_FR_7" pos="-0.05543 0 0.02296">
+          <joint name="rollerj_FR_7" pos="0 0 0" axis="-0.270598 0.707107 -0.653281" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FR_7" size="0.016 0.0194058" quat="0.909234 0.388792 0.148773 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_FR_8" pos="-0.06 0 0">
+          <joint name="rollerj_FR_8" pos="0 0 0" axis="0 0.707107 -0.707107" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FR_8" size="0.016 0.019403" quat="0.92388 0.382683 0 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_FR_9" pos="-0.05543 0 -0.02296">
+          <joint name="rollerj_FR_9" pos="0 0 0" axis="0.270598 0.707107 -0.653281" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FR_9" size="0.016 0.0194058" quat="0.909234 0.388792 -0.148773 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_FR_10" pos="-0.04243 0 -0.04243">
+          <joint name="rollerj_FR_10" pos="0 0 0" axis="0.5 0.707107 -0.5" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FR_10" size="0.016 0.0194115" quat="0.866089 0.40804 -0.28878 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_FR_11" pos="-0.02296 0 -0.05543">
+          <joint name="rollerj_FR_11" pos="0 0 0" axis="0.653281 0.707107 -0.270598" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FR_11" size="0.016 0.0194058" quat="0.797038 0.443522 -0.409902 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_FR_12" pos="0 0 -0.06">
+          <joint name="rollerj_FR_12" pos="0 0 0" axis="0.707107 0.707107 0" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FR_12" size="0.016 0.019403" quat="0.707107 0.5 -0.5 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_FR_13" pos="0.02296 0 -0.05543">
+          <joint name="rollerj_FR_13" pos="0 0 0" axis="0.653281 0.707107 0.270598" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FR_13" size="0.016 0.0194058" quat="0.60393 0.585339 -0.540969 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_FR_14" pos="0.04243 0 -0.04243">
+          <joint name="rollerj_FR_14" pos="0 0 0" axis="0.5 0.707107 0.5" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FR_14" size="0.016 0.0194115" quat="0.499891 0.706952 -0.500328 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_FR_15" pos="0.05543 0 -0.02296">
+          <joint name="rollerj_FR_15" pos="0 0 0" axis="0.270598 0.707107 0.653281" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_FR_15" size="0.016 0.0194058" quat="0.416284 0.849187 -0.324944 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+      </body>
+      <body name="wheel_RL" pos="-0.19 0.235 0">
+        <joint name="drive_RL" pos="0 0 0" axis="0 1 0" armature="0.002" damping="0.01"/>
+        <geom name="hub_RL" size="0.052 0.02" quat="0.707107 0.707107 0 0" type="cylinder" mass="1.2" rgba="0.25 0.25 0.28 1"/>
+        <body name="roller_RL_0" pos="0.06 0 0">
+          <joint name="rollerj_RL_0" pos="0 0 0" axis="0 0.707107 0.707107" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RL_0" size="0.016 0.019403" quat="0.382683 0.92388 0 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_RL_1" pos="0.05543 0 0.02296">
+          <joint name="rollerj_RL_1" pos="0 0 0" axis="-0.270598 0.707107 0.653281" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RL_1" size="0.016 0.0194058" quat="0.416284 0.849187 0.324944 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_RL_2" pos="0.04243 0 0.04243">
+          <joint name="rollerj_RL_2" pos="0 0 0" axis="-0.5 0.707107 0.5" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RL_2" size="0.016 0.0194115" quat="0.499891 0.706952 0.500328 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_RL_3" pos="0.02296 0 0.05543">
+          <joint name="rollerj_RL_3" pos="0 0 0" axis="-0.653281 0.707107 0.270598" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RL_3" size="0.016 0.0194058" quat="0.60393 0.585339 0.540969 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_RL_4" pos="0 0 0.06">
+          <joint name="rollerj_RL_4" pos="0 0 0" axis="-0.707107 0.707107 0" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RL_4" size="0.016 0.019403" quat="0.707107 0.5 0.5 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_RL_5" pos="-0.02296 0 0.05543">
+          <joint name="rollerj_RL_5" pos="0 0 0" axis="-0.653281 0.707107 -0.270598" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RL_5" size="0.016 0.0194058" quat="0.797038 0.443522 0.409902 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_RL_6" pos="-0.04243 0 0.04243">
+          <joint name="rollerj_RL_6" pos="0 0 0" axis="-0.5 0.707107 -0.5" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RL_6" size="0.016 0.0194115" quat="0.866089 0.40804 0.28878 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_RL_7" pos="-0.05543 0 0.02296">
+          <joint name="rollerj_RL_7" pos="0 0 0" axis="-0.270598 0.707107 -0.653281" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RL_7" size="0.016 0.0194058" quat="0.909234 0.388792 0.148773 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_RL_8" pos="-0.06 0 0">
+          <joint name="rollerj_RL_8" pos="0 0 0" axis="0 0.707107 -0.707107" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RL_8" size="0.016 0.019403" quat="0.92388 0.382683 0 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_RL_9" pos="-0.05543 0 -0.02296">
+          <joint name="rollerj_RL_9" pos="0 0 0" axis="0.270598 0.707107 -0.653281" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RL_9" size="0.016 0.0194058" quat="0.909234 0.388792 -0.148773 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_RL_10" pos="-0.04243 0 -0.04243">
+          <joint name="rollerj_RL_10" pos="0 0 0" axis="0.5 0.707107 -0.5" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RL_10" size="0.016 0.0194115" quat="0.866089 0.40804 -0.28878 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_RL_11" pos="-0.02296 0 -0.05543">
+          <joint name="rollerj_RL_11" pos="0 0 0" axis="0.653281 0.707107 -0.270598" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RL_11" size="0.016 0.0194058" quat="0.797038 0.443522 -0.409902 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_RL_12" pos="0 0 -0.06">
+          <joint name="rollerj_RL_12" pos="0 0 0" axis="0.707107 0.707107 0" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RL_12" size="0.016 0.019403" quat="0.707107 0.5 -0.5 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_RL_13" pos="0.02296 0 -0.05543">
+          <joint name="rollerj_RL_13" pos="0 0 0" axis="0.653281 0.707107 0.270598" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RL_13" size="0.016 0.0194058" quat="0.60393 0.585339 -0.540969 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_RL_14" pos="0.04243 0 -0.04243">
+          <joint name="rollerj_RL_14" pos="0 0 0" axis="0.5 0.707107 0.5" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RL_14" size="0.016 0.0194115" quat="0.499891 0.706952 -0.500328 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_RL_15" pos="0.05543 0 -0.02296">
+          <joint name="rollerj_RL_15" pos="0 0 0" axis="0.270598 0.707107 0.653281" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RL_15" size="0.016 0.0194058" quat="0.416284 0.849187 -0.324944 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+      </body>
+      <body name="wheel_RR" pos="-0.19 -0.235 0">
+        <joint name="drive_RR" pos="0 0 0" axis="0 1 0" armature="0.002" damping="0.01"/>
+        <geom name="hub_RR" size="0.052 0.02" quat="0.707107 0.707107 0 0" type="cylinder" mass="1.2" rgba="0.25 0.25 0.28 1"/>
+        <body name="roller_RR_0" pos="0.06 0 0">
+          <joint name="rollerj_RR_0" pos="0 0 0" axis="0 -0.707107 0.707107" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RR_0" size="0.016 0.019403" quat="0.382683 -0.92388 0 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_RR_1" pos="0.05543 0 0.02296">
+          <joint name="rollerj_RR_1" pos="0 0 0" axis="-0.270598 -0.707107 0.653281" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RR_1" size="0.016 0.0194058" quat="0.416284 -0.849187 0.324944 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_RR_2" pos="0.04243 0 0.04243">
+          <joint name="rollerj_RR_2" pos="0 0 0" axis="-0.5 -0.707107 0.5" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RR_2" size="0.016 0.0194115" quat="0.499891 -0.706952 0.500328 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_RR_3" pos="0.02296 0 0.05543">
+          <joint name="rollerj_RR_3" pos="0 0 0" axis="-0.653281 -0.707107 0.270598" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RR_3" size="0.016 0.0194058" quat="0.60393 -0.585339 0.540969 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_RR_4" pos="0 0 0.06">
+          <joint name="rollerj_RR_4" pos="0 0 0" axis="-0.707107 -0.707107 0" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RR_4" size="0.016 0.019403" quat="0.707107 -0.5 0.5 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_RR_5" pos="-0.02296 0 0.05543">
+          <joint name="rollerj_RR_5" pos="0 0 0" axis="-0.653281 -0.707107 -0.270598" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RR_5" size="0.016 0.0194058" quat="0.797038 -0.443522 0.409902 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_RR_6" pos="-0.04243 0 0.04243">
+          <joint name="rollerj_RR_6" pos="0 0 0" axis="-0.5 -0.707107 -0.5" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RR_6" size="0.016 0.0194115" quat="0.866089 -0.40804 0.28878 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_RR_7" pos="-0.05543 0 0.02296">
+          <joint name="rollerj_RR_7" pos="0 0 0" axis="-0.270598 -0.707107 -0.653281" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RR_7" size="0.016 0.0194058" quat="0.909234 -0.388792 0.148773 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_RR_8" pos="-0.06 0 0">
+          <joint name="rollerj_RR_8" pos="0 0 0" axis="0 -0.707107 -0.707107" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RR_8" size="0.016 0.019403" quat="0.92388 -0.382683 0 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_RR_9" pos="-0.05543 0 -0.02296">
+          <joint name="rollerj_RR_9" pos="0 0 0" axis="0.270598 -0.707107 -0.653281" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RR_9" size="0.016 0.0194058" quat="0.909234 -0.388792 -0.148773 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_RR_10" pos="-0.04243 0 -0.04243">
+          <joint name="rollerj_RR_10" pos="0 0 0" axis="0.5 -0.707107 -0.5" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RR_10" size="0.016 0.0194115" quat="0.866089 -0.40804 -0.28878 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_RR_11" pos="-0.02296 0 -0.05543">
+          <joint name="rollerj_RR_11" pos="0 0 0" axis="0.653281 -0.707107 -0.270598" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RR_11" size="0.016 0.0194058" quat="0.797038 -0.443522 -0.409902 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_RR_12" pos="0 0 -0.06">
+          <joint name="rollerj_RR_12" pos="0 0 0" axis="0.707107 -0.707107 0" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RR_12" size="0.016 0.019403" quat="0.707107 -0.5 -0.5 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_RR_13" pos="0.02296 0 -0.05543">
+          <joint name="rollerj_RR_13" pos="0 0 0" axis="0.653281 -0.707107 0.270598" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RR_13" size="0.016 0.0194058" quat="0.60393 -0.585339 -0.540969 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_RR_14" pos="0.04243 0 -0.04243">
+          <joint name="rollerj_RR_14" pos="0 0 0" axis="0.5 -0.707107 0.5" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RR_14" size="0.016 0.0194115" quat="0.499891 -0.706952 -0.500328 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+        <body name="roller_RR_15" pos="0.05543 0 -0.02296">
+          <joint name="rollerj_RR_15" pos="0 0 0" axis="0.270598 -0.707107 0.653281" armature="1e-05" damping="0.0005" frictionloss="0.002"/>
+          <geom name="rollerg_RR_15" size="0.016 0.0194058" quat="0.416284 -0.849187 -0.324944 0" type="capsule" contype="2" friction="0.9" mass="0.04" rgba="0.5 0.5 0.55 1"/>
+        </body>
+      </body>
+      <light name="arm_top" pos="0 0 2.125" dir="0 0 -1" mode="trackcom"/>
+      <body name="arm_link0" childclass="arm_panda" pos="0 0 0.125">
+        <inertial pos="-0.041018 -0.00014 0.049974" quat="0.00630474 0.751245 0.00741774 0.659952" mass="0.629769" diaginertia="0.00430465 0.00387984 0.00313051"/>
+        <geom class="arm_panda/visual" material="arm_off_white" mesh="arm_link0_0"/>
+        <geom class="arm_panda/visual" material="arm_dark_grey" mesh="arm_link0_1"/>
+        <geom class="arm_panda/visual" material="arm_off_white" mesh="arm_link0_2"/>
+        <geom class="arm_panda/visual" material="arm_dark_grey" mesh="arm_link0_3"/>
+        <geom class="arm_panda/visual" material="arm_off_white" mesh="arm_link0_4"/>
+        <geom class="arm_panda/visual" material="arm_dark_grey" mesh="arm_link0_5"/>
+        <geom class="arm_panda/visual" material="arm_white" mesh="arm_link0_7"/>
+        <geom class="arm_panda/visual" material="arm_white" mesh="arm_link0_8"/>
+        <geom class="arm_panda/visual" material="arm_dark_grey" mesh="arm_link0_9"/>
+        <geom class="arm_panda/visual" material="arm_off_white" mesh="arm_link0_10"/>
+        <geom class="arm_panda/visual" material="arm_white" mesh="arm_link0_11"/>
+        <geom class="arm_panda/collision" mesh="arm_link0_c"/>
+        <body name="arm_link1" pos="0 0 0.333">
+          <inertial pos="0.003875 0.002081 -0.04762" quat="0.711549 0.00634377 -0.0131124 0.702485" mass="4.97068" diaginertia="0.707137 0.703435 0.00852456"/>
+          <joint name="arm_joint1" pos="0 0 0" axis="0 0 1"/>
+          <geom class="arm_panda/visual" material="arm_white" mesh="arm_link1"/>
+          <geom class="arm_panda/collision" mesh="arm_link1_c"/>
+          <body name="arm_link2" quat="0.707107 -0.707107 0 0">
+            <inertial pos="-0.003141 -0.02872 0.003495" quat="-0.168175 0.828366 -0.122878 0.520027" mass="0.646926" diaginertia="0.0310326 0.0283001 0.00273425"/>
+            <joint name="arm_joint2" pos="0 0 0" axis="0 0 1" range="-1.7628 1.7628"/>
+            <geom class="arm_panda/visual" material="arm_white" mesh="arm_link2"/>
+            <geom class="arm_panda/collision" mesh="arm_link2_c"/>
+            <body name="arm_link3" pos="0 -0.316 0" quat="0.707107 0.707107 0 0">
+              <inertial pos="0.027518 0.039252 -0.066502" quat="0.662769 -0.00678331 0.252053 0.705096" mass="3.2286" diaginertia="0.0415014 0.0414793 0.00124635"/>
+              <joint name="arm_joint3" pos="0 0 0" axis="0 0 1"/>
+              <geom class="arm_panda/visual" material="arm_white" mesh="arm_link3_0"/>
+              <geom class="arm_panda/visual" material="arm_white" mesh="arm_link3_1"/>
+              <geom class="arm_panda/visual" material="arm_white" mesh="arm_link3_2"/>
+              <geom class="arm_panda/visual" material="arm_dark_grey" mesh="arm_link3_3"/>
+              <geom class="arm_panda/collision" mesh="arm_link3_c"/>
+              <body name="arm_link4" pos="0.0825 0 0" quat="0.707107 0.707107 0 0">
+                <inertial pos="-0.05317 0.104419 0.027454" quat="0.65058 0.529822 -0.0962034 0.535518" mass="3.5879" diaginertia="0.0349596 0.0281483 0.0106201"/>
+                <joint name="arm_joint4" pos="0 0 0" axis="0 0 1" range="-3.0718 -0.0698"/>
+                <geom class="arm_panda/visual" material="arm_white" mesh="arm_link4_0"/>
+                <geom class="arm_panda/visual" material="arm_white" mesh="arm_link4_1"/>
+                <geom class="arm_panda/visual" material="arm_dark_grey" mesh="arm_link4_2"/>
+                <geom class="arm_panda/visual" material="arm_white" mesh="arm_link4_3"/>
+                <geom class="arm_panda/collision" mesh="arm_link4_c"/>
+                <body name="arm_link5" pos="-0.0825 0.384 0" quat="0.707107 -0.707107 0 0">
+                  <inertial pos="-0.011953 0.041065 -0.038437" quat="0.987313 -0.0121954 0.0719187 -0.141037" mass="1.22595" diaginertia="0.0367625 0.0288531 0.00803437"/>
+                  <joint name="arm_joint5" pos="0 0 0" axis="0 0 1"/>
+                  <geom class="arm_panda/visual" material="arm_dark_grey" mesh="arm_link5_0"/>
+                  <geom class="arm_panda/visual" material="arm_white" mesh="arm_link5_1"/>
+                  <geom class="arm_panda/visual" material="arm_white" mesh="arm_link5_2"/>
+                  <geom class="arm_panda/collision" mesh="arm_link5_c0"/>
+                  <geom class="arm_panda/collision" mesh="arm_link5_c1"/>
+                  <geom class="arm_panda/collision" mesh="arm_link5_c2"/>
+                  <body name="arm_link6" quat="0.707107 0.707107 0 0">
+                    <inertial pos="0.060149 -0.014117 -0.010517" quat="0.101075 0.59332 0.0287227 0.798079" mass="1.66656" diaginertia="0.00584276 0.00431037 0.00159787"/>
+                    <joint name="arm_joint6" pos="0 0 0" axis="0 0 1" range="-0.0175 3.7525"/>
+                    <geom class="arm_panda/visual" material="arm_off_white" mesh="arm_link6_0"/>
+                    <geom class="arm_panda/visual" material="arm_white" mesh="arm_link6_1"/>
+                    <geom class="arm_panda/visual" material="arm_dark_grey" mesh="arm_link6_2"/>
+                    <geom class="arm_panda/visual" material="arm_white" mesh="arm_link6_3"/>
+                    <geom class="arm_panda/visual" material="arm_white" mesh="arm_link6_4"/>
+                    <geom class="arm_panda/visual" material="arm_white" mesh="arm_link6_5"/>
+                    <geom class="arm_panda/visual" material="arm_white" mesh="arm_link6_6"/>
+                    <geom class="arm_panda/visual" material="arm_light_blue" mesh="arm_link6_7"/>
+                    <geom class="arm_panda/visual" material="arm_light_blue" mesh="arm_link6_8"/>
+                    <geom class="arm_panda/visual" material="arm_dark_grey" mesh="arm_link6_9"/>
+                    <geom class="arm_panda/visual" material="arm_dark_grey" mesh="arm_link6_10"/>
+                    <geom class="arm_panda/visual" material="arm_white" mesh="arm_link6_11"/>
+                    <geom class="arm_panda/visual" material="arm_green" mesh="arm_link6_12"/>
+                    <geom class="arm_panda/visual" material="arm_white" mesh="arm_link6_13"/>
+                    <geom class="arm_panda/visual" material="arm_dark_grey" mesh="arm_link6_14"/>
+                    <geom class="arm_panda/visual" material="arm_dark_grey" mesh="arm_link6_15"/>
+                    <geom class="arm_panda/visual" material="arm_white" mesh="arm_link6_16"/>
+                    <geom class="arm_panda/collision" mesh="arm_link6_c"/>
+                    <body name="arm_link7" pos="0.088 0 0" quat="0.707107 0.707107 0 0">
+                      <inertial pos="0.010517 -0.004252 0.061597" quat="0.992939 -0.0762041 0.0733595 -0.0537067" mass="0.735522" diaginertia="0.0127345 0.0101055 0.00451803"/>
+                      <joint name="arm_joint7" pos="0 0 0" axis="0 0 1"/>
+                      <geom class="arm_panda/visual" material="arm_white" mesh="arm_link7_0"/>
+                      <geom class="arm_panda/visual" material="arm_dark_grey" mesh="arm_link7_1"/>
+                      <geom class="arm_panda/visual" material="arm_dark_grey" mesh="arm_link7_2"/>
+                      <geom class="arm_panda/visual" material="arm_dark_grey" mesh="arm_link7_3"/>
+                      <geom class="arm_panda/visual" material="arm_dark_grey" mesh="arm_link7_4"/>
+                      <geom class="arm_panda/visual" material="arm_dark_grey" mesh="arm_link7_5"/>
+                      <geom class="arm_panda/visual" material="arm_dark_grey" mesh="arm_link7_6"/>
+                      <geom class="arm_panda/visual" material="arm_white" mesh="arm_link7_7"/>
+                      <geom class="arm_panda/collision" mesh="arm_link7_c"/>
+                      <body name="arm_attachment" pos="0 0 0.107" quat="0.382683 0 0 0.92388">
+                        <site name="arm_attachment_site" pos="0 0 0"/>
+                        <body name="payload" pos="0 0 0.05">
+                          <geom name="payload_geom" size="0.04" mass="0.001" rgba="0.8 0.1 0.1 1"/>
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <contact>
+    <exclude body1="arm_link0" body2="arm_link1"/>
+  </contact>
+
+  <actuator>
+    <general name="motor_FL" joint="drive_FL" ctrlrange="-40 40" forcerange="-12 12" biastype="affine" gainprm="8" biasprm="0 0 -8"/>
+    <general name="motor_FR" joint="drive_FR" ctrlrange="-40 40" forcerange="-12 12" biastype="affine" gainprm="8" biasprm="0 0 -8"/>
+    <general name="motor_RL" joint="drive_RL" ctrlrange="-40 40" forcerange="-12 12" biastype="affine" gainprm="8" biasprm="0 0 -8"/>
+    <general name="motor_RR" joint="drive_RR" ctrlrange="-40 40" forcerange="-12 12" biastype="affine" gainprm="8" biasprm="0 0 -8"/>
+    <general name="arm_actuator1" class="arm_panda" joint="arm_joint1" gainprm="4500" biasprm="0 -4500 -450"/>
+    <general name="arm_actuator2" class="arm_panda" joint="arm_joint2" ctrlrange="-1.7628 1.7628" gainprm="4500" biasprm="0 -4500 -450"/>
+    <general name="arm_actuator3" class="arm_panda" joint="arm_joint3" gainprm="3500" biasprm="0 -3500 -350"/>
+    <general name="arm_actuator4" class="arm_panda" joint="arm_joint4" ctrlrange="-3.0718 -0.0698" gainprm="3500" biasprm="0 -3500 -350"/>
+    <general name="arm_actuator5" class="arm_panda" joint="arm_joint5" forcerange="-12 12" gainprm="2000" biasprm="0 -2000 -200"/>
+    <general name="arm_actuator6" class="arm_panda" joint="arm_joint6" ctrlrange="-0.0175 3.7525" forcerange="-12 12" gainprm="2000" biasprm="0 -2000 -200"/>
+    <general name="arm_actuator7" class="arm_panda" joint="arm_joint7" forcerange="-12 12" gainprm="2000" biasprm="0 -2000 -200"/>
+  </actuator>
+
+  <keyframe>
+    <key name="home" qpos="0 0 0.077 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -0.785 0 -2.356 0 1.571 0.785" ctrl="0 0 0 0 0 -0.785 0 -2.356 0 1.571 0.785"/>
+  </keyframe>
+</mujoco>

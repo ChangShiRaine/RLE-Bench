@@ -1,0 +1,18 @@
+# rlebench manifest: how this family is prepared and addressed. Read by the
+# CLI only; ships into no image.
+[task]
+layout = "dataset"
+
+[prepare]
+# sim-robocasa: the simulator image plus the ~15 GB dataset under third_party/.
+commands = [["make", "sim-robocasa"], ["make", "task02"]]
+env = ["ROBOCASA_ASSET_DIR overrides the dataset path (default: third_party/robocasa/robocasa/models/assets)"]
+
+[verify]
+images = ["rlebench-task02-agent:dev"]
+paths = ["tasks/task02/01-washing-dishes", "third_party/robocasa/robocasa/models/assets/ROBOCASA_ASSET_VERSION"]
+
+[run]
+lane = "agent-host"
+gpu = true
+requires_env = ["ROBOCASA_ASSET_DIR"]

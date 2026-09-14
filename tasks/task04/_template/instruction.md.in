@@ -1,0 +1,115 @@
+# Train a whole-body @@TITLE@@ motion-tracking policy
+
+A Unitree G1 has to reproduce a 20-second excerpt of LAFAN1 `@@MOTION@@`: 29
+joints, 50 Hz, matching the reference whole-body motion and world-frame
+trajectory without falling over.
+
+**The environment and a reference PPO are given. What you train is your choice.**
+The complete one-hour baseline is `/workspace/reference_ppo.py`. It runs as-is
+and continually stages its best-known export in `/logs/artifacts/policy/`:
+
+```bash
+python3 /workspace/reference_ppo.py
+```
+
+Treat it as readable starter code: run it, copy and modify it, or replace it
+with another method. It is deliberately ordinary rather than an optimal
+solution. Any method is legal: on-policy RL, behaviour cloning from the
+reference motion, a hybrid objective, distillation, or anything else you can
+build from torch and the environment you are given.
+
+## What you ship
+
+A policy at `/logs/artifacts/policy/`:
+
+```
+/logs/artifacts/policy/
+├── policy.onnx        # required
+└── policy_meta.json   # required
+```
+
+Write it with `harness.export.export(actor, path, ...)`, which
+traces your network and records the metadata. If you maintain observation
+normalisation outside the actor, pass it as `obs_mean` and `obs_std`; the exporter
+bakes those statistics into the graph. `export.validate(path)` tells you whether
+the result is acceptable before you rely on it.
+
+**Stage early, stage often.** Whatever is in `/logs/artifacts/policy/` when your
+session ends is what gets scored. Re-export after every improvement; a better
+policy still sitting in your workspace scores nothing.
+
+## Budgets
+
+- **Four hours total wall clock**, on one GPU. Training, evaluation and restarts
+  all consume the same session. The reference recipe runs roughly 4,000
+  iterations per hour at 4,096 environments, about 400M environment steps.
+  Treat the four hours as an optimization budget: keep your best checkpoint
+  staged and keep improving it until the session ends.
+- **10,000,000 parameters** in the exported graph, counted from the file. Over
+  budget is rejected outright, not scaled down.
+
+## The contract you cannot change
+
+The evaluator runs your policy in a simulator it builds itself, so the interface
+between you and it is fixed. All of it is in `/workspace/harness/spec.py`:
+
+- **Observation**, 160 floats, in this order: the reference joint positions and
+  velocities for the current frame (58), the reference anchor position (3) and
+  orientation (6) in the robot's torso frame, root linear (3) and angular (3)
+  velocity in the root frame, measured joint positions relative to the default
+  pose (29), joint velocities (29), and your previous action (29).
+- **Action**, 29 floats: joint position targets, as an offset from the default
+  pose scaled per joint by `robot.ACTION_SCALE`.
+- **50 Hz control.**
+- Your policy may consume a stack of the last N observations (1 to 16). Pass N
+  as `obs_history=N` when you export; the exporter records it as
+  `obs_history_length` in `policy_meta.json`. That is the only thing about your
+  own interface you get to declare.
+
+Everything else is yours: network architecture, losses, optimiser, reward terms
+and their weights, terminations, domain randomization, how you sample start
+states, whether you use the rest of the dataset.
+
+## What you are given
+
+- `harness.env.TrackingEnv` — thousands of G1s stepping in
+  parallel on the GPU (MuJoCo-Warp). Reward terms, terminations and adaptive
+  start-state sampling are in `mdp.py` as plain functions over batched tensors;
+  override, reweight or ignore them. `env.privileged_observation()` gives a
+  critic a fuller view than the policy is allowed.
+- `harness.evaluator` — the evaluation loop itself, so you can
+  measure yourself the way you will be measured.
+- `harness.progress` — a training log and an `evaluate()` helper
+  that scores a staged policy on the design seeds.
+- `$MOTIONTRACK_MOTION` — the scored clip, already converted.
+- `/workspace/assets/lafan1/` — all 40 G1-retargeted LAFAN1 clips. Convert any
+  of them with `motion.convert(...)`.
+- `/workspace/assets/unitree_g1/` — the robot.
+
+```bash
+python3 dev_eval.py /logs/artifacts/policy          # score yourself
+python3 dev_eval.py /logs/artifacts/policy --video /logs/run.mp4
+```
+
+Design seeds `101, 211, 307` are yours to develop against.
+
+## How you are scored
+
+Your checkpoint is re-run in a **different simulator**: MuJoCo-C at a 2 ms
+timestep, where training used MuJoCo-Warp at 5 ms. Hidden seeds perturb the
+robot, sensors and ground, and apply pushes. Only the re-executed policy is
+scored.
+
+Episodes reward multi-scale whole-body position tracking and survival; jerky
+actions and falls are penalised. Tracking uses 0.3, 0.1 and 0.05 m kernels so
+centimetre-level differences remain visible. Tracking credit is averaged over
+the full clip, with post-fall frames scoring zero. World-frame anchor drift is
+reported only as a diagnostic and is not scored. Scores are averaged over the
+evaluation episodes.
+
+An episode ends if the torso height error exceeds 0.25 m, its tilt error exceeds
+0.8, or a hand or foot height error exceeds 0.25 m. The submission must load,
+match the interface, fit the parameter budget, remain finite, and be
+deterministic: repeating an episode must reproduce it exactly.
+
+There is no network access. Everything you need is in this container.

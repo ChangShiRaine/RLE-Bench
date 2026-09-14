@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="stock aluminum profile examples">
+  <worldbody>
+    <body name="profile_2020_example" pos="0 0 0">
+      <geom name="profile_2020_geom" type="box" size="0.15 0.01 0.01" mass="0.135" rgba="0.72 0.74 0.78 1" />
+    </body>
+    <body name="profile_2040_example" pos="0 0.08 0">
+      <geom name="profile_2040_geom" type="box" size="0.2 0.01 0.02" mass="0.328" rgba="0.72 0.74 0.78 1" />
+    </body>
+    <body name="profile_4040_example" pos="0 0.16 0">
+      <geom name="profile_4040_geom" type="box" size="0.2 0.02 0.02" mass="0.6" rgba="0.72 0.74 0.78 1" />
+    </body>
+  </worldbody>
+</mujoco>

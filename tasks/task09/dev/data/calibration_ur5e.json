@@ -1,0 +1,177 @@
+{
+  "variant": "ur5e",
+  "measurements": {
+    "ref": {
+      "device_residual": 0.028645435769440675,
+      "passive_droop": 0.012452185437471525,
+      "passive_effort": 0.1997549437471387,
+      "sw_droop": 0.0009837765154993143,
+      "sw_effort": 0.06188723376268478,
+      "headroom": 0.06779706370385363,
+      "poke_peak": 0.23278721511498315,
+      "poke_final": 0.009797813450281651,
+      "payloads": [
+        0.02,
+        0.048,
+        0.076
+      ],
+      "per_seed": [
+        {
+          "seed": 129,
+          "payload": 0.02,
+          "device_residual": 0.028645435769440675,
+          "passive_droop": 0.0032033981043271993,
+          "passive_effort": 0.09610874324810297,
+          "sw_droop": 0.0003663530437310873,
+          "sw_effort": 0.052399917458673125,
+          "headroom": 0.2763642287258694,
+          "poke_peak": 0.23278721511498315,
+          "poke_final": 0.009797813450281651
+        },
+        {
+          "seed": 223,
+          "payload": 0.048,
+          "device_residual": 0.014618044954981695,
+          "passive_droop": 0.008705523664381569,
+          "passive_effort": 0.15231836425869888,
+          "sw_droop": 0.0008705898281936376,
+          "sw_effort": 0.05866838639831436,
+          "headroom": 0.14224760046557783,
+          "poke_peak": 0.21407885139248675,
+          "poke_final": 0.005916409047962732
+        },
+        {
+          "seed": 311,
+          "payload": 0.076,
+          "device_residual": 0.01767537576877848,
+          "passive_droop": 0.012452185437471525,
+          "passive_effort": 0.1997549437471387,
+          "sw_droop": 0.0009837765154993143,
+          "sw_effort": 0.06188723376268478,
+          "headroom": 0.06779706370385363,
+          "poke_peak": 0.20086476956839566,
+          "poke_final": 0.007413328481787251
+        }
+      ]
+    },
+    "sref_nom": {
+      "device_residual": 0.11369828342446803,
+      "passive_droop": 0.016669376385874138,
+      "passive_effort": 0.3032635412001673,
+      "sw_droop": 0.012239457051562872,
+      "sw_effort": 0.20511958483739876,
+      "headroom": 0.24252124200552433,
+      "poke_peak": 0.24512306891374688,
+      "poke_final": 0.19955945085370783,
+      "payloads": [
+        0.02,
+        0.048,
+        0.076
+      ],
+      "per_seed": [
+        {
+          "seed": 129,
+          "payload": 0.02,
+          "device_residual": 0.11369828342446803,
+          "passive_droop": 0.008063753012447368,
+          "passive_effort": 0.1747896579859884,
+          "sw_droop": 0.002092115837489983,
+          "sw_effort": 0.07625886855490986,
+          "headroom": 0.24252124200552433,
+          "poke_peak": 0.23676726478987387,
+          "poke_final": 0.010204450220480893
+        },
+        {
+          "seed": 223,
+          "payload": 0.048,
+          "device_residual": 0.11201144630625165,
+          "passive_droop": 0.01383785848084539,
+          "passive_effort": 0.24876078893841694,
+          "sw_droop": 0.007732672290944814,
+          "sw_effort": 0.14720139923943024,
+          "headroom": 0.24252124200552433,
+          "poke_peak": 0.22379455126222025,
+          "poke_final": 0.025767016772675802
+        },
+        {
+          "seed": 311,
+          "payload": 0.076,
+          "device_residual": 0.1123412385672827,
+          "passive_droop": 0.016669376385874138,
+          "passive_effort": 0.3032635412001673,
+          "sw_droop": 0.012239457051562872,
+          "sw_effort": 0.20511958483739876,
+          "headroom": 0.24252124200552433,
+          "poke_peak": 0.24512306891374688,
+          "poke_final": 0.19955945085370783
+        }
+      ]
+    },
+    "sref_ada": {
+      "device_residual": 0.11369828342446803,
+      "passive_droop": 0.016669376385874138,
+      "passive_effort": 0.3032635412001673,
+      "sw_droop": 0.0012424786323714104,
+      "sw_effort": 0.06036829007616311,
+      "headroom": 0.0,
+      "poke_peak": 0.2354450702797499,
+      "poke_final": 0.1279499253630984,
+      "payloads": [
+        0.02,
+        0.048,
+        0.076
+      ],
+      "per_seed": [
+        {
+          "seed": 129,
+          "payload": 0.02,
+          "device_residual": 0.11369828342446803,
+          "passive_droop": 0.008063753012447368,
+          "passive_effort": 0.1747896579859884,
+          "sw_droop": 0.0008014436856273011,
+          "sw_effort": 0.050627955976985835,
+          "headroom": 0.16378304952067535,
+          "poke_peak": 0.2354450702797499,
+          "poke_final": 0.010518600762706993
+        },
+        {
+          "seed": 223,
+          "payload": 0.048,
+          "device_residual": 0.11201144630625165,
+          "passive_droop": 0.01383785848084539,
+          "passive_effort": 0.24876078893841694,
+          "sw_droop": 0.0012424786323714104,
+          "sw_effort": 0.06036829007616311,
+          "headroom": 0.045737309845559015,
+          "poke_peak": 0.21891852418761742,
+          "poke_final": 0.008634357353493988
+        },
+        {
+          "seed": 311,
+          "payload": 0.076,
+          "device_residual": 0.1123412385672827,
+          "passive_droop": 0.016669376385874138,
+          "passive_effort": 0.3032635412001673,
+          "sw_droop": 0.000944778200125909,
+          "sw_effort": 0.05632940016893985,
+          "headroom": 0.0,
+          "poke_peak": 0.20203620654868834,
+          "poke_final": 0.1279499253630984
+        }
+      ]
+    }
+  },
+  "bars": {
+    "H1_RESIDUAL_BAR": 0.0329,
+    "H2_DROOP_BAR": 0.0143,
+    "H3_EFFORT_BAR": 0.2197,
+    "S1_RATIO_BAR": 0.8077,
+    "S2_DROOP_BAR": 0.0014,
+    "S2_EFFORT_BAR": 0.0664,
+    "B1_DROOP_BAR": 0.0011,
+    "B2_EFFORT_BAR": 0.0681,
+    "B3_HEADROOM_BAR": 0.0576,
+    "B4_POKE_BAR": 0.0122,
+    "SREF_PASSIVE_DROOP": 0.0167
+  }
+}

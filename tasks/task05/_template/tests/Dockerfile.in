@@ -1,0 +1,5 @@
+FROM @@VERIFIER_BASE_IMAGE@@
+
+COPY --from=@@HF_IMAGE@@ /assets/hf /assets/hf
+COPY . /tests/
+RUN chmod -R go-rwx /tests && chmod 0700 /tests/test.sh /tests/score_task.py

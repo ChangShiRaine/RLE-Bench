@@ -1,0 +1,79 @@
+<mujoco model="gello_ur5e">
+  <compiler angle="radian" autolimits="true" meshdir="meshes" />
+  <option timestep="0.002" integrator="implicitfast" gravity="0 0 -9.81" iterations="100" ls_iterations="50" />
+  <asset>
+    <mesh name="base" file="base.stl" scale="0.001 0.001 0.001" inertia="legacy" />
+    <mesh name="L1" file="L1.stl" scale="0.001 0.001 0.001" inertia="legacy" />
+    <mesh name="L2" file="L2.stl" scale="0.001 0.001 0.001" inertia="legacy" />
+    <mesh name="L3" file="L3.stl" scale="0.001 0.001 0.001" inertia="legacy" />
+    <mesh name="L4" file="L4.stl" scale="0.001 0.001 0.001" inertia="legacy" />
+    <mesh name="L5" file="L5.stl" scale="0.001 0.001 0.001" inertia="legacy" />
+    <mesh name="handle" file="handle.stl" scale="0.001 0.001 0.001" inertia="legacy" />
+    <mesh name="servo" file="servo.stl" scale="0.001 0.001 0.001" inertia="legacy" />
+    <mesh name="servo_single" file="servo_single.stl" scale="0.001 0.001 0.001" inertia="legacy" />
+    <mesh name="trigger" file="trigger.stl" scale="0.001 0.001 0.001" inertia="legacy" />
+  </asset>
+  <worldbody>
+    <body name="lead_base" pos="0 0 0.008" quat="0.707106781187 0.707106781187 0 0">
+      <geom name="printed_base" type="mesh" mesh="base" density="100" rgba="0.93 0.92 0.88 1" contype="0" conaffinity="0" />
+      <geom name="servo1" type="box" pos="-5.8254716867520228e-05 0.012246155186152725 0.0069680954184326988" quat="0.9991171074983457 0.041944282954056056 -0.0023817294656588617 -9.9988213471535661e-05" mass="0.018" rgba="0 0 0 0" size="0.009105755772092692 0.011051149327476129 0.015989273239492972" group="3" contype="0" conaffinity="0" />
+      <body name="lead_link1" pos="0 0.026 0" quat="0.7071067812 -0.7071067812 0 0">
+        <joint name="lead_joint1" type="hinge" axis="0 0 1" damping="0.01" armature="0.002" frictionloss="0.03" range="-6.28319 6.28319" stiffness="0.012888092691162634" springref="6.28319" />
+        <geom name="printed_link1" type="mesh" mesh="L1" pos="0 0 -0.023" quat="0.707106781187 0.707106781187 0 0" density="100" rgba="0.93 0.92 0.88 1" contype="0" conaffinity="0" />
+        <body name="lead_link2" pos="0.0675 0 0.0215795" quat="0.597308957 -0.3784468388 0.597308957 -0.3784468388">
+          <geom name="servo2" type="box" pos="-0.0069680954184326988 -5.8254716867520228e-05 -0.012246155186152725" quat="-0.51938982460010719 0.47734555343257962 0.47982727111171003 -0.52167156585229457" mass="0.018" rgba="0 0 0 0" size="0.009105755772092692 0.011051149327476129 0.015989273239492972" group="3" contype="0" conaffinity="0" />
+          <joint name="lead_joint2" type="hinge" axis="0 0 1" damping="0.01" armature="0.002" frictionloss="0.03" range="-6.28319 6.28319" stiffness="1.2296387436463472" springref="1.1765869144647585" />
+          <geom name="printed_link2" type="mesh" mesh="L2" pos="-0.002 -0.0445795 -0.0675" quat="0.707106781187 0 -0.707106781187 0" density="100" rgba="0.93 0.92 0.88 1" contype="0" conaffinity="0" />
+          <geom name="servo3" type="box" pos="-0.20953190458156729 5.8254716867520228e-05 -0.012246155186152725" quat="-0.52167156585229457 0.47982727111171003 -0.47734555343257962 0.51938982460010719" mass="0.018" rgba="0 0 0 0" size="0.009105755772092692 0.011051149327476129 0.015989273239492972" group="3" contype="0" conaffinity="0" />
+          <body name="lead_link3" pos="-0.2165 0 -0.026" quat="0 -0.3977395685 0.9174983573 0">
+            <joint name="lead_joint3" type="hinge" axis="0 0 1" damping="0.01" armature="0.002" frictionloss="0.03" range="-3.1415 3.1415" stiffness="-0.0" springref="0" />
+            <geom name="printed_link3" type="mesh" mesh="L3" pos="-0.2125 -0.0445795 0.0415" quat="0.707106781187 0 0.707106781187 0" density="100" rgba="0.93 0.92 0.88 1" contype="0" conaffinity="0" />
+            <geom name="servo4" type="box" pos="0.18913190458156731 -5.8254716867520228e-05 0.033728844813847275" quat="-0.51938982460010719 0.47734555343257962 0.47982727111171003 -0.52167156585229457" mass="0.018" rgba="0 0 0 0" size="0.009105755772092692 0.011051149327476129 0.015989273239492972" group="3" contype="0" conaffinity="0" />
+            <body name="lead_link4" pos="0.1961 0 0.019975" quat="0 0.8525516152 -0.5226430363 0">
+              <joint name="lead_joint4" type="hinge" axis="0 0 1" damping="0.01" armature="0.002" frictionloss="0.03" range="-6.28319 6.28319" stiffness="0.006636922284192812" springref="-6.28319" />
+              <geom name="printed_link4" type="mesh" mesh="L4" pos="0.4086 -0.0445795 -0.021525" quat="0.707106781187 0 -0.707106781187 0" density="100" rgba="0.93 0.92 0.88 1" contype="0" conaffinity="0" />
+              <geom name="servo5" type="box" pos="-5.8254716867520228e-05 -0.00074615518615272526 0.033606904581567301" quat="-0.041944282954056056 0.9991171074983457 9.9988213471535661e-05 -0.0023817294656588617" mass="0.018" rgba="0 0 0 0" size="0.009105755772092692 0.011051149327476129 0.015989273239492972" group="3" contype="0" conaffinity="0" />
+              <body name="lead_link5" pos="0 -0.0145 0.040575" quat="0.5677173838 0.5677173838 0.4215411868 -0.4215411868">
+                <joint name="lead_joint5" type="hinge" axis="0 0 1" damping="0.01" armature="0.002" frictionloss="0.03" range="-6.28319 6.28319" stiffness="0.017955575877707537" springref="-6.28319" />
+                <geom name="printed_link5" type="mesh" mesh="L5" pos="-0.0621 -0.4086 0.0300795" quat="0.707106781187 -0.707106781187 0 0" density="100" rgba="0.93 0.92 0.88 1" contype="0" conaffinity="0" />
+                <geom name="servo6" type="box" pos="0.0007461551861620095 -5.8254716867445669e-05 0.025856904581576218" quat="-0.027974949852683253 0.70641177956733259 0.70655318425490132 -0.031343223964919509" mass="0.018" rgba="0 0 0 0" size="0.009105755772092692 0.011051149327476129 0.015989273239492972" group="3" contype="0" conaffinity="0" />
+                <body name="lead_link6" pos="0.0145 0 0.032825" quat="-0.04638822182 0.7055835407 -0.04638822182 0.7055835407">
+                  <joint name="lead_joint6" type="hinge" axis="0 0 1" damping="0.01" armature="0.002" frictionloss="0.03" range="-6.28319 6.28319" stiffness="0.013022227890522663" springref="-6.283189999999999" />
+                  <geom name="servo_trigger" type="box" pos="0.0071798025054070702 -0.0061380185847465345 0.024108854279015188" quat="0.72536681421762084 0.04830396691213755 0.68498946542390515 -0.047949388640871837" mass="0.018" rgba="0 0 0 0" size="0.009105755772092692 0.011051149327476129 0.015989273239492972" group="3" contype="0" conaffinity="0" />
+                  <geom name="visual_servo_trigger" type="mesh" mesh="servo_single" pos="0.00061347460766 0.00146990767716 0.0236859974613" quat="0.525482745499 -0.5 0.5 0.473146789256" mass="0" rgba="0.12 0.12 0.14 1" contype="0" conaffinity="0" />
+                  <body name="lead_handle">
+                    <geom name="printed_handle" type="mesh" mesh="handle" pos="0.0142112544868 -0.000744780288481 0.0217163417801" quat="0.707106781187 0.706137715918 -0.0370071095593 0" density="450" rgba="0.93 0.92 0.88 1" contype="0" conaffinity="0" />
+                    <body name="lead_trigger" pos="0.000953658323239 0.00796099965307 0.0236859974613" quat="0.525482745499 -0.5 0.5 0.473146789256">
+                      <geom name="printed_trigger" type="mesh" mesh="trigger" pos="0 0 -0.008" quat="0.707106781187 0.707106781187 0 0" density="100" rgba="0.93 0.92 0.88 1" contype="0" conaffinity="0" />
+                    </body>
+                    <site name="lead_ee_site" pos="-0.0576480385247 0.0030212056791 -7.95146511684e-05" size="0.006" rgba="1 0 0 1" />
+                  </body>
+                </body>
+                <geom name="visual_servo6" type="mesh" mesh="servo_single" pos="0.008 0 0.032825" quat="0.5 0.5 0.5 0.5" mass="0" rgba="0.12 0.12 0.14 1" contype="0" conaffinity="0" />
+                <geom name="printed_balance_hub_5" type="cylinder" size="0.015 0.006" pos="0 0 0.008" density="650" rgba=".15 .4 .55 1" contype="0" conaffinity="0" />
+                <geom name="printed_balance_standoff_5" type="cylinder" size=".006" fromto="0 0 0.008 0 0 0.025" density="650" rgba=".15 .4 .55 1" contype="0" conaffinity="0" />
+                <geom name="printed_balance_support_5" type="capsule" size=".006" fromto="0.0 0.0 0.025 -0.12 -0.0026882233935 0.025" density="650" rgba=".15 .4 .55 1" contype="0" conaffinity="0" />
+                <geom name="counterweight_5" type="cylinder" size="0.00773527414102 0.00773527414102" pos="-0.12 -0.0026882233935 0.025" density="7800" rgba=".35 .36 .38 1" contype="0" conaffinity="0" />
+              </body>
+              <geom name="visual_servo5" type="mesh" mesh="servo_single" pos="0 -0.008 0.040575" quat="0.707106781187 0.707106781187 0 0" mass="0" rgba="0.12 0.12 0.14 1" contype="0" conaffinity="0" />
+              <geom name="printed_balance_hub_4" type="cylinder" size=".010 .010" quat=".707106781187 .707106781187 0 0" pos=".020 .004 .025" density="650" rgba=".15 .4 .55 1" contype="0" conaffinity="0" />
+              <geom name="printed_balance_support_4" type="capsule" size=".006" fromto="0.018 0.008 0.025 0.011184109089 0.12 0.05" density="650" rgba=".15 .4 .55 1" contype="0" conaffinity="0" />
+              <geom name="counterweight_4" type="cylinder" size="0.00344285322387 0.00344285322387" pos="0.011184109089 0.12 0.05" density="7800" rgba=".35 .36 .38 1" contype="0" conaffinity="0" />
+            </body>
+            <geom name="visual_servo4" type="mesh" mesh="servo_single" pos="0.1961 0 0.026475" quat="0 0.707106781187 0.707106781187 0" mass="0" rgba="0.12 0.12 0.14 1" contype="0" conaffinity="0" />
+            <geom name="printed_balance_hub_3" type="cylinder" size="0.015 0.006" pos="0 0 0.008" density="650" rgba=".15 .4 .55 1" contype="0" conaffinity="0" />
+            <geom name="printed_balance_standoff_3" type="cylinder" size=".006" fromto="0 0 0.008 0 0 0.025" density="650" rgba=".15 .4 .55 1" contype="0" conaffinity="0" />
+            <geom name="printed_balance_support_3" type="capsule" size=".006" fromto="0.0 0.0 0.025 -0.12 1.995798354e-06 0.025" density="650" rgba=".15 .4 .55 1" contype="0" conaffinity="0" />
+            <geom name="counterweight_3" type="cylinder" size="0.0189837117737 0.0189837117737" pos="-0.12 1.995798354e-06 0.025" density="7800" rgba=".35 .36 .38 1" contype="0" conaffinity="0" />
+          </body>
+          <geom name="visual_servo2" type="mesh" mesh="servo_single" pos="0 0 -0.0195" quat="0 0.707106781187 0.707106781187 0" mass="0" rgba="0.12 0.12 0.14 1" contype="0" conaffinity="0" />
+          <geom name="visual_servo3" type="mesh" mesh="servo_single" pos="-0.2165 0 -0.0195" quat="0 0.707106781187 -0.707106781187 0" mass="0" rgba="0.12 0.12 0.14 1" contype="0" conaffinity="0" />
+        </body>
+      </body>
+      <geom name="visual_servo1" type="mesh" mesh="servo_single" pos="0 0.0195 0" quat="0.707106781187 -0.707106781187 0 -0" mass="0" rgba="0.12 0.12 0.14 1" contype="0" conaffinity="0" />
+    </body>
+  </worldbody>
+  <keyframe>
+    <key name="home" qpos="0 1.1295 2.3889 0.4709 -1.8642 -0.1313" />
+  </keyframe>
+</mujoco>
