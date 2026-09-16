@@ -67,8 +67,8 @@ depend on the selected family; consult its documentation before preparing it.
 ### 📦 Install
 
 ```bash
-git clone https://github.com/RLE-Bench/RLE-Bench-dev.git
-cd RLE-Bench-dev
+git clone https://github.com/RLE-Bench/RLE-Bench.git
+cd RLE-Bench
 make install
 source .venv/bin/activate
 ```
