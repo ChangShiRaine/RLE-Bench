@@ -163,6 +163,16 @@ def test_a_camera_missing_from_the_observation_is_omitted_not_rendered():
     assert sim.asked == []
 
 
+def test_one_size_is_one_picture_whether_or_not_depth_was_asked_for():
+    """A controller segments a colour frame, then takes a depth look and pairs the two.
+    If the same request returned a differently-sampled picture depending on the depth
+    flag, the pixel it picked would not be the pixel it deprojects."""
+    plain, _, _ = apply(ObsSpec(width=128))
+    deep, _, _ = apply(ObsSpec(width=128, depth=True))
+    assert np.array_equal(plain[f"{CAMERAS[0]}_image"], deep[f"{CAMERAS[0]}_image"])
+    assert deep[f"{CAMERAS[0]}_depth"].shape == (128, 128)
+
+
 # -- resampling ----------------------------------------------------------------
 
 def test_colour_halves_by_averaging_blocks():

@@ -302,7 +302,16 @@ def apply_obs_spec(env, obs: dict, spec, *, default: int = OBS_RESOLUTION,
     # buffer, because the size is bounded by what is baked.
     if want_depth or w != h:
         out = dict(others)
-        out.update(render_frames(env, cameras, w, h, depth=want_depth))
+        drawn = render_frames(env, cameras, w, h, depth=want_depth)
+        out.update(drawn)
+        if w == h:
+            # Colour still comes from the baked frame here, so that one size returns ONE
+            # picture whether or not depth was asked for. A controller that segments a
+            # colour frame and then takes a depth look is pairing the two, and a pixel it
+            # picked must mean the same pixel in both.
+            out.update({f"{cam}_image": resample(obs[f"{cam}_image"], w, h)
+                        for cam in cameras
+                        if f"{cam}_image" in obs and f"{cam}_image" in drawn})
         return out, delivered
 
     # A camera the observation does not carry is omitted rather than rendered: the
