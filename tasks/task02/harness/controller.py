@@ -33,11 +33,12 @@ class ObsSpec:
     `None` means "the task default", so `ObsSpec()` changes nothing. Oversized values are
     clamped, not refused; unknown camera names are ignored.
 
-    Size costs wall clock, never interaction budget: a bigger `width` is render, transfer
-    and decode time, and `cameras=()` makes a step much cheaper. `depth=True` adds a
-    `<camera>_depth` map in METRES (z-depth along the camera's optical axis, not distance
-    along the pixel's ray) beside each `<camera>_image`, for the same cameras at
-    the same size, and roughly doubles what an observation costs.
+    Size costs wall clock, never interaction budget: colour comes from the frame the step
+    already rendered, so a bigger `width` is transfer and decode time, and `cameras=()`
+    makes a step much cheaper. `depth=True` adds a `<camera>_depth` map in METRES (z-depth
+    along the camera's optical axis, not distance along the pixel's ray) beside each
+    `<camera>_image`, for the same cameras at the same size; it is rendered rather than
+    resampled, and roughly doubles what an observation costs.
     """
 
     width: int | None = None

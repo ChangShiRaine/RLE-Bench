@@ -3,7 +3,7 @@ artifacts = ["/workspace"]
 
 [task]
 name = "rlebench/task03-05-hidden-center-of-mass"
-version = "1.0.0"
+version = "1.0.1"
 description = "Identify three sealed boxes' hidden ballast quadrants using as few physical control steps as possible; submit once per box."
 keywords = ["robotics", "mujoco", "robosuite", "physical-reasoning", "system-identification"]
 

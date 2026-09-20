@@ -24,11 +24,11 @@ from test_speedrun_session import FakeEnv
 
 
 def make_session(tmp_path, *, name, plan=None, steps=10_000, submissions=1,
-                 success_after=-1, max_episode_steps=1_000):
+                 success_after=-1, max_episode_steps=1_000, env_class=None):
     made = []
 
     def factory(task, split="pretrain", scene=None):
-        env = FakeEnv(success_after=success_after, split=split)
+        env = (env_class or FakeEnv)(success_after=success_after, split=split)
         made.append(env)
         return env
 
@@ -282,24 +282,50 @@ def test_attack_a_malformed_obs_spec_cannot_take_the_daemon_down(tmp_path):
 
 def test_attack_smuggle_an_extra_camera_through_a_running_controller(tmp_path):
     """Same hole, reached the other way: via a controller's declared spec rather than
-    an explicit observe()."""
+    an explicit observe().
+
+    Asserted against what the agent is HANDED, not against what was rendered: colour is
+    resampled from the step's own frame rather than re-rendered, so a render probe alone
+    would pass an env that quietly carried the extra viewpoint through.
+    """
+    import numpy as np
+
     from harness.obs import ObsSpec
+    import harness.env as ENV
+
+    class LeakyEnv(FakeEnv):
+        """Carries a camera the task never published, as a scene's model would."""
+
+        def _images(self):
+            return {f"{cam}_image": np.zeros((C.RENDER_RESOLUTION,
+                                              C.RENDER_RESOLUTION, 3), dtype="uint8")
+                    for cam in ("robot0_eye_in_hand", "birdview")}
+
+        def reset(self, seed=None):
+            return {**super().reset(seed=seed), **self._images()}
+
+        def step(self, action):
+            obs, r, d, i = super().step(action)
+            return {**obs, **self._images()}, r, d, i
 
     rendered = []
-
-    sess, _ = make_session(tmp_path, name="greedy")
+    sess, _ = make_session(tmp_path, name="greedy", env_class=LeakyEnv)
     sess.reset()
-    import harness.env as ENV
 
     real = ENV.render_frames
     ENV.render_frames = (lambda env, cams, w, h, depth=False:
                          rendered.append(tuple(cams)) or {})
     try:
-        sess.step([0.0] * 12, obs_spec=ObsSpec(
+        res = sess.step([0.0] * 12, obs_spec=ObsSpec(
             width=256, cameras=("robot0_eye_in_hand", "birdview")))
+        deep = sess.observe(ObsSpec(width=256, depth=True,
+                                    cameras=("robot0_eye_in_hand", "birdview")))
     finally:
         ENV.render_frames = real
 
+    assert "birdview_image" not in res["obs"], "an unpublished camera was handed over"
+    assert "robot0_eye_in_hand_image" in res["obs"]
+    assert not [k for k in deep["obs"] if k.startswith("birdview")]
     assert rendered == [("robot0_eye_in_hand",)], "an unpublished camera was rendered"
 
 

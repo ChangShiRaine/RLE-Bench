@@ -642,8 +642,8 @@ class MeteredSession:
             return {"obs": {}, "instruction": None, "resolution": None, "live": False}
 
         obs, resolution = ENV.apply_obs_spec(
-            env, dict(obs), spec,
-            native=C.OBS_RESOLUTION, ceiling=C.OBS_MAX_RESOLUTION)
+            env, dict(obs), spec, default=C.OBS_RESOLUTION,
+            rendered=C.RENDER_RESOLUTION, ceiling=C.OBS_MAX_RESOLUTION)
         return {
             "obs": obs,
             "instruction": episode_instruction(env),
@@ -852,7 +852,8 @@ class MeteredSession:
         #
         # Note the shape of the cost: ONE render per call, whatever the batch size.
         shown, _ = ENV.apply_obs_spec(
-            env, obs, spec, native=C.OBS_RESOLUTION, ceiling=C.OBS_MAX_RESOLUTION)
+            env, obs, spec, default=C.OBS_RESOLUTION,
+            rendered=C.RENDER_RESOLUTION, ceiling=C.OBS_MAX_RESOLUTION)
         result = SegmentResult(
             steps=steps, reason=reason,
             terminated_by=by, final=bool(final),

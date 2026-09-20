@@ -299,3 +299,37 @@ def test_public_payload_has_only_the_client(tmp_path):
     assert builder.check(tmp_path) == []
     (tmp_path / "harness/privileged.py").write_text("secret = 1")
     assert builder.check(tmp_path)
+
+
+# -- observation resolution ---------------------------------------------------
+#
+# tabletop shares task01's env module, so the contract pinned in
+# test_speedrun_resolution.py applies here too. What is task03's own is the scene
+# factory: it builds the cameras, and it has to build them at the size nothing may
+# render above. See harness.env.render_frames for what a bigger render costs.
+
+def test_tabletop_scenes_are_built_at_the_size_nothing_may_exceed():
+    import inspect
+
+    from harness import config as C
+    import tabletop
+    from tabletop import daemon_main
+
+    made = {}
+    real = tabletop.make
+
+    def spy(task, **kwargs):
+        made.update(kwargs)
+        return object()
+
+    tabletop.make = spy
+    try:
+        daemon_main._make_tabletop(sorted(tabletop.TASKS)[0], {})
+    finally:
+        tabletop.make = real
+
+    assert made["camera_height"] == C.RENDER_RESOLUTION
+    assert made["camera_width"] == C.RENDER_RESOLUTION
+    defaults = inspect.signature(real).parameters
+    assert defaults["camera_height"].default == C.OBS_MAX_RESOLUTION
+    assert defaults["camera_width"].default == C.OBS_MAX_RESOLUTION

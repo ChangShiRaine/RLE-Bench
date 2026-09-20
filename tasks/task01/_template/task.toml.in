@@ -22,7 +22,7 @@ artifacts = ["/workspace"]
 
 [task]
 name = "rlebench/task01-@@LEVEL@@-@@SLUG@@"
-version = "1.0.0"
+version = "1.0.1"
 description = "RoboCasa speed-run (@@LEVEL@@): learn to @@GOAL@@ with as little simulator interaction as possible, then pass a single terminal evaluation. The agent writes whatever code it likes and reaches the simulator only through a metered socket. @@LEVEL_BLURB@@"
 authors = [{ name = "Haitong Ma", email = "haitongma@g.harvard.edu" }]
 keywords = ["robotics", "robocasa", "robosuite", "mujoco", "simulation", "control", "sample-efficiency"]

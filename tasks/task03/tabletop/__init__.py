@@ -12,8 +12,8 @@ TASKS = (
 
 
 def make(task: str, seed: int | None = None,
-         camera_names: Iterable[str] = (), camera_height: int = 128,
-         camera_width: int = 128, camera_depths: bool = False,
+         camera_names: Iterable[str] = (), camera_height: int = 512,
+         camera_width: int = 512, camera_depths: bool = False,
          **kwargs: Any):
     """Build one tabletop scene. Mirrors env_utils.create_env's conventions:
     default composite controller for the robot, 20 Hz, never-ending horizon

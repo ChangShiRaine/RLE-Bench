@@ -3,7 +3,7 @@ artifacts = ["/workspace"]
 
 [task]
 name = "rlebench/task03-@@SLUG@@"
-version = "1.0.0"
+version = "1.0.1"
 description = "@@GOAL@@ within one metered attempt; submit the current scene when satisfied. @@LEVEL_BLURB@@"
 authors = [{ name = "Haitong Ma", email = "haitongma@g.harvard.edu" }]
 keywords = ["robotics", "robosuite", "mujoco", "physical-reasoning", "sample-efficiency"]

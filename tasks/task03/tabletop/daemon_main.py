@@ -40,8 +40,8 @@ def _make_tabletop(task: str, kwargs: dict):
         task,
         seed=kwargs.get("seed"),
         camera_names=list(kwargs.get("camera_names", _env.DEFAULT_CAMERAS)),
-        camera_height=kwargs.get("camera_height", _env.OBS_RESOLUTION),
-        camera_width=kwargs.get("camera_width", _env.OBS_RESOLUTION),
+        camera_height=kwargs.get("camera_height", _env.RENDER_RESOLUTION),
+        camera_width=kwargs.get("camera_width", _env.RENDER_RESOLUTION),
         camera_depths=kwargs.get("camera_depths", False),
     )
 

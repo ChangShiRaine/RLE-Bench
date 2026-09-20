@@ -110,8 +110,8 @@ class ToolsmithClient:
                 height: int | None = None, cameras=None, depth: bool = False) -> dict:
         """Look at the current state without acting. FREE, in BOTH phases.
 
-        DEFAULT SIZE IS THE TASK DEFAULT, which is what the step pipeline already
-        rendered, so the default look costs a camera selection rather than a re-render.
+        DEFAULT SIZE IS THE TASK DEFAULT. Colour comes from the frame the step pipeline
+        already rendered, so any size up to the ceiling costs a resample, not a render.
         `resolution` in the reply says what you got and `max_resolution` is the ceiling.
         Ask for more when you need the detail.
 
@@ -139,7 +139,8 @@ class ToolsmithClient:
             print(d[v, u])                                # z-depth at pixel (u, v)
 
         Requests above `max_resolution` are clamped, not refused. Bigger frames cost only
-        render and transfer time -- wall clock, which is also a budget.
+        transfer and decode time -- and `depth=True` a render -- which is wall clock,
+        and wall clock is also a budget.
         """
         if spec is None:
             spec = ObsSpec(width=width, height=height,

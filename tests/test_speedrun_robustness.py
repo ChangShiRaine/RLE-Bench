@@ -331,33 +331,39 @@ def test_requested_resolution_is_clamped_to_the_ceiling(tmp_path, monkeypatch):
     """A request above the configured ceiling is clamped, not refused: degrading the
     resolution is recoverable, failing the call is not.
 
-    The ceiling is policy, not mechanism -- robosuite grows the offscreen framebuffer
-    itself when a render exceeds it, so nothing pre-sizes anything.
+    The ceiling is also the size the cameras are baked at, so the clamp is what keeps
+    every render inside the offscreen buffer -- asked for here, and pinned against the
+    sim in test_speedrun_resolution.py.
     """
-    sess, _ = make_session(tmp_path, name="clamp")
+    sess, _ = spy_session(tmp_path, "clamp")
     sess.reset()
 
-    captured = {}
+    captured = []
+    monkeypatch.setattr("harness.env.render_frames",
+                        lambda env, cams, w, h, depth=False:
+                        captured.append((w, h)) or {})
 
-    def fake_render(env, cameras, w, h, depth=False):
-        captured["size"] = (w, h)
-        return {}
-
-    monkeypatch.setattr("harness.env.render_frames", fake_render)
     out = sess.observe(ObsSpec(width=4096, height=4096))
-    assert captured["size"] == (C.OBS_MAX_RESOLUTION, C.OBS_MAX_RESOLUTION)
     assert out["resolution"] == [C.OBS_MAX_RESOLUTION, C.OBS_MAX_RESOLUTION]
+    frame = out["obs"]["robot0_agentview_left_image"]
+    assert frame.shape[:2] == (C.OBS_MAX_RESOLUTION, C.OBS_MAX_RESOLUTION)
+
+    # Depth is the path that does render, and it is clamped the same way.
+    sess.observe(ObsSpec(width=4096, height=4096, depth=True))
+    assert captured == [(C.OBS_MAX_RESOLUTION, C.OBS_MAX_RESOLUTION)]
 
 
 def test_a_single_dimension_squares_the_request(tmp_path, monkeypatch):
-    sess, _ = make_session(tmp_path, name="square")
+    sess, _ = spy_session(tmp_path, "square")
     sess.reset()
-    captured = {}
+    captured = []
     monkeypatch.setattr("harness.env.render_frames",
                         lambda env, cams, w, h, depth=False:
-                        captured.update(size=(w, h)) or {})
-    sess.observe(ObsSpec(width=300))
-    assert captured["size"] == (300, 300)
+                        captured.append((w, h)) or {})
+    out = sess.observe(ObsSpec(width=300))
+    assert out["obs"]["robot0_agentview_left_image"].shape[:2] == (300, 300)
+    sess.observe(ObsSpec(width=300, depth=True))
+    assert captured == [(300, 300)]
 
 
 # -- one ObsSpec, three places -----------------------------------------------
@@ -370,7 +376,7 @@ class SpyEnv(FakeEnv):
 
     def _images(self):
         import numpy as np
-        return {f"{cam}_image": np.zeros((C.OBS_RESOLUTION, C.OBS_RESOLUTION, 3),
+        return {f"{cam}_image": np.zeros((C.RENDER_RESOLUTION, C.RENDER_RESOLUTION, 3),
                                          dtype="uint8")
                 for cam in self.CAMERAS}
 
@@ -443,7 +449,9 @@ def test_a_batch_renders_only_the_observation_it_hands_back(tmp_path, monkeypatc
 
     sess, _ = spy_session(tmp_path, "batchrender", max_episode_steps=50)
     sess.reset()
-    sess.step([[0.0] * 12] * 15, obs_spec=ObsSpec(width=384))
+    # Depth, because colour at any size is resampled from the frame the step already
+    # rendered -- so depth is what still costs a render, and it costs ONE.
+    sess.step([[0.0] * 12] * 15, obs_spec=ObsSpec(width=384, depth=True))
     assert len(rendered) == 1
 
 
@@ -536,7 +544,8 @@ def test_a_stale_depth_key_cannot_ride_through_the_filter(tmp_path):
            "robot0_agentview_left_image": "img",
            "robot0_agentview_left_depth": "range"}
     out, _ = ENV.apply_obs_spec(None, obs, ObsSpec(cameras=()),
-                                native=C.OBS_RESOLUTION,
+                                default=C.OBS_RESOLUTION,
+                                rendered=C.RENDER_RESOLUTION,
                                 ceiling=C.OBS_MAX_RESOLUTION)
     assert out == {"robot0_proprio-state": [0.0]}
 

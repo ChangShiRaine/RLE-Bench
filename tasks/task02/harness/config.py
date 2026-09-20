@@ -293,17 +293,25 @@ MAX_EPISODE_STEPS = MAX_STEPS_PER_TRIAL
 ENV_CACHE_SIZE = 3
 
 # --- observation resolution --------------------------------------------------
-# Per-step render size, and the ceiling `observe()` may ask for. Two numbers because they
-# trade against different things: every step renders all three cameras, so OBS_RESOLUTION
-# is on the hot path, while `observe()` costs no interaction budget and may ask for
-# detail. The ceiling sizes the MuJoCo offscreen framebuffer; requests above it are
-# clamped, not refused.
+# What an unsized observation delivers, and the ceiling `observe()` may ask for. Two
+# numbers because they trade against different things: an unsized observation is on the
+# hot path and wants to stay small, while `observe()` costs no interaction budget and may
+# ask for detail. Requests above the ceiling are clamped, not refused.
 #
 # THIS IS PART OF THE OBSERVATION CONTRACT, not a deployment knob -- the agent is graded
 # against what it can see, so a run that quietly rendered something else would not be
 # comparable. Change it here, in source, and rebuild.
 OBS_RESOLUTION = 256
 OBS_MAX_RESOLUTION = 512
+
+# EVERY camera is baked at the ceiling, and nothing ever asks MuJoCo for more. Growing
+# the offscreen framebuffer mid-run makes robosuite free and rebuild the LIVE GL context
+# (`binding_utils.update_offscreen_size`); that rebuild is the only operation in this
+# harness that ever logged `OpenGL error 0x501 in or before mjr_makeContext`, and twice
+# it left a context that killed the daemon outright or wedged it at 100% CPU, losing the
+# trials behind it. Baking at the ceiling deletes the path: a SMALLER render never
+# resizes the buffer, and a smaller delivery is a resample of a frame already in hand.
+RENDER_RESOLUTION = OBS_MAX_RESOLUTION
 
 # --- scene splits ------------------------------------------------------------
 # RoboCasa's own train/test boundary, honoured verbatim: development draws scenes and

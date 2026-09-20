@@ -7,7 +7,7 @@ artifacts = ["/workspace"]
 
 [task]
 name = "rlebench/task03-04-rubik-cube"
-version = "1.0.0"
+version = "1.0.1"
 description = "Solve one scrambled physical 2x2 cube within 50000 steps using tilted arms and only the front camera."
 authors = [{ name = "Haitong Ma", email = "haitongma@g.harvard.edu" }]
 keywords = ["robotics", "robosuite", "mujoco", "simulation", "control", "embodied-reasoning", "sample-efficiency"]

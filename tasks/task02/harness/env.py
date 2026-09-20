@@ -38,14 +38,17 @@ DEFAULT_CAMERAS = (
     "robot0_eye_in_hand",
 )
 
-# The split names, the per-step render size, and the ceiling an on-demand render may ask
-# for. Imported from config rather than duplicated, but defaulted here too so this module
-# keeps its promise of not depending on the rest of the harness.
+# The split names, the size every camera is baked at, the size an unsized observation
+# delivers, and the ceiling a spec may ask for. Imported from config rather than
+# duplicated, but defaulted here too so this module keeps its promise of not depending on
+# the rest of the harness.
 try:
-    from .config import DEV_SPLIT, EVAL_SPLIT, OBS_MAX_RESOLUTION, OBS_RESOLUTION
+    from .config import (DEV_SPLIT, EVAL_SPLIT, OBS_MAX_RESOLUTION, OBS_RESOLUTION,
+                         RENDER_RESOLUTION)
 except ImportError:  # pragma: no cover - only when used standalone
     DEV_SPLIT, EVAL_SPLIT = "pretrain", "target"     # keep in step with config.py
     OBS_RESOLUTION, OBS_MAX_RESOLUTION = 256, 512
+    RENDER_RESOLUTION = OBS_MAX_RESOLUTION
 
 
 def install_ro_assets_patch() -> str | None:
@@ -108,12 +111,16 @@ def make_env(
     split: str = DEV_SPLIT,
     seed: int | None = None,
     camera_names: Iterable[str] = DEFAULT_CAMERAS,
-    camera_height: int = OBS_RESOLUTION,
-    camera_width: int = OBS_RESOLUTION,
+    camera_height: int = RENDER_RESOLUTION,
+    camera_width: int = RENDER_RESOLUTION,
     camera_depths: bool = False,
     **kwargs: Any,
 ):
     """Build a RoboCasa env under task02's conventions.
+
+    CAMERAS ARE BAKED AT `RENDER_RESOLUTION`, the ceiling a spec may ask for, so that no
+    render ever exceeds the offscreen buffer and forces robosuite to rebuild the live GL
+    context (see `render_frames`). Everything smaller is resampled or rendered smaller.
 
     `split` selects RoboCasa's own train/test boundary. Reset stays `hard_reset=True`
     as shipped, so every reset resamples layout, style, object instances, placements
@@ -204,22 +211,90 @@ def allowed_cameras(requested) -> tuple[str, ...]:
     return tuple(cam for cam in DEFAULT_CAMERAS if cam in asked)
 
 
-def apply_obs_spec(env, obs: dict, spec, *, native: int = OBS_RESOLUTION,
+def resample(frame, width: int, height: int, *, point: bool = False):
+    """Resample one rendered frame to (height, width).
+
+    `point=True` takes nearest pixels and is what DEPTH must use: averaging across a
+    depth discontinuity invents a surface halfway between the foreground and the
+    background, at a range nothing occupies. Colour averages when the ratio divides
+    exactly, which is what a native render of the smaller size would have looked like.
+    """
+    import numpy as np
+
+    arr = np.asarray(frame)
+    if arr.ndim < 2:
+        return arr
+    h, w = arr.shape[0], arr.shape[1]
+    if (w, h) == (int(width), int(height)):
+        return arr
+    width, height = max(1, int(width)), max(1, int(height))
+    if not point:
+        # Pillow's BOX is the same box filter as the reshape below and about seven times
+        # faster (1.4 ms against 10 ms for a 512 -> 256 frame), which matters because
+        # this is on the observe path. Agreement with the fallback is exact to within
+        # one level of rounding. Kept optional so this module still runs off-simulator.
+        boxed = _box_filter(arr, width, height)
+        if boxed is not None:
+            return boxed
+    if not point and w % width == 0 and h % height == 0:
+        block = arr.reshape(height, h // height, width, w // width, *arr.shape[2:])
+        mean = block.mean(axis=(1, 3), dtype=np.float32)
+        return (np.rint(mean).astype(arr.dtype)
+                if np.issubdtype(arr.dtype, np.integer) else mean.astype(arr.dtype))
+    ys = np.minimum(((np.arange(height) + 0.5) * h / height).astype(int), h - 1)
+    xs = np.minimum(((np.arange(width) + 0.5) * w / width).astype(int), w - 1)
+    return arr[ys][:, xs]
+
+
+def _box_filter(arr, width: int, height: int):
+    """Pillow's box-filtered resize of a uint8 frame, or None if it does not apply."""
+    import numpy as np
+
+    if arr.dtype != np.uint8 or arr.ndim != 3 or arr.shape[2] not in (3, 4):
+        return None
+    try:
+        from PIL import Image
+    except ImportError:  # pragma: no cover - Pillow ships in the image
+        return None
+    return np.asarray(Image.fromarray(arr).resize((width, height), Image.BOX))
+
+
+def _target_size(spec, *, default: int, ceiling: int) -> tuple[int, int, bool]:
+    """The size a spec asks for, clamped to `ceiling`, and whether it asked at all.
+
+    Clamped rather than refused: a smaller picture is something an agent can work with,
+    an exception is something it has to handle. The flag is what the reply reports the
+    resolution as -- a bare number when the agent did not choose one, the pair it asked
+    for when it did.
+    """
+    if spec is None or (spec.width is None and spec.height is None):
+        return default, default, False
+    w = min(int(spec.width or spec.height), ceiling)
+    h = min(int(spec.height or spec.width), ceiling)
+    if w <= 0 or h <= 0:
+        return default, default, False
+    return w, h, True
+
+
+def apply_obs_spec(env, obs: dict, spec, *, default: int = OBS_RESOLUTION,
+                   rendered: int = RENDER_RESOLUTION,
                    ceiling: int = OBS_MAX_RESOLUTION) -> tuple[dict, Any]:
     """Return `obs` shaped to `spec`, plus the resolution delivered.
 
     The single place a spec becomes pixels -- for `observe()` and for the observations
     streamed to a running controller alike, so the two cannot disagree.
 
-    Sizes are clamped to `ceiling` rather than refused: a smaller picture is something
-    an agent can work with, an exception is something it has to handle.
+    NOTHING HERE ASKS MUJOCO FOR MORE THAN `rendered`, because the cameras are already
+    baked at the ceiling: a square colour frame is RESAMPLED from the one the step
+    pipeline rendered (no render at all), and everything else renders at the size asked
+    for, which is smaller than the buffer and so never rebuilds the GL context.
     """
+    if not obs:
+        # A step that was refused or exhausted has nothing to shape, and `None` is what
+        # the callers of this path already hand on.
+        return obs, default
     want_depth = bool(spec is not None and spec.depth)
-    if spec is None or (spec.width is None and spec.height is None
-                        and spec.cameras is None and not want_depth):
-        return obs, native
-
-    cameras = allowed_cameras(spec.cameras)
+    cameras = allowed_cameras(None if spec is None else spec.cameras)
     # `_depth` is dropped alongside `_image`, and for the same reason: both are camera
     # payloads, so both must obey the camera set and the size. Letting a depth key fall
     # through into `others` would smuggle a viewpoint past `allowed_cameras` and past
@@ -229,24 +304,25 @@ def apply_obs_spec(env, obs: dict, spec, *, native: int = OBS_RESOLUTION,
     if not cameras:
         return others, None
 
-    if spec.width is None and spec.height is None:
-        w = h = native
-    else:
-        w = min(int(spec.width or spec.height), ceiling)
-        h = min(int(spec.height or spec.width), ceiling)
-        if w <= 0 or h <= 0:
-            return obs, native
+    # The buffer is the hard bound, whatever a caller passes as the policy ceiling.
+    w, h, sized = _target_size(spec, default=default,
+                               ceiling=min(int(ceiling), int(rendered)))
+    delivered = [w, h] if sized else default
+    # Depth is never in the step pipeline's output (`make_env` leaves camera_depths
+    # False), and a non-square frame is a different projection from the square one the
+    # pipeline renders rather than a resampling of it. Both render; neither grows the
+    # buffer, because the size is bounded by what is baked.
+    if want_depth or w != h:
+        out = dict(others)
+        out.update(render_frames(env, cameras, w, h, depth=want_depth))
+        return out, delivered
 
-    if (w, h) == (native, native) and not want_depth:
-        # Already rendered at this size by the step pipeline; only the camera set can
-        # differ, and selecting is cheaper than rendering again. Depth is never in the
-        # step pipeline's output, so asking for it means rendering whatever the size.
-        wanted = {f"{cam}_image" for cam in cameras}
-        return {**others, **{k: obs[k] for k in wanted if k in obs}}, native
-
-    out = dict(others)
-    out.update(render_frames(env, cameras, w, h, depth=want_depth))
-    return out, [w, h]
+    # A camera the observation does not carry is omitted rather than rendered: the
+    # published set is exactly the baked set, so a missing frame means the episode is
+    # over and there is nothing to render against.
+    frames = {f"{cam}_image": resample(obs[f"{cam}_image"], w, h)
+              for cam in cameras if f"{cam}_image" in obs}
+    return {**others, **frames}, delivered
 
 
 def metric_depth(sim, buffer):
@@ -289,13 +365,19 @@ def metric_depth(sim, buffer):
 
 
 def render_frames(env, cameras: Iterable[str], width: int, height: int,
-                  depth: bool = False) -> dict:
+                  depth: bool = False, *, ceiling: int = RENDER_RESOLUTION) -> dict:
     """Render `cameras` off-screen at an explicit size, without stepping the sim.
 
-    This is what makes an agent-chosen observation resolution possible: the cameras
-    baked into the observation dict are sized at construction, but MuJoCo will re-render
-    the same scene at any size -- robosuite grows the offscreen framebuffer on demand
-    when a request exceeds it (`utils/binding_utils.py`), so no pre-sizing is needed.
+    This is what makes an agent-chosen observation resolution possible: the cameras are
+    baked at `RENDER_RESOLUTION` and MuJoCo re-renders the same scene at any SMALLER
+    size for free.
+
+    NEVER LARGER. A request above the offscreen buffer sends robosuite through
+    `binding_utils.update_offscreen_size`, which frees the live GL context and builds a
+    new one mid-run; that rebuild is where the daemon has died outright and where it has
+    wedged a worker thread at 100% CPU until the trial was lost. The size is therefore
+    clamped here as well as in `apply_obs_spec` -- a no-op for every legitimate caller,
+    and the reason a future one cannot reintroduce the path by accident.
 
     Returns {"<camera>_image": HxWx3 uint8}, oriented exactly as the observation's own
     frames and keyed the same, so a caller can substitute one for the other without
@@ -316,6 +398,7 @@ def render_frames(env, cameras: Iterable[str], width: int, height: int,
     sim = getattr(env, "sim", None)
     if sim is None:
         return out
+    width, height = min(int(width), int(ceiling)), min(int(height), int(ceiling))
     convention = image_convention()
     for cam in cameras:
         rgb, dmap = _render_one(sim, cam, width, height, depth)
