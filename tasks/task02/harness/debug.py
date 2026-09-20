@@ -55,6 +55,11 @@ TILED_CAMERAS = (
     "robot0_eye_in_hand_image",
 )
 
+# Views are tiled at this size whatever the cameras were baked at. The debug recorder
+# holds an episode's frames in memory until the next reset, so the tile size sets that
+# cost: three baked 512s would be 2.4 MB a frame, ~6 GB across a 5000-step episode.
+TILE_VIEW = 256
+
 
 def match_owner(paths, reference) -> None:
     """Give `paths` to whoever owns `reference`, and open their modes.
@@ -112,6 +117,8 @@ def tile_frame(obs: dict | None):
     except ImportError:  # pragma: no cover
         return None
 
+    from .env import resample
+
     views = []
     for key in TILED_CAMERAS:
         arr = obs.get(key)
@@ -120,7 +127,10 @@ def tile_frame(obs: dict | None):
         arr = np.asarray(arr)
         if arr.ndim != 3 or arr.shape[-1] not in (3, 4):
             continue
-        views.append(arr[:, :, :3].astype("uint8"))
+        arr = arr[:, :, :3].astype("uint8")
+        if max(arr.shape[0], arr.shape[1]) > TILE_VIEW:
+            arr = resample(arr, TILE_VIEW, TILE_VIEW)
+        views.append(arr)
     if not views:
         return None
     height = max(v.shape[0] for v in views)

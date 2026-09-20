@@ -323,11 +323,19 @@ MAX_STEPS_PER_TRIAL = 1_000
 # small. `observe()` is off the hot path -- it advances nothing and is charged nothing --
 # so it may ask for more detail, bounded by OBS_MAX_RESOLUTION.
 #
-# The ceiling is not just politeness: it sizes the MuJoCo offscreen framebuffer, which
-# is allocated once at env construction. A request above it cannot be served, so the
-# daemon clamps rather than failing.
+# A request above the ceiling is clamped rather than refused.
 OBS_RESOLUTION = 128
 OBS_MAX_RESOLUTION = 512
+
+# EVERY camera is baked at the ceiling, and nothing ever asks MuJoCo for more. Growing
+# the offscreen framebuffer mid-run is not a resize: robosuite frees the LIVE GL context
+# and builds a new one (`binding_utils.update_offscreen_size`). That rebuild is the only
+# operation in these harnesses that has ever logged `OpenGL error 0x501 in or before
+# mjr_makeContext`, and in task02 a context that came back broken killed the daemon
+# inside the render once and wedged it at 100% CPU once, losing the trials behind it.
+# Baking at the ceiling deletes the path: a SMALLER render never resizes the buffer, and
+# a smaller delivery is a resample of a frame already in hand.
+RENDER_RESOLUTION = OBS_MAX_RESOLUTION
 
 # --- tasks whose success predicate is degenerate ----------------------------
 # PrepareBroilingStation's success predicate is already true at reset, so a do-nothing

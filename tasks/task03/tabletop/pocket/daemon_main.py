@@ -44,6 +44,9 @@ def install():
     if getattr(Service, "_pocket_composed", False):
         return
     config.OBS_RESOLUTION = env.OBS_RESOLUTION = RESOLUTION
+    # PocketCube bakes its cameras at RESOLUTION, so that is also the size
+    # nothing may render above -- see harness.env.render_frames.
+    config.RENDER_RESOLUTION = env.RENDER_RESOLUTION = RESOLUTION
     env.DEFAULT_CAMERAS = tuple(CAMERAS)
     debug.TILED_CAMERAS = tuple(f"{name}_image" for name in CAMERAS)
     config.agent_visible_obs = agent_view

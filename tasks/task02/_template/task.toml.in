@@ -26,7 +26,7 @@ multi_step_reward_strategy = "final"
 
 [task]
 name = "rlebench/task02-@@SLUG@@"
-version = "1.0.0"
+version = "1.0.1"
 description = "RoboCasa harness engineering: practise on the members of one composite kitchen-task activity group, write a controller library and a manual, then hand it to a series of fresh agents -- each with no memory of the development session -- who each get one shot at a held-out member of that group they have never seen."
 authors = [{ name = "Haitong Ma", email = "haitongma@g.harvard.edu" }]
 keywords = ["robotics", "robocasa", "robosuite", "mujoco", "simulation", "control", "generalisation", "tool-use"]

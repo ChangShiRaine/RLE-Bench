@@ -92,8 +92,8 @@ class Session:
         if self._obs is None:
             return dict(obs={}, instruction=None, resolution=None, live=False)
         obs, resolution = ENV.apply_obs_spec(
-            self._env, dict(self._obs), spec,
-            native=C.OBS_RESOLUTION, ceiling=C.OBS_MAX_RESOLUTION)
+            self._env, dict(self._obs), spec, default=C.OBS_RESOLUTION,
+            rendered=C.RENDER_RESOLUTION, ceiling=C.OBS_MAX_RESOLUTION)
         return dict(obs=obs, instruction=episode_instruction(self._env),
                     resolution=resolution, live=not self._closed and not self._episode_over)
 
