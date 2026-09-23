@@ -1,0 +1,14 @@
+{
+  "_comment": "task11 hidden evaluation seeds - VERIFIER-ONLY (never ship to the agent environment). smoke drives the gate + determinism probe; eval drives the scored battery.",
+  "smoke": 8899135544468117505,
+  "eval": [
+    9211028181544109222,
+    1022708517363214705,
+    790925116278882717,
+    7888582622046624579,
+    872062029406962012,
+    5060111595148211737,
+    1479497413268622606,
+    3006928647512661856
+  ]
+}

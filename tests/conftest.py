@@ -11,6 +11,7 @@ _FAMILY_DIRS = {
     "task01": "task01", "task02": "task02", "task03": "task03",
     "task04": "task04", "task05": "task05", "task06": "task06",
     "task07": "task07", "task08": "task08", "task09": "task09",
+    "task11": "task11",
     "rgb-only": "task06", "rgb-depth": "task06",
     "rgb-depth-model-training": "task06", "method-agnostic": "task06",
 }
@@ -40,6 +41,7 @@ GENERATED_TASK_DIRS = {
                 "solution/payload"),
     "task09": ("environment/assets", "tests/harness", "tests/models",
                 "solution/payload"),
+    "task11": ("environment/assets", "tests/harness", "solution/payload"),
 }
 
 TASK06_SUBTASKS = frozenset((

@@ -1,0 +1,9 @@
+{
+  "reward": 0.0,
+  "raw_total": 0.0,
+  "gated": 1,
+  "gate_load": 0,
+  "gate_contract": 0,
+  "gate_stable": 0,
+  "gate_determinism": 0
+}

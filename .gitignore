@@ -61,6 +61,12 @@ tasks/task09/tests/harness/
 tasks/task09/tests/rlebench/
 tasks/task09/tests/models/
 tasks/task09/harness/assets/gello_codesign/*/meshes/
+tasks/task11/environment/assets/
+tasks/task11/solution/payload/
+tasks/task11/tests/score_task.py
+tasks/task11/tests/harness/
+tasks/task11/tests/rlebench/
+tasks/task11/tests/assets/
 
 # Maintainer-local design records and specs; excluded from public checkouts.
 /docs/*

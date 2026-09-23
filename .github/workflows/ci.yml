@@ -69,7 +69,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        task: [task01, task02, task03, task05, task06, task07, task08, task09]
+        task: [task01, task02, task03, task05, task06, task07, task08, task09, task11]
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v5

@@ -16,6 +16,7 @@ _PIN_DOCKERFILES = sorted(
         "tasks/task08/*/Dockerfile",
         "tasks/task09/*/Dockerfile",
         "tasks/task07/*/Dockerfile",
+        "tasks/task11/*/Dockerfile",
         "tasks/task06/*/*/Dockerfile",
     )
     for p in glob.glob(os.path.join(REPO, pattern))

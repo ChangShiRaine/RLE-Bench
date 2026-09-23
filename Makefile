@@ -7,7 +7,7 @@
 # the families whose mujoco pin needs its own venv.
 PY ?= .venv/bin/python
 PYTEST_ARGS ?=
-FAMILIES := task01 task02 task03 task04 task05 task06 task07 task08 task09
+FAMILIES := task01 task02 task03 task04 task05 task06 task07 task08 task09 task11
 include tests/suites.mk
 include sim/robocasa/pins.env
 include sim/perception/pins.env
@@ -114,7 +114,7 @@ task03-assets:
 	python3 tasks/task03/build_assets.py --check
 
 # Matrix emitters are stdlib-only, so they run on bare python3; the stagers need the venv.
-task06-assets task07-assets task08-assets task09-assets: task%-assets:
+task06-assets task07-assets task08-assets task09-assets task11-assets: task%-assets:
 	$(PY) tasks/task$*/build_assets.py
 
 # task01: one image per harness level, rlebench-task01-l{1,2,3}-agent:dev (the level decides
@@ -194,9 +194,9 @@ task06: task06-assets
 	    docker build -f tasks/task06/$$v/tests/Dockerfile -t rlebench-task06-$$v-verifier:dev . || exit 1; \
 	done
 
-task07: task07-assets
-	docker build -t rlebench-task07-agent:dev tasks/task07/environment
-	docker build -t rlebench-task07-verifier:dev tasks/task07/tests
+task07 task11: task%: task%-assets
+	docker build -t rlebench-task$*-agent:dev tasks/task$*/environment
+	docker build -t rlebench-task$*-verifier:dev tasks/task$*/tests
 
 task08 task09: task%: task%-assets
 	docker build -t rlebench-task$*-agent:dev tasks/task$*/environment
@@ -215,6 +215,8 @@ CLEAN_task06 := tasks/task06/*/environment/agent tasks/task06/*/environment/priv
                 tasks/task06/*/tests/assets tasks/task06/*/tests/harness tasks/task06/*/tests/rlebench
 CLEAN_task07 := tasks/task07/environment/assets tasks/task07/solution/payload tasks/task07/tests/score_task.py \
                 tasks/task07/tests/harness tasks/task07/tests/assets
+CLEAN_task11 := tasks/task11/environment/assets tasks/task11/solution/payload tasks/task11/tests/score_task.py \
+                tasks/task11/tests/harness tasks/task11/tests/rlebench tasks/task11/tests/assets
 CLEAN_task08 := tasks/task08/environment/assets tasks/task08/tests/harness tasks/task08/tests/rlebench \
                 tasks/task08/tests/models tasks/task08/solution/payload tasks/task08/reference
 CLEAN_task09 := tasks/task09/environment/assets tasks/task09/solution/payload tasks/task09/tests/harness \
@@ -244,7 +246,7 @@ test:
 # Every .venv family plus the cross-cutting modules. task04 and the simulator suites
 # need their own venvs and run through their per-family targets.
 test-all:
-	@for t in task01 task02 task03 task05 task06 task07 task08 task09; do \
+	@for t in task01 task02 task03 task05 task06 task07 task08 task09 task11; do \
 	    $(MAKE) -s test TASK=$$t || exit 1; \
 	done
 	$(MAKE) -s test-host
@@ -272,9 +274,9 @@ check-harbor:
 	echo "harbor $$actual matches pin"
 
 # Every generator emits and self-checks, and the committed generator-owned trees
-# (task06, task07, task09) stay byte-stable. No docker, no GPU, no dataset.
+# (task06, task07, task09, task11) stay byte-stable. No docker, no GPU, no dataset.
 check-taskgen: task-assets
-	git diff --exit-code -- tasks/task06 tasks/task07 tasks/task09
+	git diff --exit-code -- tasks/task06 tasks/task07 tasks/task09 tasks/task11
 
 lint:
 	$(PY) -m rlebench.lint

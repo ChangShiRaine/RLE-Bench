@@ -42,7 +42,7 @@ with [Harbor](https://github.com/laude-institute/harbor).
 
 ## 🤖 Benchmark tasks
 
-Nine tasks span four engineering categories. Follow each task's link for setup,
+Ten tasks span four engineering categories. Follow each task's link for setup,
 variants, and scoring details.
 
 | Task                             | Category                | Description                                             | GPU required |
@@ -56,6 +56,7 @@ variants, and scoring details.
 | [task07](tasks/task07/README.md) | Perception & Estimation | Clear cluttered bins with sensory feedback              | No           |
 | [task08](tasks/task08/README.md) | Mechanical Design       | Design a mobile manipulator base                        | No           |
 | [task09](tasks/task09/README.md) | Mechanical Design       | Co-design teleoperation hardware and software           | No           |
+| [task11](tasks/task11/README.md) | Interactive Control     | Pack a tote from a running conveyor, online             | No           |
 
 ## 🚀 Getting started
 
